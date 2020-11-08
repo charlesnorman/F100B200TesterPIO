@@ -1,0 +1,6 @@
+{
+    "board": "arduino:sam:arduino_due_x_dbg",
+    "port": "COM11",
+    "sketch": "F100B200Tester.ino",
+    "output": "../build"
+}

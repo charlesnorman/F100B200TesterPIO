@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Arduino",
+            "includePath": [
+                "C:\\Users\\Charles\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\sam\\1.6.12\\**",
+                "C:\\Users\\Charles\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\**",
+                "C:\\Projects\\F100-B200TestPanel\\Arduino\\Sketches\\libraries\\**"
+            ],
+            "browse": {
+                "path": [
+                    "C:\\Projects\\F100-B200TestPanel\\Arduino\\Sketches\\libraries\\**"
+                ]
+            },
+            "forcedInclude": [
+                "C:\\Users\\Charles\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\sam\\1.6.12\\cores\\arduino\\Arduino.h"
+            ],
+            "intelliSenseMode": "msvc-x64",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

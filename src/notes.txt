@@ -1,0 +1,66 @@
+
+******************** Charger States *******************************************
+Vin < V_UVLO ~4500mV, battery_voltage < Vth 5100mV 
+    State = UV_LOCKED
+    Pass Disabled
+    Pin 7(PON) = OFF, Pin 10(S1) = OFF, Pin 9(S2) = OFF
+    PIn 11(Pre) = Inactive
+    Bulk LED = off, Boost LED = off 
+    Float LED = off, Load LED = off
+    
+Vin >V_UVLO (~4500mV), battery_voltage < Vth 5100mV
+    State = PRE_CHARGE
+    Pass Disabled
+    Pin 7(PON) = OFF, Pin 10(S1) = OFF, Pin 9(S2) = OFF
+    PIn 11(Pre) = Active
+    Bulk LED = off, Boost LED = off 
+    Float LED = off, Load LED = off
+
+Vin > V_UVLO (~4500mV), battery_voltage > Vth 5100mV
+    State = BULK_CHARGE
+    Pass Enabled
+    Icharge = Icharge-max 
+    Pin 7(PON) = OFF, Pin 10(S1) = OFF, Pin 9(S2) = OFF
+    PIn 11(Pre) = Inactive
+    Bulk LED = off, Boost LED = off 
+    Float LED = off, Load LED = off
+
+Vin > V_UVLO (~4500mV), battery_voltage > V_BI_6V 6980mV (V_BI_12V 13960mV)
+    State = BOOST_CHARGE
+    Pass Enabled
+    Icharge = Determined by battery state
+    Vcharge = V_BOOST_6V 7350mV (V_BOOST_12V 13700mV)
+    Pin 7(PON) = OFF, Pin 10(S1) = OFF, Pin 9(S2) = OFF
+    PIn 11(Pre) = Inactive
+    Bulk LED = off, Boost LED = off 
+    Float LED = off, Load LED = off
+
+Vin > V_UVLO (~4500mV), I_TAPER < 312mA
+    State = FLOAT_CHARGE
+    Pass Enabled
+    Icharge = Determined by battery state
+    Vcharge = V_FLOAT_6V 6825mV (V_FLOAT_12V 13650mA)
+    Pin 7(PON) = OFF, Pin 10(S1) = OFF, Pin 9(S2) = OFF
+    PIn 11(Pre) = Inactive
+    Bulk LED = off, Boost LED = off 
+    Float LED = off, Load LED = off
+
+**************************** Menu operation Setup*******************************
+            PB1 and PB2------->Enter set up
+                                    |
+                        PB1 toggles Input On
+                        PB2 toggles Auto/Man
+                        PB3 toggles Toggles 6V/12V 
+                                    |
+            Exit<---------------PB1 and Pb4 
+
+********************** Menu operation Manual Operation**************************
+            PB8---------------Reset to PRE_CHARGE
+            PB1---------------previos state
+            PB2---------------next state
+
+***************************Auto Operation **************************************
+            PB1---------------Start
+            PB2---------------pause
+            PB3---------------Abort
+

@@ -1,0 +1,15 @@
+# -----------------------------------------
+# Syntax coloring for RSLatch library
+# -----------------------------------------
+
+# Datatypes (such as objects)
+RSLatch	KEYWORD1
+
+
+# Methods / functions
+set KEYWORD2
+reset KEYWORD2
+state KEYWORD2
+# Constants
+
+
