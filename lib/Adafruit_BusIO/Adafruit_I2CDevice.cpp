@@ -29,7 +29,7 @@ Adafruit_I2CDevice::Adafruit_I2CDevice(uint8_t addr, TwoWire *theWire) {
 bool Adafruit_I2CDevice::begin(bool addr_detect) {
   _wire->begin();
   _begun = true;
-
+    Serial.print("wire-> in Adafruit_I2CDevice _begun = "); Serial.println(_begun);
   if (addr_detect) {
     return detected();
   }

@@ -161,9 +161,10 @@ INA260_AveragingCount Adafruit_INA260::getAveragingCount(void) {
 */
 /**************************************************************************/
 void Adafruit_INA260::setAveragingCount(INA260_AveragingCount count) {
-  Adafruit_I2CRegisterBits averaging_count =
+     
+     Adafruit_I2CRegisterBits averaging_count =
       Adafruit_I2CRegisterBits(Config, 3, 9);
-    
+   
   averaging_count.write(count);
     
 }
