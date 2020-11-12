@@ -55,8 +55,6 @@ Adafruit_MCP4725 battery_voltage_out;
 Adafruit_MCP4725 battery_current_out;
 Adafruit_INA260 battery_meter;
 
-
-
 //States
 enum State
 {
@@ -84,11 +82,11 @@ static bool on_selected;         //True = on
 static bool start;               //True = start
 static bool setup_menu;          //True = in setup
 static bool voltage_temp_select; //True = display voltage and current
+static bool heart_beat;
 
-
-static const int DELTA_T {200};
-static const int DELTA_VOLTS {10};
-static const int DELTA_M_AMPS {100};
+static const int DELTA_T{50};
+static const int DELTA_VOLTS{100};
+static const int DELTA_M_AMPS{100};
 
 static int battery_target_current;
 static int battery_set_current;
@@ -101,6 +99,8 @@ static int battery_actual_voltage;
 static int bVolt_last_millis;
 static int bAmp_last_millis;
 static int debug_print_last_millis;
+
+static int heart_beat_last_millis;
 
 static int input_voltage;
 
@@ -115,14 +115,14 @@ char const PUSHBTN7_MASK{0b01000000};
 char const PUSHBTN8_MASK{0b10000000};
 
 //create the 8 push button objects
-PushButtonController Pb1(true);
-PushButtonController Pb2(true);
-PushButtonController Pb3(true);
-PushButtonController Pb4(true);
-PushButtonController Pb5(true);
-PushButtonController Pb6(true);
-PushButtonController Pb7(true);
-PushButtonController Pb8(true);
+PushButtonController Pb1(true, 10);
+PushButtonController Pb2(true, 10);
+PushButtonController Pb3(true, 10);
+PushButtonController Pb4(true, 10);
+PushButtonController Pb5(true, 10);
+PushButtonController Pb6(true, 10);
+PushButtonController Pb7(true, 10);
+PushButtonController Pb8(true, 10);
 /* #endregion*/
 
 static char buttons;
@@ -207,26 +207,29 @@ void setup()
     oven_temperatures_index = 0;
     comp_temperatures_index = 0;
     start = false;
-    
+
     pinMode(BATTERY_TYPE_OUT_PIN, OUTPUT);
     pinMode(INTERNA_EXTERNAL_PIN, OUTPUT);
     pinMode(HEAT_COOL_SELECT_OUT, OUTPUT);
     pinMode(INPUT_ON_OFF_OUT, OUTPUT);
- 
+    pinMode(LED_BUILTIN, OUTPUT);
+
     battery_current_out.begin(BAT_CURRENT_DAC);
     battery_voltage_out.begin(BAT_VOLTAGE_DAC);
     battery_meter.begin(BAT_METER);
     battery_meter.setAveragingCount(INA260_COUNT_64);
     battery_meter.setVoltageConversionTime(INA260_TIME_2_116_ms);
     battery_meter.setCurrentConversionTime(INA260_TIME_2_116_ms);
-    
-    bVolt_last_millis = millis();
-    bAmp_last_millis = millis();
-    debug_print_last_millis = millis();
+
+    int x = millis();
+    bVolt_last_millis = x;
+    bAmp_last_millis = x;
+    debug_print_last_millis = x;
+    heart_beat_last_millis = x;
 
     Serial.begin(9600);
+    SerialUSB.begin(9600);
     tm.displayBegin();
-        
 }
 
 void loop()
@@ -242,7 +245,7 @@ void loop()
     Pb7.update(buttons & PUSHBTN7_MASK);
     Pb8.update(buttons & PUSHBTN8_MASK);
     /* #endregion*/
-    
+
     /***************************************************************************
      * set up menu
     ***************************************************************************/
@@ -273,16 +276,19 @@ void loop()
                 battery_6V = !battery_6V;
             if (Pb4.r_trig())
                 internal = !internal;
+            if (Pb5.r_trig())
+                voltage_temp_select = !voltage_temp_select;
 
             tm.setLED(0, on_selected);
             tm.setLED(1, manual_selected);
             tm.setLED(2, battery_6V);
             tm.setLED(3, internal);
+            tm.setLED(4, voltage_temp_select);
         }
         setup_menu = false;
     }
     /* #endregion*/
-   
+
     /***************************************************************************
      * manual_selected operation menu
     ***************************************************************************/
@@ -335,35 +341,35 @@ void loop()
         }
     }
     /*#endregion*/
-     
+
     /***************************************************************************
      * Oven temperature managment
     ***************************************************************************/
     /*#region oven temperature management*/
-    // oven_temperatures[oven_temperatures_index] = read_temp(OVEN_TEMP_IN_PIN);
-    // oven_temperature = 0;
-    // for (int i = 0; i < NUMBER_OF_TEMPERATURES; i++)
-    // {
-    //     oven_temperature += oven_temperatures[i];
-    // }
-    // oven_temperature /= NUMBER_OF_TEMPERATURES;
-    // oven_temperatures_index < NUMBER_OF_TEMPERATURES ? oven_temperatures_index++ : oven_temperatures_index = 0;
-    // if (oven_controller.Compute())
-    //     set_pwm(OVEN_DRIVE_PWM, oven_drive);
+    oven_temperatures[oven_temperatures_index] = read_temp(OVEN_TEMP_IN_PIN);
+    oven_temperature = 0;
+    for (int i = 0; i < NUMBER_OF_TEMPERATURES; i++)
+    {
+        oven_temperature += oven_temperatures[i];
+    }
+    oven_temperature /= NUMBER_OF_TEMPERATURES;
+    oven_temperatures_index < NUMBER_OF_TEMPERATURES ? oven_temperatures_index++ : oven_temperatures_index = 0;
+    if (oven_controller.Compute())
+        set_pwm(OVEN_DRIVE_PWM, oven_drive);
     /* #endregion*/
-    
+
     /***************************************************************************
      * Component temperature management
     ***************************************************************************/
     /*#region comp temperature management*/
-    // comp_temperatures[comp_temperatures_index] = read_temp(COMP_TEMP_IN_PIN);
-    // comp_temperature = 0;
-    // for (int i = 0; i < NUMBER_OF_TEMPERATURES; i++)
-    // {
-    //     comp_temperature += comp_temperatures[i];
-    // }
-    // comp_temperatures_index < NUMBER_OF_TEMPERATURES ? comp_temperatures_index++ : comp_temperatures_index = 0;
-    // comp_temperature /= NUMBER_OF_TEMPERATURES;
+    comp_temperatures[comp_temperatures_index] = read_temp(COMP_TEMP_IN_PIN);
+    comp_temperature = 0;
+    for (int i = 0; i < NUMBER_OF_TEMPERATURES; i++)
+    {
+        comp_temperature += comp_temperatures[i];
+    }
+    comp_temperatures_index < NUMBER_OF_TEMPERATURES ? comp_temperatures_index++ : comp_temperatures_index = 0;
+    comp_temperature /= NUMBER_OF_TEMPERATURES;
     /* #endregion*/
 
     /***************************************************************************
@@ -414,7 +420,7 @@ void loop()
     //     }
     // }
     // /* #endregion*/
-    
+
     // /***************************************************************************
     //  * Battery voltage / current management
     // ***************************************************************************/
@@ -435,7 +441,7 @@ void loop()
         battery_target_voltage = V_TH;
         break;
     }
-    
+
     if (battery_target_voltage != battery_set_voltage)
     {
         int y = millis() - bVolt_last_millis;
@@ -444,7 +450,7 @@ void loop()
             int x = battery_target_voltage - battery_set_voltage;
             if (x > 0)
             {
-                battery_set_voltage += (x > DELTA_VOLTS) ? DELTA_VOLTS : x;                
+                battery_set_voltage += (x > DELTA_VOLTS) ? DELTA_VOLTS : x;
             }
             else
             {
@@ -463,7 +469,6 @@ void loop()
     battery_voltage_out.setVoltage(mVolts_to_units(battery_set_voltage), false);
     battery_current_out.setVoltage(mVolts_to_units(battery_set_current), false);
     tester.battery_voltage = battery_actual_current;
-    
 
     /* #endregion*/
 
@@ -476,7 +481,7 @@ void loop()
         int x = millis() - debug_print_last_millis;
         if (x > DEBUG_PRINT_INTERVAL)
         {
-            Serial.print("state:  ");
+            SerialUSB.print("state:  ");
             String state_string;
             switch (state)
             {
@@ -495,36 +500,44 @@ void loop()
             default:
                 break;
             }
-            Serial.println(state_string);
-            Serial.print("battery_6V: ");Serial.println(battery_6V == true ?
-                "True" : "False");
-            Serial.print("internal: ");Serial.println(internal == true ?
-                "True" : "False");
-            Serial.print("heat: ");Serial.println(heat == true ?
-                "True" : "False");
-            Serial.print("manual_selected: ");Serial.println(manual_selected == true ?
-                "True" : "False");
-            Serial.print("start: ");Serial.println(start == true ?
-                "True" : "False");
-            Serial.print("setup_menu: ");Serial.println(setup_menu == true ?
-                "True" : "False");
-            Serial.print("voltage_temp_select: ");Serial.println(voltage_temp_select == true ?
-                "True" : "False");
-            Serial.print("debug_print: ");Serial.println(debug_print == true ?
-                "True" : "False");
-            Serial.print("bVolt_last_millis: ");Serial.println(bVolt_last_millis);
-            Serial.print("bAmp_last_millis: ");Serial.println(bAmp_last_millis);
-            Serial.print("debug_print_last_millis: ");Serial.println(debug_print_last_millis);
-            Serial.print("millis(): ");Serial.println(millis());
-            Serial.print("battery_target_voltage: ");
-            Serial.print(battery_target_voltage);
-            Serial.print(", battery_set_voltage: ");
-            Serial.print(battery_set_voltage);
-            Serial.print(", battery_actual_voltage: ");
-            Serial.print(battery_actual_voltage);
-            Serial.print(", battery_set_current: ");
-            Serial.println(battery_set_current);
-            Serial.println();
+            SerialUSB.println(state_string);
+            SerialUSB.print("battery_6V: ");
+            SerialUSB.println(battery_6V == true ? "True" : "False");
+            SerialUSB.print("internal: ");
+            SerialUSB.println(internal == true ? "True" : "False");
+            SerialUSB.print("heat: ");
+            SerialUSB.println(heat == true ? "True" : "False");
+            SerialUSB.print("manual_selected: ");
+            SerialUSB.println(manual_selected == true ? "True" : "False");
+            SerialUSB.print("start: ");
+            SerialUSB.println(start == true ? "True" : "False");
+            SerialUSB.print("setup_menu: ");
+            SerialUSB.println(setup_menu == true ? "True" : "False");
+            SerialUSB.print("voltage_temp_select: ");
+            SerialUSB.println(voltage_temp_select == true ? "True" : "False");
+            SerialUSB.print("debug_print: ");
+            SerialUSB.println(debug_print == true ? "True" : "False");
+            SerialUSB.print("bVolt_last_millis: ");
+            SerialUSB.println(bVolt_last_millis);
+            SerialUSB.print("bAmp_last_millis: ");
+            SerialUSB.println(bAmp_last_millis);
+            SerialUSB.print("debug_print_last_millis: ");
+            SerialUSB.println(debug_print_last_millis);
+            SerialUSB.print("millis(): ");
+            SerialUSB.println(millis());
+            SerialUSB.print("battery_target_voltage: ");
+            SerialUSB.print(battery_target_voltage);
+            SerialUSB.print(", battery_set_voltage: ");
+            SerialUSB.print(battery_set_voltage);
+            SerialUSB.print(", battery_actual_voltage: ");
+            SerialUSB.print(battery_actual_voltage);
+            SerialUSB.print(", battery_set_current: ");
+            SerialUSB.println(battery_set_current);
+            SerialUSB.print("comp_temperature: ");
+            SerialUSB.println(comp_temperature);
+            SerialUSB.print("oven_temperature: ");
+            SerialUSB.println(oven_temperature);
+            SerialUSB.println();
             debug_print_last_millis = millis();
         }
     }
@@ -533,15 +546,29 @@ void loop()
     /***************************************************************************
      * Relay control 
     ***************************************************************************/
-   /*#region Relay control*/
-   digitalWrite(BATTERY_TYPE_OUT_PIN, battery_6V == true ? HIGH : LOW);
-   digitalWrite(INTERNA_EXTERNAL_PIN, internal == true ? HIGH : LOW);
-   digitalWrite(HEAT_COOL_SELECT_OUT, heat == true ? HIGH : LOW);
+    /*#region Relay control*/
+    digitalWrite(BATTERY_TYPE_OUT_PIN, battery_6V == true ? HIGH : LOW);
+    digitalWrite(INTERNA_EXTERNAL_PIN, internal == true ? HIGH : LOW);
+    digitalWrite(HEAT_COOL_SELECT_OUT, heat == true ? HIGH : LOW);
     /* #endregion*/
     /***************************************************************************
      * Display control 
     ***************************************************************************/
-   /*#region Display control*/
+    /*#region Display control*/
+
+    
+
+    if (voltage_temp_select == true)
+    {
+        display_values(battery_actual_voltage / 10, HUNDREDS_DECIMAL_POINT,
+                       battery_actual_current, TENS_DECIMAL_POINT);
+    }
+    else
+    {
+        display_values(comp_temperature, TENS_DECIMAL_POINT,
+                       oven_temperature, TENS_DECIMAL_POINT); 
+    }
+
     tm.setLED(0, on_selected);
     tm.setLED(1, manual_selected);
     tm.setLED(2, battery_6V);
@@ -551,7 +578,17 @@ void loop()
     tm.setLED(6, state == BOOST_CHARGE);
     tm.setLED(7, state == FLOAT_CHARGE);
 
-    display_values(battery_actual_voltage / 10, HUNDREDS_DECIMAL_POINT, 
-        battery_actual_voltage, TENS_DECIMAL_POINT);
     /* #endregion*/
-}    
+
+    /***************************************************************************
+     * Heart beat 
+    ***************************************************************************/
+    /*#region Heart beat*/
+    if (millis() - heart_beat_last_millis >= 250)
+    {
+        heart_beat = !heart_beat;
+        digitalWrite(LED_BUILTIN, heart_beat == true ? HIGH : LOW);
+        heart_beat_last_millis = millis();
+    }
+    /* #endregion*/
+}
