@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "type": "PlatformIO",
+            "task": "Build (due)",
+            "problemMatcher": [
+                "$platformio"
+            ],
+            "group": "build",
+            "label": "PlatformIO: Build (due)"
+        },
+        {
+            "type": "PlatformIO",
+            "task": "Verbose Build",
+            "problemMatcher": [
+                "$platformio"
+            ],
+            "label": "PlatformIO: Verbose Build"
+        }
+    ]
+}

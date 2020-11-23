@@ -8,16 +8,17 @@ class PushButtonController
 {
 public:
     PushButtonController();
-    PushButtonController(bool isMomentary);
+    explicit PushButtonController(bool isMomentary);
     PushButtonController(bool isMomentary, int this_debounce_delay);
     ~PushButtonController();
     bool update(bool pressed);
     bool getState();
+    bool getLast();
     bool r_trig();
     bool f_trig();
 
 private:
-    int debounce_delay;
+    unsigned int debounce_delay;
     int last_millis;
     bool momentary;
     bool enable_reset;
