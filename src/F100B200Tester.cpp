@@ -148,12 +148,20 @@ void display_values(ulong upper_nibble, char upper_dec_point,
     tm.DisplayDecNumNibble(upper_nibble, lower_nibble);
 }
 
-int mVolts_to_units(int m_volts)
+int mVolts_to_units(int const m_volts)
 {
-    int x = m_volts;
+    double x = m_volts;
     x /= 0.8059;  //DAC output
     x *= 1 / 9.2; //Power amp gain
     return x;
+}
+int mAmps_to_units(int const m_amps)
+{
+    double x = m_amps;
+    x /= 0.8059;                            //Dac conversion
+    double V_set = 4.75-(13750*(x)/15000);  //OPA547 current limit formula
+    V_set /= 1.5;
+    return V_set;                           //Buffer amp gain set to 1.5
 }
 
 int read_m_volts(uint16_t const pin_number)
@@ -358,10 +366,12 @@ void loop()
     }
     oven_temperature /= NUMBER_OF_TEMPERATURES;
     oven_temperatures_index < NUMBER_OF_TEMPERATURES ? oven_temperatures_index++ : oven_temperatures_index = 0;
-    // if (oven_controller.Compute())
-    //     set_pwm(OVEN_DRIVE_PWM, oven_drive);
+    if (oven_controller.Compute())
+    {
+        set_pwm(OVEN_DRIVE_PWM, oven_drive);
+    }
     /* #endregion*/
-    analogWrite(OVEN_DRIVE_PWM, 200);
+    
     /***************************************************************************
      * Component temperature management
     ***************************************************************************/
@@ -442,7 +452,7 @@ void loop()
         break;
     case FLOAT_CHARGE:
         battery_target_voltage = battery_6V ? V_FLOAT_6V : V_FLOAT_12V;
-        battery_target_current = 2000;
+        battery_target_current = 100;
         break;
     default:
         battery_target_voltage = V_TH;
@@ -492,7 +502,7 @@ void loop()
         battery_actual_current = 0;
 
     battery_voltage_out.setVoltage(mVolts_to_units(battery_set_voltage), false);
-    battery_current_out.setVoltage(mVolts_to_units(battery_set_current), false);
+    battery_current_out.setVoltage(mAmps_to_units(battery_set_current), false);
     tester.battery_voltage = battery_actual_current;
 
     /* #endregion*/
