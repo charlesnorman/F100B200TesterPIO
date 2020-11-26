@@ -64,3 +64,24 @@ Vin > V_UVLO (~4500mV), I_TAPER < 312mA
             PB2---------------pause
             PB3---------------Abort
 
+***************************************
+Json object
+{
+    "state" : 0,
+    "battery_6V" : true,
+    "internal" : true,
+    "cool" : true,
+    "manual_selected" : true,
+    "on_selected" : true,
+    "start_selected" : true,
+    "setup_menu" : true,
+    "voltage_temp_select" : true,
+    "heart_beat" : true,
+    "battery_target_current" : 0,
+    "battery_actual_current" : 0,
+    "battery_target_voltage" : 0,
+    "battery_actual_voltage" : 0,
+    "oven_temperature" : 0,
+    "oven_set_point" : 0,
+    "comp_temperature" : 0
+}

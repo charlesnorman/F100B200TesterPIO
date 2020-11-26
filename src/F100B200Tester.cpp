@@ -5,6 +5,8 @@
 #include <TM1638plus.h>
 #include <Adafruit_INA260.h>
 #include <Adafruit_MCP4725.h>
+#include <ArduinoJson.h>
+
 
 //TM1638plus parameters
 #define STROBE_TM 8
@@ -42,8 +44,8 @@ int const V_TH = 5100;
 int const V_BI_6V = 6981;
 int const V_BI_12V = 13989;
 int const I_TAPER = 312;
-int const V_BOOST_6V = 7249;    //7349;
-int const V_BOOST_12V = 14625;  //14725;
+int const V_BOOST_6V = 7249;   //7349;
+int const V_BOOST_12V = 14625; //14725;
 int const V_FLOAT_6V = 6825;
 int const V_FLOAT_12V = 13650;
 int const V_RCH_6V = 6143;
@@ -65,13 +67,9 @@ enum State
     FLOAT_CHARGE
 };
 
-struct F100B200Tester
-{
-    int battery_voltage;
-    int battery_current;
-};
-
-F100B200Tester tester;
+//Json document for serialization of data
+const int capacity = JSON_OBJECT_SIZE(20);
+StaticJsonDocument<capacity> jdoc;
 
 static State state;
 bool battery_6V;                      //True = 6V battery
@@ -79,7 +77,7 @@ bool internal;                        //True = internal
 bool cool;                            //True = cool
 volatile static bool manual_selected; //True = manual_selected
 volatile bool on_selected;            //True = on
-bool start;                           //True = start
+bool start_selected;                  //True = start_selected_selected
 bool setup_menu;                      //True = in setup
 bool voltage_temp_select;             //True = display voltage and current
 bool heart_beat;
@@ -87,7 +85,6 @@ bool heart_beat;
 static const int DELTA_T{200};
 static const int DELTA_VOLTS{100};
 static const int DELTA_M_AMPS{100};
-
 
 static volatile int battery_target_current;
 static volatile int battery_set_current;
@@ -103,7 +100,7 @@ static volatile uint32_t debug_print_last_millis;
 
 static volatile int heart_beat_last_millis;
 
-//static int input_voltage;
+
 
 /* #region Push buttons*/
 char const PUSHBTN1_MASK{0b00000001};
@@ -158,10 +155,10 @@ int mVolts_to_units(int const m_volts)
 int mAmps_to_units(int const m_amps)
 {
     double x = m_amps;
-    x /= 0.8059;                            //Dac conversion
-    double V_set = 4.75-(13750*(x)/15000);  //OPA547 current limit formula
+    x /= 0.8059;                                 //Dac conversion
+    double V_set = 4.75 - (13750 * (x) / 15000); //OPA547 current limit formula
     V_set /= 1.5;
-    return V_set;                           //Buffer amp gain set to 1.5
+    return V_set; //Buffer amp gain set to 1.5
 }
 
 int read_m_volts(uint16_t const pin_number)
@@ -172,6 +169,29 @@ int read_m_volts(uint16_t const pin_number)
     mVolts *= 812;
     mVolts /= 1000;
     return mVolts;
+}
+
+int serialize_data()
+{
+    jdoc["state"] =  state;
+    jdoc["battery_6V"] = battery_6V;
+    jdoc["internal"] = internal;
+    jdoc["cool"] = cool;
+    jdoc["manual_selected"] = manual_selected;
+    jdoc["on_selected"] = on_selected;
+    jdoc["start_selected"] = start_selected;
+    jdoc["setup_menu"] = setup_menu;
+    jdoc["voltage_temp_select"] = voltage_temp_select;
+    jdoc["heart_beat"] = heart_beat;
+    jdoc["battery_target_current"] = battery_target_current;
+    jdoc["battery_actual_current"] = battery_actual_current;
+    jdoc["battery_target_voltage"] = battery_target_voltage;
+    jdoc["battery_actual_voltage"] = battery_actual_voltage;
+    jdoc["oven_temperature"] = oven_temperature;
+    jdoc["oven_set_point"] = oven_set_point;
+    jdoc["comp_temperature"] = comp_temperature;
+
+    return serializeJson(jdoc, SerialUSB);
 }
 
 int read_temp(uint16_t const pin_number)
@@ -215,7 +235,7 @@ void setup()
     oven_controller.SetMode(AUTOMATIC);
     oven_temperatures_index = 0;
     comp_temperatures_index = 0;
-    start = false;
+    start_selected = false;
 
     pinMode(BATTERY_TYPE_OUT_PIN, OUTPUT);
     pinMode(INTERNA_EXTERNAL_PIN, OUTPUT);
@@ -241,7 +261,6 @@ void setup()
     SerialUSB.begin(9600);
     tm.displayBegin();
 }
-
 void loop()
 {
     /* #region Update push buttons*/
@@ -371,7 +390,7 @@ void loop()
         set_pwm(OVEN_DRIVE_PWM, oven_drive);
     }
     /* #endregion*/
-    
+
     /***************************************************************************
      * Component temperature management
     ***************************************************************************/
@@ -390,7 +409,7 @@ void loop()
      * State managment - automatic
     ***************************************************************************/
     /*#region state management*/
-    // if (!manual_selected && start)
+    // if (!manual_selected && start_selected)
     // {
     //     switch (state)
     //     {
@@ -503,7 +522,6 @@ void loop()
 
     battery_voltage_out.setVoltage(mVolts_to_units(battery_set_voltage), false);
     battery_current_out.setVoltage(mAmps_to_units(battery_set_current), false);
-    tester.battery_voltage = battery_actual_current;
 
     /* #endregion*/
 
@@ -515,69 +533,70 @@ void loop()
     {
         if ((millis() - debug_print_last_millis) >= DEBUG_PRINT_INTERVAL)
         {
-            SerialUSB.print("state:  ");
-            String state_string;
-            switch (state)
-            {
-            case PRE_CHARGE:
-                state_string = "PRE_CHARGE";
-                break;
-            case BULK_CHARGE:
-                state_string = "BULK_CHARGE";
-                break;
-            case BOOST_CHARGE:
-                state_string = "BOOST_CHARGE";
-                break;
-            case FLOAT_CHARGE:
-                state_string = "FLOAT_CHARGE";
-                break;
-            default:
-                break;
-            }
-            SerialUSB.println(state_string);
-            SerialUSB.print("battery_6V: ");
-            SerialUSB.println(battery_6V == true ? "True" : "False");
-            SerialUSB.print("internal: ");
-            SerialUSB.println(internal == true ? "True" : "False");
-            SerialUSB.print("cool: ");
-            SerialUSB.println(cool == true ? "True" : "False");
-            SerialUSB.print("manual_selected: ");
-            SerialUSB.println(manual_selected == true ? "True" : "False");
-            SerialUSB.print("start: ");
-            SerialUSB.println(start == true ? "True" : "False");
-            SerialUSB.print("setup_menu: ");
-            SerialUSB.println(setup_menu == true ? "True" : "False");
-            SerialUSB.print("voltage_temp_select: ");
-            SerialUSB.println(voltage_temp_select == true ? "True" : "False");
-            SerialUSB.print("debug_print: ");
-            SerialUSB.println(debug_print == true ? "True" : "False");
-            SerialUSB.print("bVolt_last_millis: ");
-            SerialUSB.println(bVolt_last_millis);
-            SerialUSB.print("bAmp_last_millis: ");
-            SerialUSB.println(bAmp_last_millis);
-            SerialUSB.print("millis(): ");
-            SerialUSB.println(millis());
-            SerialUSB.print("battery_target_voltage: ");
-            SerialUSB.print(battery_target_voltage);
-            SerialUSB.print(", battery_set_voltage: ");
-            SerialUSB.print(battery_set_voltage);
-            SerialUSB.print(", battery_actual_voltage: ");
-            SerialUSB.println(battery_actual_voltage);
-            SerialUSB.print("battery_target_current: ");
-            SerialUSB.print(battery_target_current);
-            SerialUSB.print(", battery_set_current: ");
-            SerialUSB.print(battery_set_current);
-            SerialUSB.print(", battery_actual_current: ");
-            SerialUSB.println(battery_actual_current);
-            SerialUSB.print("comp_temperature: ");
-            SerialUSB.println(comp_temperature);
-            SerialUSB.print("oven_temperature: ");
-            SerialUSB.println(oven_temperature);
-            SerialUSB.print("Pb7.getState(): ");
-            SerialUSB.println(Pb7.getState() == true ? "True" : "False");
-            SerialUSB.print("debug_print_last_millis: ");
-            SerialUSB.println(debug_print_last_millis);
-            SerialUSB.println();
+            serialize_data();
+            // SerialUSB.print("state:  ");
+            // String state_string;
+            // switch (state)
+            // {
+            // case PRE_CHARGE:
+            //     state_string = "PRE_CHARGE";
+            //     break;
+            // case BULK_CHARGE:
+            //     state_string = "BULK_CHARGE";
+            //     break;
+            // case BOOST_CHARGE:
+            //     state_string = "BOOST_CHARGE";
+            //     break;
+            // case FLOAT_CHARGE:
+            //     state_string = "FLOAT_CHARGE";
+            //     break;
+            // default:
+            //     break;
+            // }
+            // SerialUSB.println(state_string);
+            // SerialUSB.print("battery_6V: ");
+            // SerialUSB.println(battery_6V == true ? "True" : "False");
+            // SerialUSB.print("internal: ");
+            // SerialUSB.println(internal == true ? "True" : "False");
+            // SerialUSB.print("cool: ");
+            // SerialUSB.println(cool == true ? "True" : "False");
+            // SerialUSB.print("manual_selected: ");
+            // SerialUSB.println(manual_selected == true ? "True" : "False");
+            // SerialUSB.print("start_selected: ");
+            // SerialUSB.println(start_selected == true ? "True" : "False");
+            // SerialUSB.print("setup_menu: ");
+            // SerialUSB.println(setup_menu == true ? "True" : "False");
+            // SerialUSB.print("voltage_temp_select: ");
+            // SerialUSB.println(voltage_temp_select == true ? "True" : "False");
+            // SerialUSB.print("debug_print: ");
+            // SerialUSB.println(debug_print == true ? "True" : "False");
+            // SerialUSB.print("bVolt_last_millis: ");
+            // SerialUSB.println(bVolt_last_millis);
+            // SerialUSB.print("bAmp_last_millis: ");
+            // SerialUSB.println(bAmp_last_millis);
+            // SerialUSB.print("millis(): ");
+            // SerialUSB.println(millis());
+            // SerialUSB.print("battery_target_voltage: ");
+            // SerialUSB.print(battery_target_voltage);
+            // SerialUSB.print(", battery_set_voltage: ");
+            // SerialUSB.print(battery_set_voltage);
+            // SerialUSB.print(", battery_actual_voltage: ");
+            // SerialUSB.println(battery_actual_voltage);
+            // SerialUSB.print("battery_target_current: ");
+            // SerialUSB.print(battery_target_current);
+            // SerialUSB.print(", battery_set_current: ");
+            // SerialUSB.print(battery_set_current);
+            // SerialUSB.print(", battery_actual_current: ");
+            // SerialUSB.println(battery_actual_current);
+            // SerialUSB.print("comp_temperature: ");
+            // SerialUSB.println(comp_temperature);
+            // SerialUSB.print("oven_temperature: ");
+            // SerialUSB.println(oven_temperature);
+            // SerialUSB.print("Pb7.getState(): ");
+            // SerialUSB.println(Pb7.getState() == true ? "True" : "False");
+            // SerialUSB.print("debug_print_last_millis: ");
+            // SerialUSB.println(debug_print_last_millis);
+            // SerialUSB.println();
             debug_print_last_millis = millis();
         }
     }
