@@ -39,10 +39,14 @@ layout = [[sg.Text('State:'), sg.Text(size=(20, 1), key='-STATE-')],
               size=(20, 1), key='-OVEN_SET_POINT-')],
           [sg.Text('Component Temperature:'), sg.Text(
               size=(20, 1), key='-COMP_TEMPERATURE-')],
-          [sg.Radio('Display Voltage', "RADIO_VOLT_TEMP", key='-DISPLAY_VOLTAGE-', enable_events=True), sg.Radio(
-              'Display Temperature', "RADIO_VOLT_TEMP", key='-DISPLAY_TEMPERATURE-', enable_events=True)],
+          [sg.Radio('Display Volts', "RADIO_VOLT_TEMP", key='-DISPLAY_VOLTAGE-', enable_events=True), sg.Radio(
+              'Display Temp(C)', "RADIO_VOLT_TEMP", key='-DISPLAY_TEMPERATURE-', enable_events=True)],
           [sg.R('6 Volt', "RADIO_6V_12V", key="-6VOLT-", enable_events=True),
-           sg.R('12 Volt', "RADIO_6V_12V", key="-12VOLT-", enable_events=True)]
+           sg.R('12 Volt', "RADIO_6V_12V", key="-12VOLT-", enable_events=True)],
+          [sg.R('ON ', "RADIO_ON_OFF", key="-ON-", enable_events=True),
+           sg.R('OFF', "RADIO_ON_OFF", key="-OFF-", enable_events=True)],
+          [sg.R('MAN ', "RADIO_MAN_AUTO", key="-MANUAL-", enable_events=True),
+           sg.R('AUTO', "RADIO_MAN_AUTO", key="-AUTO-", enable_events=True)]
           ]
 window = sg.Window('F100B200 Tester', layout)
 
@@ -82,6 +86,22 @@ while True:
                 value=json_data['oven_set_point'])
             window['-COMP_TEMPERATURE-'].update(
                 value=json_data['comp_temperature'])
+            if(json_data['on_selected']):
+                window['-ON-'].update(True)
+            else:
+                window['-OFF-'].update(True)
+            if(json_data['battery_6V']):
+                window['-6VOLT-'].update(True)
+            else:
+                window['-12VOLT-'].update(True)
+            if(json_data['voltage_temp_select']):
+                window['-DISPLAY_VOLTAGE-'].update(True)
+            else:
+                window['-DISPLAY_TEMPERATURE-'].update(True)
+            if(json_data['manual_selected']):
+                window['-MANUAL-'].update(True)
+            else:
+                window['-AUTO-'].update(True)
         except json.decoder.JSONDecodeError as e:
             print()
             print(f'Length of data: {len(data)}')
@@ -110,5 +130,12 @@ while True:
     if event == "-12VOLT-":
         json_data['battery_6V'] = 0
         submit_to_arduino(json_data)
+    if event == "-ON-":
+        json_data['on_selected'] = 1
+        submit_to_arduino(json_data)
+    if event == "-OFF-":
+        json_data['on_selected'] = 0
+        submit_to_arduino(json_data)
+
 
 window.close()

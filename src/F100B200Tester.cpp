@@ -20,7 +20,7 @@
 #define OVEN_DRIVE_PWM 11
 #define BATTERY_TYPE_OUT_PIN 3
 #define INTERNA_EXTERNAL_PIN 1
-#define INPUT_ON_OFF_OUT 0
+#define INPUT_ON_OFF_OUT 12
 #define NUMBER_OF_TEMPERATURES 5
 #define NUMBER_OF_VOLTAGE_READINGS 10
 #define NUMBER_OF_CURRENT_READINGS 10
@@ -41,7 +41,7 @@ int const V_UVLO = 4500;
 int const V_UVLO_HYS = 100;
 int const V_TH = 5100;
 int const V_BI_6V = 6981;
-int const V_BI_12V = 13989;
+int const V_BI_12V = 13500;
 int const I_TAPER = 312;
 int const V_BOOST_6V = 7249;   //7349;
 int const V_BOOST_12V = 14625; //14725;
@@ -274,7 +274,7 @@ void loop()
     /* #endregion*/
 
     /***************************************************************************
-     * set up menu
+     * push button set up menu
     ***************************************************************************/
     /*#region set up menu*/
     if ((Pb1.getState() && Pb2.getState()) == true)
@@ -457,26 +457,28 @@ void loop()
     // ***************************************************************************/
     /*#region battery voltage and current management*/
 
-    switch (state)
+    if (manual_selected)
     {
-    case BULK_CHARGE:
-        battery_target_voltage = battery_6V ? V_BI_6V : V_BI_12V;
-        battery_target_current = 2000;
-        break;
-    case BOOST_CHARGE:
-        battery_target_voltage = battery_6V ? V_BOOST_6V : V_BOOST_12V;
-        battery_target_current = 2000;
-        break;
-    case FLOAT_CHARGE:
-        battery_target_voltage = battery_6V ? V_FLOAT_6V : V_FLOAT_12V;
-        battery_target_current = 100;
-        break;
-    default:
-        battery_target_voltage = V_TH;
-        battery_target_current = 2000;
-        break;
+        switch (state)
+        {
+        case BULK_CHARGE:
+            battery_target_voltage = battery_6V ? V_BI_6V : V_BI_12V;
+            battery_target_current = 2000;
+            break;
+        case BOOST_CHARGE:
+            battery_target_voltage = battery_6V ? V_BOOST_6V : V_BOOST_12V;
+            battery_target_current = 2000;
+            break;
+        case FLOAT_CHARGE:
+            battery_target_voltage = battery_6V ? V_FLOAT_6V : V_FLOAT_12V;
+            battery_target_current = 100;
+            break;
+        default:
+            battery_target_voltage = V_TH;
+            battery_target_current = 2000;
+            break;
+        }
     }
-
     if (battery_target_voltage != battery_set_voltage)
     {
         int y = millis() - bVolt_last_millis;
@@ -546,6 +548,8 @@ void loop()
     digitalWrite(BATTERY_TYPE_OUT_PIN, battery_6V == true ? HIGH : LOW);
     digitalWrite(INTERNA_EXTERNAL_PIN, internal == true ? HIGH : LOW);
     digitalWrite(HEAT_COOL_SELECT_OUT, cool == true ? HIGH : LOW);
+    digitalWrite(INPUT_ON_OFF_OUT, on_selected == true ? HIGH : LOW);
+
     /* #endregion*/
     /***************************************************************************
      * Display control 
@@ -589,6 +593,10 @@ void loop()
     }
     /* #endregion*/
 
+    /***************************************************************************
+     * Serial receive and un-pack
+    ***************************************************************************/
+    /*#region Serial receive and un-pack*/
     uint32_t index = 0;
     while (SerialUSB.available())
     {
@@ -665,6 +673,6 @@ void loop()
         {
             comp_temperature = jdoc["comp_temperature"];
         }
-
     }
+    /* #endregion*/
 }
