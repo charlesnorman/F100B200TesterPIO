@@ -4,6 +4,15 @@ import time
 import warnings
 import PySimpleGUI as sg
 
+
+def submit_to_arduino(data):
+    json_str = json.dumps(data)
+    try:
+        arduino.write(json_str.encode())
+    except Exception as e:
+        print(e)
+
+
 arduino = serial.Serial("COM6", 9600, timeout=.200, write_timeout=2)
 json_data = {}
 
@@ -30,7 +39,10 @@ layout = [[sg.Text('State:'), sg.Text(size=(20, 1), key='-STATE-')],
               size=(20, 1), key='-OVEN_SET_POINT-')],
           [sg.Text('Component Temperature:'), sg.Text(
               size=(20, 1), key='-COMP_TEMPERATURE-')],
-          [sg.B(button_text='submit', key='-SUBMIT-')]
+          [sg.Radio('Display Voltage', "RADIO_VOLT_TEMP", key='-DISPLAY_VOLTAGE-', enable_events=True), sg.Radio(
+              'Display Temperature', "RADIO_VOLT_TEMP", key='-DISPLAY_TEMPERATURE-', enable_events=True)],
+          [sg.R('6 Volt', "RADIO_6V_12V", key="-6VOLT-", enable_events=True),
+           sg.R('12 Volt', "RADIO_6V_12V", key="-12VOLT-", enable_events=True)]
           ]
 window = sg.Window('F100B200 Tester', layout)
 
@@ -85,16 +97,18 @@ while True:
     if event == "Exit" or event == sg.WIN_CLOSED:
         break
     if event == "-SUBMIT-":
-        json_str = json.dumps(json_data)
-        json_str += "this is from python"
-        print()
-        print(json_str)
-        print()
-        try:
-            arduino.write(json_str.encode())
-        except Exception as e:
-            print(e)
-        print('finished serial write')
-
+        submit_to_arduino(json_data)
+    if event == "-DISPLAY_VOLTAGE-":
+        json_data['voltage_temp_select'] = 1
+        submit_to_arduino(json_data)
+    if event == "-DISPLAY_TEMPERATURE-":
+        json_data['voltage_temp_select'] = 0
+        submit_to_arduino(json_data)
+    if event == "-6VOLT-":
+        json_data['battery_6V'] = 1
+        submit_to_arduino(json_data)
+    if event == "-12VOLT-":
+        json_data['battery_6V'] = 0
+        submit_to_arduino(json_data)
 
 window.close()

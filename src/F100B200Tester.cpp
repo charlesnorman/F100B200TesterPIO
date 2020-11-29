@@ -590,7 +590,6 @@ void loop()
     /* #endregion*/
 
     uint32_t index = 0;
-    //bool buffer_cleared = false;
     while (SerialUSB.available())
     {
         receive_buffer[index] = SerialUSB.read();
@@ -601,13 +600,71 @@ void loop()
     {
         serial_recieved = false;
         deserializeJson(jdoc, receive_buffer);
-        uint32_t state = jdoc["state"];
-        uint32_t temperature = jdoc["oven_temperature"];
-        SerialUSB.print("state: ");
-        SerialUSB.println(state);
-        SerialUSB.print("Oven Temperature:  ");
-        SerialUSB.println(temperature);
+        //unpack the json data
+        if (jdoc.containsKey("state"))
+        {
+            state = jdoc["state"];
+        }
+        if (jdoc.containsKey("battery_6V"))
+        {
+            battery_6V = jdoc["battery_6V"];
+        }
+        if (jdoc.containsKey("internal"))
+        {
+            internal = jdoc["internal"];
+        }
+        if (jdoc.containsKey("cool"))
+        {
+            cool = jdoc["cool"];
+        }
+        if (jdoc.containsKey("manual_selected"))
+        {
+            manual_selected = jdoc["manual_selected"];
+        }
+        if (jdoc.containsKey("on_selected"))
+        {
+            on_selected = jdoc["on_selected"];
+        }
+        if (jdoc.containsKey("start_selected"))
+        {
+            start_selected = jdoc["start_selected"];
+        }
+        if (jdoc.containsKey("voltage_temp_select"))
+        {
+            voltage_temp_select = jdoc["voltage_temp_select"];
+        }
+        if (jdoc.containsKey("heart_beat"))
+        {
+            heart_beat = jdoc["heart_beat"];
+        }
+        if (jdoc.containsKey("battery_target_current"))
+        {
+            battery_target_current = jdoc["battery_target_current"];
+        }
+        if (jdoc.containsKey("battery_actual_current"))
+        {
+            battery_actual_current = jdoc["battery_actual_current"];
+        }
+        if (jdoc.containsKey("battery_target_voltage"))
+        {
+            battery_target_voltage = jdoc["battery_target_voltage"];
+        }
+        if (jdoc.containsKey("battery_actual_voltage"))
+        {
+            battery_actual_voltage = jdoc["battery_actual_voltage"];
+        }
+        if (jdoc.containsKey("oven_temperature"))
+        {
+            oven_temperature = jdoc["oven_temperature"];
+        }
+        if (jdoc.containsKey("oven_set_point"))
+        {
+            oven_set_point = jdoc["oven_set_point"];
+        }
+        if (jdoc.containsKey("comp_temperature"))
+        {
+            comp_temperature = jdoc["comp_temperature"];
+        }
 
-        
     }
 }
