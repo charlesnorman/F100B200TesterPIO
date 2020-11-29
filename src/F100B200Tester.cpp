@@ -7,7 +7,6 @@
 #include <Adafruit_MCP4725.h>
 #include <ArduinoJson.h>
 
-
 //TM1638plus parameters
 #define STROBE_TM 8
 #define CLOCK_TM 9
@@ -36,7 +35,7 @@
 #define THOUSANDS_DECIMAL_POINT 0
 #define NO_DECIMAL_POINT 3
 
-volatile bool debug_print{true};
+volatile bool json_transmit{true};
 
 int const V_UVLO = 4500;
 int const V_UVLO_HYS = 100;
@@ -50,7 +49,7 @@ int const V_FLOAT_6V = 6825;
 int const V_FLOAT_12V = 13650;
 int const V_RCH_6V = 6143;
 int const V_RCH_12V = 12285;
-int const DEBUG_PRINT_INTERVAL = 2000;
+int const JSON_TRANSMIT_INTERVAL = 2000;
 
 TM1638plus tm(STROBE_TM, CLOCK_TM, DIO_TM);
 Adafruit_MCP4725 battery_voltage_out;
@@ -70,6 +69,8 @@ enum State
 //Json document for serialization of data
 const int capacity = JSON_OBJECT_SIZE(20);
 StaticJsonDocument<capacity> jdoc;
+char receive_buffer[1024];
+bool serial_recieved{false};
 
 static State state;
 bool battery_6V;                      //True = 6V battery
@@ -96,11 +97,9 @@ static volatile int battery_actual_voltage;
 
 static volatile int bVolt_last_millis;
 static volatile int bAmp_last_millis;
-static volatile uint32_t debug_print_last_millis;
+static volatile uint32_t json_transmit_last_millis;
 
 static volatile int heart_beat_last_millis;
-
-
 
 /* #region Push buttons*/
 char const PUSHBTN1_MASK{0b00000001};
@@ -173,7 +172,7 @@ int read_m_volts(uint16_t const pin_number)
 
 int serialize_data()
 {
-    jdoc["state"] =  state;
+    jdoc["state"] = state;
     jdoc["battery_6V"] = battery_6V;
     jdoc["internal"] = internal;
     jdoc["cool"] = cool;
@@ -254,10 +253,9 @@ void setup()
 
     bVolt_last_millis = millis();
     bAmp_last_millis = millis();
-    debug_print_last_millis = millis();
+    json_transmit_last_millis = millis();
     heart_beat_last_millis = millis();
 
-    Serial.begin(9600);
     SerialUSB.begin(9600);
     tm.displayBegin();
 }
@@ -526,78 +524,15 @@ void loop()
     /* #endregion*/
 
     /***************************************************************************
-     * debut print 
+     * Json transmit 
     ***************************************************************************/
-    /*#region debug print*/
-    if (debug_print)
+    /*#region Json transmit*/
+    if (json_transmit)
     {
-        if ((millis() - debug_print_last_millis) >= DEBUG_PRINT_INTERVAL)
+        if ((millis() - json_transmit_last_millis) >= JSON_TRANSMIT_INTERVAL)
         {
             serialize_data();
-            // SerialUSB.print("state:  ");
-            // String state_string;
-            // switch (state)
-            // {
-            // case PRE_CHARGE:
-            //     state_string = "PRE_CHARGE";
-            //     break;
-            // case BULK_CHARGE:
-            //     state_string = "BULK_CHARGE";
-            //     break;
-            // case BOOST_CHARGE:
-            //     state_string = "BOOST_CHARGE";
-            //     break;
-            // case FLOAT_CHARGE:
-            //     state_string = "FLOAT_CHARGE";
-            //     break;
-            // default:
-            //     break;
-            // }
-            // SerialUSB.println(state_string);
-            // SerialUSB.print("battery_6V: ");
-            // SerialUSB.println(battery_6V == true ? "True" : "False");
-            // SerialUSB.print("internal: ");
-            // SerialUSB.println(internal == true ? "True" : "False");
-            // SerialUSB.print("cool: ");
-            // SerialUSB.println(cool == true ? "True" : "False");
-            // SerialUSB.print("manual_selected: ");
-            // SerialUSB.println(manual_selected == true ? "True" : "False");
-            // SerialUSB.print("start_selected: ");
-            // SerialUSB.println(start_selected == true ? "True" : "False");
-            // SerialUSB.print("setup_menu: ");
-            // SerialUSB.println(setup_menu == true ? "True" : "False");
-            // SerialUSB.print("voltage_temp_select: ");
-            // SerialUSB.println(voltage_temp_select == true ? "True" : "False");
-            // SerialUSB.print("debug_print: ");
-            // SerialUSB.println(debug_print == true ? "True" : "False");
-            // SerialUSB.print("bVolt_last_millis: ");
-            // SerialUSB.println(bVolt_last_millis);
-            // SerialUSB.print("bAmp_last_millis: ");
-            // SerialUSB.println(bAmp_last_millis);
-            // SerialUSB.print("millis(): ");
-            // SerialUSB.println(millis());
-            // SerialUSB.print("battery_target_voltage: ");
-            // SerialUSB.print(battery_target_voltage);
-            // SerialUSB.print(", battery_set_voltage: ");
-            // SerialUSB.print(battery_set_voltage);
-            // SerialUSB.print(", battery_actual_voltage: ");
-            // SerialUSB.println(battery_actual_voltage);
-            // SerialUSB.print("battery_target_current: ");
-            // SerialUSB.print(battery_target_current);
-            // SerialUSB.print(", battery_set_current: ");
-            // SerialUSB.print(battery_set_current);
-            // SerialUSB.print(", battery_actual_current: ");
-            // SerialUSB.println(battery_actual_current);
-            // SerialUSB.print("comp_temperature: ");
-            // SerialUSB.println(comp_temperature);
-            // SerialUSB.print("oven_temperature: ");
-            // SerialUSB.println(oven_temperature);
-            // SerialUSB.print("Pb7.getState(): ");
-            // SerialUSB.println(Pb7.getState() == true ? "True" : "False");
-            // SerialUSB.print("debug_print_last_millis: ");
-            // SerialUSB.println(debug_print_last_millis);
-            // SerialUSB.println();
-            debug_print_last_millis = millis();
+            json_transmit_last_millis = millis();
         }
     }
     /* #endregion*/
@@ -646,11 +581,33 @@ void loop()
      * Heart beat 
     ***************************************************************************/
     /*#region Heart beat*/
-    if (millis() - heart_beat_last_millis >= 250)
+    if (millis() - heart_beat_last_millis >= 1000)
     {
         heart_beat = !heart_beat;
         digitalWrite(LED_BUILTIN, heart_beat == true ? HIGH : LOW);
         heart_beat_last_millis = millis();
     }
     /* #endregion*/
+
+    uint32_t index = 0;
+    //bool buffer_cleared = false;
+    while (SerialUSB.available())
+    {
+        receive_buffer[index] = SerialUSB.read();
+        index++;
+        serial_recieved = true;
+    }
+    if (serial_recieved)
+    {
+        serial_recieved = false;
+        deserializeJson(jdoc, receive_buffer);
+        uint32_t state = jdoc["state"];
+        uint32_t temperature = jdoc["oven_temperature"];
+        SerialUSB.print("state: ");
+        SerialUSB.println(state);
+        SerialUSB.print("Oven Temperature:  ");
+        SerialUSB.println(temperature);
+
+        
+    }
 }

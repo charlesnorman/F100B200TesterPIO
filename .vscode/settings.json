@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "cstdlib": "cpp"
-    }
+    },
+    "python.pythonPath": "C:\\Users\\Charles\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
 }
