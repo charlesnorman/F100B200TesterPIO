@@ -1,4 +1,5 @@
 import serial
+import serial.tools.list_ports
 import json
 import time
 import warnings
@@ -13,7 +14,24 @@ def submit_to_arduino(data):
         print(e)
 
 
-arduino = serial.Serial("COM6", 9600, timeout=.200, write_timeout=2)
+arduino_ports = [
+    p.device
+    for p in serial.tools.list_ports.comports()
+    # may need tweaking to match new arduinos
+    if ('Arduino' in p.description and not "Programming" in p.description)
+]
+if not arduino_ports:
+    gui.sg.PopupError('No Test Panel Found')
+    raise IOError("No Arduino found")
+if len(arduino_ports) == 1:
+    port_name = arduino_ports[0]
+
+if len(arduino_ports) > 1:
+    warnings.warn('Multiple Arduinos found - using the first')
+    port_name = arduino_ports[0]
+
+
+arduino = serial.Serial(port_name, 9600, timeout=.200, write_timeout=2)
 json_data = {}
 
 
