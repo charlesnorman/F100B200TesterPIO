@@ -34,8 +34,8 @@ if len(arduino_ports) > 1:
 arduino = serial.Serial(port_name, 9600, timeout=.200, write_timeout=2)
 json_data = {}
 
-
-while True:
+gui_OK = True
+while gui_OK:
     # get data from arduino
     event, values = gui.window.read(timeout=100)
     data = arduino.readline().decode("utf-8")
@@ -43,17 +43,17 @@ while True:
     if len(data) > 0 and data[0] == '{':
         try:
             json_data = json.loads(data)
-            # print()
-            # print(json_data)
+            print()
+            print(json_data)
             gui.update_values(json_data)
         except json.decoder.JSONDecodeError as e:
             print(e)
     elif len(data) > 2:
         pass
-        # print()
-        # print('got data > 0 no beginning {')
-        # print(data)
-    gui.process_events(event, values, json_data)
+        print()
+        print('got data > 0 no beginning {')
+        print(data)
+    gui_OK = gui.process_events(event, values, json_data)
     submit_to_arduino(json_data)
 
 

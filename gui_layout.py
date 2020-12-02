@@ -35,43 +35,57 @@ layout = [[sg.Text('State:'), sg.Text(size=(20, 1), key='-STATE-')],
 window = sg.Window('F100B200 Tester', layout)
 
 
-def update_values(data):
-    window['-STATE-'].update(value=data['state'])
-    window['-BATTERY_6V-'].update(value=data['battery_6V'])
-    window['-COOL-'].update(value=data['cool'])
-    window['-MANUAL_SELECTED-'].update(
-        value=data['manual_selected'])
-    window['-ON_SELECTED-'].update(value=data['on_selected'])
-    window['-START-'].update(value=data['start_selected'])
-    window['-VOLTAGE_TEMP-'].update(
-        value=data['voltage_temp_select'])
-    window['-TARGET_CURRENT-'].update(
-        value=data['battery_target_current'])
-    window['-ACTUAL_CURRENT-'].update(
-        value=data['battery_actual_current'])
-    window['-TARGET_VOLTAGE-'].update(
-        value=data['battery_target_voltage'])
-    window['-ACTUAL_VOLTAGE-'].update(
-        value=data['battery_actual_voltage'])
-    window['-OVEN_TEMP-'].update(
-        value=data['oven_temperature'])
-    window['-OVEN_SET_POINT-'].update(
-        value=data['oven_set_point'])
-    window['-COMP_TEMPERATURE-'].update(
-        value=data['comp_temperature'])
-    if(data['on_selected']):
+def update_values(json_data):
+    if 'state' in json_data:
+        window['-STATE-'].update(value=json_data['state'])
+    if 'battery_6V' in json_data:
+        window['-BATTERY_6V-'].update(value=json_data['battery_6V'])
+    if 'cool' in json_data:
+        window['-COOL-'].update(value=json_data['cool'])
+    if 'manual_selected' in json_data:
+        window['-MANUAL_SELECTED-'].update(
+            value=json_data['manual_selected'])
+    if 'on_selected' in json_data:
+        window['-ON_SELECTED-'].update(value=json_data['on_selected'])
+    if 'start_selected' in json_data:
+        window['-START-'].update(value=json_data['start_selected'])
+    if 'voltage_temp_select' in json_data:
+        window['-VOLTAGE_TEMP-'].update(
+            value=json_data['voltage_temp_select'])
+    if 'battery_target_current' in json_data:
+        window['-TARGET_CURRENT-'].update(
+            value=json_data['battery_target_current'])
+    if 'battery_actual_current' in json_data:
+        window['-ACTUAL_CURRENT-'].update(
+            value=json_data['battery_actual_current'])
+    if 'battery_target_voltage' in json_data:
+        window['-TARGET_VOLTAGE-'].update(
+            value=json_data['battery_target_voltage'])
+    if 'battery_actual_voltage' in json_data:
+        window['-ACTUAL_VOLTAGE-'].update(
+            value=json_data['battery_actual_voltage'])
+    if 'oven_temperature' in json_data:
+        window['-OVEN_TEMP-'].update(
+            value=json_data['oven_temperature'])
+    if 'oven_set_point' in json_data:
+        window['-OVEN_SET_POINT-'].update(
+            value=json_data['oven_set_point'])
+    if 'comp_temperature' in json_data:
+        window['-COMP_TEMPERATURE-'].update(
+            value=json_data['comp_temperature'])
+    if 'on_selected' in json_data:
         window['-ON-'].update(True)
     else:
         window['-OFF-'].update(True)
-    if(data['battery_6V']):
+    if 'battery_6V' in json_data:
         window['-6VOLT-'].update(True)
     else:
         window['-12VOLT-'].update(True)
-    if(data['voltage_temp_select']):
+    if 'voltage_temp_select' in json_data:
         window['-DISPLAY_VOLTAGE-'].update(True)
     else:
         window['-DISPLAY_TEMPERATURE-'].update(True)
-    if(data['manual_selected']):
+    if 'manual_selected' in json_data:
         window['-MANUAL-'].update(True)
     else:
         window['-AUTO-'].update(True)
@@ -79,9 +93,9 @@ def update_values(data):
 
 def process_events(event, values, json_data):
     if event == None:
-        window.Close()
+        return False
     if event == "Exit" or event == sg.WIN_CLOSED:
-        window.Close()
+        return False
     if event == "-DISPLAY_VOLTAGE-":
         json_data['voltage_temp_select'] = 1
     if event == "-DISPLAY_TEMPERATURE-":
@@ -94,3 +108,4 @@ def process_events(event, values, json_data):
         json_data['on_selected'] = 1
     if event == "-OFF-":
         json_data['on_selected'] = 0
+    return True

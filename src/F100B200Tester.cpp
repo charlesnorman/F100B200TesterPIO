@@ -83,9 +83,9 @@ bool setup_menu;                      //True = in setup
 bool voltage_temp_select;             //True = display voltage and current
 bool heart_beat;
 
-static const int DELTA_T{200};
-static const int DELTA_VOLTS{100};
-static const int DELTA_M_AMPS{100};
+static int DELTA_T{200};
+static int DELTA_VOLTS{100};
+static int DELTA_M_AMPS{100};
 
 static volatile int battery_target_current;
 static volatile int battery_set_current;
@@ -137,7 +137,7 @@ uint8_t comp_temperatures_index;
 PID oven_controller(&oven_temperature, &oven_drive, &oven_set_point,
                     Kp, Ki, Kd, DIRECT);
 
-void display_values(ulong upper_nibble, char upper_dec_point,
+void display_values(uint16_t upper_nibble, char upper_dec_point,
                     int lower_nibble, char lower_dec_point)
 {
 
@@ -182,6 +182,9 @@ int serialize_data()
     jdoc["setup_menu"] = setup_menu;
     jdoc["voltage_temp_select"] = voltage_temp_select;
     jdoc["heart_beat"] = heart_beat;
+    jdoc["DELTA_T"] = DELTA_T;
+    jdoc["DELTA_VOLTS"] = DELTA_VOLTS;
+    jdoc["DELTA_M_AMPS"]  = DELTA_M_AMPS;
     jdoc["battery_target_current"] = battery_target_current;
     jdoc["battery_actual_current"] = battery_actual_current;
     jdoc["battery_target_voltage"] = battery_target_voltage;
@@ -644,6 +647,18 @@ void loop()
         if (jdoc.containsKey("heart_beat"))
         {
             heart_beat = jdoc["heart_beat"];
+        }
+        if (jdoc.containsKey("DELTA_T"))
+        {
+            DELTA_T = jdoc["DELTA_T"];
+        }
+        if (jdoc.containsKey("DELTA_VOLTS"))
+        {
+            DELTA_T = jdoc["DELTA_VOLTS"];
+        }
+        if (jdoc.containsKey("DELTA_M_AMPS"))
+        {
+            DELTA_T = jdoc["DELTA_M_AMPS"];
         }
         if (jdoc.containsKey("battery_target_current"))
         {
