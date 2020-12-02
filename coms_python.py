@@ -37,9 +37,7 @@ json_data = {}
 gui_OK = True
 while gui_OK:
     # get data from arduino
-    event, values = gui.window.read(timeout=100)
     data = arduino.readline().decode("utf-8")
-
     if len(data) > 0 and data[0] == '{':
         try:
             json_data = json.loads(data)
@@ -53,6 +51,8 @@ while gui_OK:
         print()
         print('got data > 0 no beginning {')
         print(data)
+
+    event, values = gui.window.read(timeout=100)
     gui_OK = gui.process_events(event, values, json_data)
     submit_to_arduino(json_data)
 

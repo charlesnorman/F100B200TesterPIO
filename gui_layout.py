@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-
+# region Layout
 layout = [[sg.Text('State:'), sg.Text(size=(20, 1), key='-STATE-')],
           [sg.Text('Battery 6V:'), sg.Text(size=(20, 1), key='-BATTERY_6V-')],
           [sg.Text('Cool:'), sg.Text(size=(20, 1), key='-COOL-')],
@@ -33,9 +33,12 @@ layout = [[sg.Text('State:'), sg.Text(size=(20, 1), key='-STATE-')],
            sg.R('AUTO', "RADIO_MAN_AUTO", key="-AUTO-", enable_events=True)]
           ]
 window = sg.Window('F100B200 Tester', layout)
+# endregion
+# region Update GUI Values
 
 
 def update_values(json_data):
+
     if 'state' in json_data:
         window['-STATE-'].update(value=json_data['state'])
     if 'battery_6V' in json_data:
@@ -74,21 +77,27 @@ def update_values(json_data):
         window['-COMP_TEMPERATURE-'].update(
             value=json_data['comp_temperature'])
     if 'on_selected' in json_data:
-        window['-ON-'].update(True)
-    else:
-        window['-OFF-'].update(True)
+        if json_data['on_selected']:
+            window['-ON-'].update(True)
+        else:
+            window['-OFF-'].update(True)
     if 'battery_6V' in json_data:
-        window['-6VOLT-'].update(True)
-    else:
-        window['-12VOLT-'].update(True)
+        if json_data['battery_6V']:
+            window['-6VOLT-'].update(True)
+        else:
+            window['-12VOLT-'].update(True)
     if 'voltage_temp_select' in json_data:
-        window['-DISPLAY_VOLTAGE-'].update(True)
-    else:
-        window['-DISPLAY_TEMPERATURE-'].update(True)
+        if json_data['voltage_temp_select']:
+            window['-DISPLAY_VOLTAGE-'].update(True)
+        else:
+            window['-DISPLAY_TEMPERATURE-'].update(True)
     if 'manual_selected' in json_data:
-        window['-MANUAL-'].update(True)
-    else:
-        window['-AUTO-'].update(True)
+        if json_data['manual_selected']:
+            window['-MANUAL-'].update(True)
+        else:
+            window['-AUTO-'].update(True)
+# endregion
+# region Process Events
 
 
 def process_events(event, values, json_data):
@@ -109,3 +118,4 @@ def process_events(event, values, json_data):
     if event == "-OFF-":
         json_data['on_selected'] = 0
     return True
+# endregion
