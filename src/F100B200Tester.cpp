@@ -184,7 +184,7 @@ int serialize_data()
     jdoc["heart_beat"] = heart_beat;
     jdoc["DELTA_T"] = DELTA_T;
     jdoc["DELTA_VOLTS"] = DELTA_VOLTS;
-    jdoc["DELTA_M_AMPS"]  = DELTA_M_AMPS;
+    jdoc["DELTA_M_AMPS"] = DELTA_M_AMPS;
     jdoc["battery_target_current"] = battery_target_current;
     jdoc["battery_actual_current"] = battery_actual_current;
     jdoc["battery_target_voltage"] = battery_target_voltage;
@@ -460,28 +460,28 @@ void loop()
     // ***************************************************************************/
     /*#region battery voltage and current management*/
 
-    if (manual_selected)
-    {
-        switch (state)
-        {
-        case BULK_CHARGE:
-            battery_target_voltage = battery_6V ? V_BI_6V : V_BI_12V;
-            battery_target_current = 2000;
-            break;
-        case BOOST_CHARGE:
-            battery_target_voltage = battery_6V ? V_BOOST_6V : V_BOOST_12V;
-            battery_target_current = 2000;
-            break;
-        case FLOAT_CHARGE:
-            battery_target_voltage = battery_6V ? V_FLOAT_6V : V_FLOAT_12V;
-            battery_target_current = 100;
-            break;
-        default:
-            battery_target_voltage = V_TH;
-            battery_target_current = 2000;
-            break;
-        }
-    }
+    // if (manual_selected)
+    // {
+    //     switch (state)
+    //     {
+    //     case BULK_CHARGE:
+    //         battery_target_voltage = battery_6V ? V_BI_6V : V_BI_12V;
+    //         battery_target_current = 2000;
+    //         break;
+    //     case BOOST_CHARGE:
+    //         battery_target_voltage = battery_6V ? V_BOOST_6V : V_BOOST_12V;
+    //         battery_target_current = 2000;
+    //         break;
+    //     case FLOAT_CHARGE:
+    //         battery_target_voltage = battery_6V ? V_FLOAT_6V : V_FLOAT_12V;
+    //         battery_target_current = 100;
+    //         break;
+    //     default:
+    //         battery_target_voltage = V_TH;
+    //         battery_target_current = 2000;
+    //         break;
+    //     }
+    // }
     if (battery_target_voltage != battery_set_voltage)
     {
         int y = millis() - bVolt_last_millis;

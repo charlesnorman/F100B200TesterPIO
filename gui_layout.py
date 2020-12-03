@@ -42,11 +42,29 @@ settings_tab = [
      sg.R('AUTO', "RADIO_MAN_AUTO", key="-AUTO-", enable_events=True)]
 ]
 # endregion
+# region Manual Tab
+# --- Define the Compound Element. Has 2 buttons and an input field --- #
+voltage_spinner = [sg.Input('0', size=(10, 1), font='Any 12', justification='r', key='-MAN_TARGET_INPUT-'),
+                   sg.Column([
+                       [sg.Button('▲', size=(1, 1), font='Any 7', border_width=0, button_color=(
+                           sg.theme_text_color(), sg.theme_background_color()), key='-INCREASE_VOLTS-'), ],
+                       [sg.Button('▼', size=(1, 1), font='Any 7', border_width=0, button_color=(sg.theme_text_color(), sg.theme_background_color()), key='-DECREASE_VOLTS-')]]),
+                   sg.Text('         ', size=(10, 1),
+                           key='-NOW_TARGET_VOLTAGE-')
+                   ]
+manual_tab = [
+    [sg.Text('Manual Volt Target Adjust')],
+    voltage_spinner,
+    [sg.Text('')],
+    [sg.B("Submit Target", key="-SUBMIT_MAN_TARGET_VOLT-")]
+]
+# endregion
 # region Main Layout
 main_layout = [
     [sg.TabGroup([[
         sg.Tab('Readings', readings_tab),
-        sg.Tab('Settings', settings_tab)
+        sg.Tab('Settings', settings_tab),
+        sg.Tab("Manual", manual_tab)
     ]])]]
 # endregion
 # region Update GUI Values
@@ -78,6 +96,8 @@ def update_values(json_data):
             value=json_data['battery_actual_current'])
     if 'battery_target_voltage' in json_data:
         window['-TARGET_VOLTAGE-'].update(
+            value=json_data['battery_target_voltage'])
+        window['-NOW_TARGET_VOLTAGE-'].update(
             value=json_data['battery_target_voltage'])
     if 'battery_actual_voltage' in json_data:
         window['-ACTUAL_VOLTAGE-'].update(
@@ -132,6 +152,11 @@ def process_events(event, values, json_data):
         json_data['on_selected'] = 1
     if event == "-OFF-":
         json_data['on_selected'] = 0
+    if event == "-SUBMIT_MAN_TARGET_VOLT-":
+        json_data['battery_target_voltage'].update(
+            json_data['battery_target_voltage'] + window['-MAN_TARGET_INPUT-'])
+    if event == "-INCREASE_VOLTS-":
+        window['-MAN_TARGET_INPUT-'] = window['-MAN_TARGET_INPUT-'] + 10
     return True
 
 
