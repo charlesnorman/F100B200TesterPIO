@@ -25,30 +25,29 @@ readings_tab = [[sg.Text('State:'), sg.Text(size=(20, 1), key='-STATE-')],
                 [sg.Text('Oven Set Point:'), sg.Text(
                     size=(20, 1), key='-OVEN_SET_POINT-')],
                 [sg.Text('Component Temperature:'), sg.Text(
-                    size=(20, 1), key='-COMP_TEMPERATURE-')],
-                [sg.Radio('Display Volts', "RADIO_VOLT_TEMP", key='-DISPLAY_VOLTAGE-', enable_events=True), sg.Radio(
-                    'Display Temp(C)', "RADIO_VOLT_TEMP", key='-DISPLAY_TEMPERATURE-', enable_events=True)],
-                [sg.R('6 Volt', "RADIO_6V_12V", key="-6VOLT-", enable_events=True),
-                 sg.R('12 Volt', "RADIO_6V_12V", key="-12VOLT-", enable_events=True)],
-                [sg.R('ON ', "RADIO_ON_OFF", key="-ON-", enable_events=True),
-                 sg.R('OFF', "RADIO_ON_OFF", key="-OFF-", enable_events=True)],
-                [sg.R('MAN ', "RADIO_MAN_AUTO", key="-MANUAL-", enable_events=True),
-                 sg.R('AUTO', "RADIO_MAN_AUTO", key="-AUTO-", enable_events=True)]
+                    size=(20, 1), key='-COMP_TEMPERATURE-')]
                 ]
 # endregion
-# region Manual Tab
-manual_tab = [[sg.R('6 Volt', "RADIO_6V_12V", key="-6VOLT-", enable_events=True),
-               sg.R('12 Volt', "RADIO_6V_12V", key="-12VOLT-", enable_events=True)],
-              [sg.R('ON ', "RADIO_ON_OFF", key="-ON-", enable_events=True),
-               sg.R('OFF', "RADIO_ON_OFF", key="-OFF-", enable_events=True)],
-              [sg.R('MAN ', "RADIO_MAN_AUTO", key="-MANUAL-", enable_events=True),
-               sg.R('AUTO', "RADIO_MAN_AUTO", key="-AUTO-", enable_events=True)]
-              ]
-
-main_layout = [[sg.TabGroup([[
-    sg.Tab('Readings', readings_tab),
-    sg.Tab('Manual', manual_tab)
-]])]]
+# region Settings Tab
+settings_tab = [
+    [sg.Radio('Display Volts', "RADIO_VOLT_TEMP", key='-DISPLAY_VOLTAGE-',
+              enable_events=True), sg.Radio(
+        'Display Temp(C)', "RADIO_VOLT_TEMP", key='-DISPLAY_TEMPERATURE-',
+        enable_events=True)],
+    [sg.R('6 Volt', "RADIO_6V_12V", key="-6VOLT-", enable_events=True),
+     sg.R('12 Volt', "RADIO_6V_12V", key="-12VOLT-", enable_events=True)],
+    [sg.R('ON ', "RADIO_ON_OFF", key="-ON-", enable_events=True),
+     sg.R('OFF', "RADIO_ON_OFF", key="-OFF-", enable_events=True)],
+    [sg.R('MAN ', "RADIO_MAN_AUTO", key="-MANUAL-", enable_events=True),
+     sg.R('AUTO', "RADIO_MAN_AUTO", key="-AUTO-", enable_events=True)]
+]
+# endregion
+# region Main Layout
+main_layout = [
+    [sg.TabGroup([[
+        sg.Tab('Readings', readings_tab),
+        sg.Tab('Settings', settings_tab)
+    ]])]]
 # endregion
 # region Update GUI Values
 
