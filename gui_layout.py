@@ -44,19 +44,24 @@ settings_tab = [
 # endregion
 # region Manual Tab
 # --- Define the Compound Element. Has 2 buttons and an input field --- #
-voltage_spinner = [sg.Input('0', size=(10, 1), font='Any 12', justification='r', key='-MAN_TARGET_INPUT-'),
+voltage_spinner = [sg.Text('Adjust Value: '),
+                   sg.Input('0', size=(10, 1), font='Any 12',
+                            justification='r', key='-MAN_TARGET_INPUT-', tooltip='This value will be added to target voltage'),
                    sg.Column([
                        [sg.Button('▲', size=(1, 1), font='Any 7', border_width=0, button_color=(
                            sg.theme_text_color(), sg.theme_background_color()), key='-INCREASE_VOLTS-'), ],
                        [sg.Button('▼', size=(1, 1), font='Any 7', border_width=0, button_color=(sg.theme_text_color(), sg.theme_background_color()), key='-DECREASE_VOLTS-')]]),
-                   sg.Text('         ', size=(10, 1),
-                           key='-NOW_TARGET_VOLTAGE-')
+                   sg.Text('  Step Value: '),
+                   sg.Input('', size=(10, 1),
+                            tooltip='Enter step value here', justification='r')
                    ]
 manual_tab = [
-    [sg.Text('Manual Volt Target Adjust')],
-    voltage_spinner,
-    [sg.Text('')],
-    [sg.B("Submit Target", key="-SUBMIT_MAN_TARGET_VOLT-")]
+    [sg.Frame('Manual Target Voltage Adjust: ', [
+
+        voltage_spinner,
+        [sg.Text('Battery Target Voltage before adjustment '), sg.Text('         ', size=(10, 1),
+                                                                       key='-NOW_TARGET_VOLTAGE-', background_color='white', text_color='black')],
+        [sg.B("Submit", key="-SUBMIT_MAN_TARGET_VOLT-")]])]
 ]
 # endregion
 # region Main Layout
@@ -156,7 +161,11 @@ def process_events(event, values, json_data):
         json_data['battery_target_voltage'].update(
             json_data['battery_target_voltage'] + window['-MAN_TARGET_INPUT-'])
     if event == "-INCREASE_VOLTS-":
-        window['-MAN_TARGET_INPUT-'] = window['-MAN_TARGET_INPUT-'] + 10
+        window['-MAN_TARGET_INPUT-'].update(
+            int(window['-MAN_TARGET_INPUT-'].get()) + 10)
+    if event == '-DECREASE_VOLTS-':
+        window['-MAN_TARGET_INPUT-'].update(
+            int(window['-MAN_TARGET_INPUT-'].get()) - 10)
     return True
 
 

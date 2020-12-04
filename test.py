@@ -1,31 +1,24 @@
-#!/usr/bin/env python
 import PySimpleGUI as sg
 
 """
-    Demo of how to combine elements into your own custom element
+    Simple field validation
+    Input field should only accept digits.
+    If non-digit entered, it is deleted from the field
 """
 
-sg.set_options(element_padding=(0, 0))
-# --- Define the Compound Element. Has 2 buttons and an input field --- #
-NewSpinner = [sg.Input('0', size=(3, 1), font='Any 12', justification='r', key='-SPIN-'),
-              sg.Column([[sg.Button('▲', size=(1, 1), font='Any 7', border_width=0, button_color=(sg.theme_text_color(), sg.theme_background_color()), key='-UP-')],
-                         [sg.Button('▼', size=(1, 1), font='Any 7', border_width=0, button_color=(sg.theme_text_color(), sg.theme_background_color()), key='-DOWN-')]])]
-# --- Define Window --- #
-layout = [[sg.Text('Spinner simulation')],
-          NewSpinner,
-          [sg.Text('')],
-          [sg.Ok()]]
+layout = [[sg.Text('Enter digits:')],
+          [sg.Input('', enable_events=True,  key='-INPUT-')],
+          [sg.Button('Ok', key='-OK-'), sg.Button('Exit')]]
 
-window = sg.Window('Spinner simulation', layout, use_default_focus=False)
+window = sg.Window('Window Title', layout)
 
-# --- Event Loop --- #
-while True:
+while True:             # Event Loop
     event, values = window.read()
-
-    if event == 'Ok' or event == sg.WIN_CLOSED:    # be nice to your user, always have an exit from your form
+    if event in (sg.WIN_CLOSED, 'Exit'):
         break
-    counter = int(values['-SPIN-'])
-    # --- do spinner stuff --- #
-    counter += 1 if event == '-UP-' else -1 if event == '-DOWN-' else 0
-    window['-SPIN-'].update(counter)
+    # if last char entered not a digit
+    if len(values['-INPUT-']) and values['-INPUT-'][-1] not in ('0123456789'):
+        # delete last char from input
+        window['-INPUT-'].update(values['-INPUT-'][:-1])
+
 window.close()
