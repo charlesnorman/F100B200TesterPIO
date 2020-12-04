@@ -52,7 +52,7 @@ voltage_spinner = [sg.Text('Adjust Value: '),
                            sg.theme_text_color(), sg.theme_background_color()), key='-INCREASE_VOLTS-'), ],
                        [sg.Button('▼', size=(1, 1), font='Any 7', border_width=0, button_color=(sg.theme_text_color(), sg.theme_background_color()), key='-DECREASE_VOLTS-')]]),
                    sg.Text('  Step Value: '),
-                   sg.Input('', size=(10, 1),
+                   sg.Input('', size=(10, 1), key='-STEP_VALUE-',
                             tooltip='Enter step value here', justification='r')
                    ]
 manual_tab = [
@@ -158,14 +158,16 @@ def process_events(event, values, json_data):
     if event == "-OFF-":
         json_data['on_selected'] = 0
     if event == "-SUBMIT_MAN_TARGET_VOLT-":
-        json_data['battery_target_voltage'].update(
-            json_data['battery_target_voltage'] + window['-MAN_TARGET_INPUT-'])
+        temp = (int(json_data['battery_target_voltage']) +
+                int(window['-MAN_TARGET_INPUT-'].get()))
+        json_data['battery_target_voltage'] = temp
+        print(json_data['battery_target_voltage'])
     if event == "-INCREASE_VOLTS-":
         window['-MAN_TARGET_INPUT-'].update(
-            int(window['-MAN_TARGET_INPUT-'].get()) + 10)
+            int(window['-MAN_TARGET_INPUT-'].get()) + int(window['-STEP_VALUE-'].get()))
     if event == '-DECREASE_VOLTS-':
         window['-MAN_TARGET_INPUT-'].update(
-            int(window['-MAN_TARGET_INPUT-'].get()) - 10)
+            int(window['-MAN_TARGET_INPUT-'].get()) - int(window['-STEP_VALUE-'].get()))
     return True
 
 
