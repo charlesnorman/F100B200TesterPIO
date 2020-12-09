@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name F100B200TestPanel)(type Legacy)(uri "C:/Projects/Temporary/F100-B200TestPanel/Version2/lib_sch - BoxWiring/F100B200TestPanel.lib")(options "")(descr ""))
+  (lib (name 12VDCRelay2906223)(type Legacy)(uri C:/Projects/Temporary/F100-B200TestPanel/Version2/lib_sch/12VDCRelay2906223.lib)(options "")(descr ""))
+  (lib (name transformer_1p_ss)(type Legacy)(uri C:/Projects/Temporary/F100-B200TestPanel/Version2/lib_sch/transformer_1p_ss.lib)(options "")(descr ""))
+  (lib (name BoxWiring-rescue)(type Legacy)(uri ${KIPRJMOD}/BoxWiring-rescue.lib)(options "")(descr ""))
+)
