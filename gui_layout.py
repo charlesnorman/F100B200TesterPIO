@@ -59,8 +59,12 @@ manual_tab = [
     [sg.Frame('Manual Target Voltage Adjust: ', [
 
         voltage_spinner,
-        [sg.Text('Battery Target Voltage before adjustment '), sg.Text('         ', size=(10, 1),
+        [sg.Text('Battery Target Voltage                   '), sg.Text('         ', size=(10, 1),
                                                                        key='-NOW_TARGET_VOLTAGE-', background_color='white', text_color='black')],
+        [sg.Text('Actual Battery Voltage                   '), sg.Text('         ', size=(10, 1),
+                                                                       key='-NOW_VOLTAGE-', background_color='white', text_color='black')],
+        [sg.Text('Acutal Battery Current                   '), sg.Text('          ', size=(
+            10, 1), key='-NOW_CURRENT-', background_color='white', text_color='black')],
         [sg.B("Submit", key="-SUBMIT_MAN_TARGET_VOLT-")]])]
 ]
 # endregion
@@ -99,6 +103,8 @@ def update_values(json_data):
     if 'battery_actual_current' in json_data:
         window['-ACTUAL_CURRENT-'].update(
             value=json_data['battery_actual_current'])
+        window['-NOW_CURRENT-'].update(
+            value=json_data['battery_actual_current'])
     if 'battery_target_voltage' in json_data:
         window['-TARGET_VOLTAGE-'].update(
             value=json_data['battery_target_voltage'])
@@ -106,6 +112,8 @@ def update_values(json_data):
             value=json_data['battery_target_voltage'])
     if 'battery_actual_voltage' in json_data:
         window['-ACTUAL_VOLTAGE-'].update(
+            value=json_data['battery_actual_voltage'])
+        window['-NOW_VOLTAGE-'].update(
             value=json_data['battery_actual_voltage'])
     if 'oven_temperature' in json_data:
         window['-OVEN_TEMP-'].update(
