@@ -735,22 +735,6 @@ F 5 "1528-1010-ND" H 1050 1600 50  0001 C CNN "DigikeyPart#"
 	1    1050 1600
 	1    0    0    -1  
 $EndComp
-$Comp
-L F100_B200_Test_Bop_V2-rescue:INA260-F100B200TestPanel U6
-U 1 1 5F8A9991
-P 4050 1950
-F 0 "U6" H 4000 2325 50  0000 C CNN
-F 1 "INA260" H 4000 2234 50  0000 C CNN
-F 2 "lib_fp_pretty:Adafruit_INA260" H 4050 1950 50  0001 C CNN
-F 3 "https://cdn-learn.adafruit.com/downloads/pdf/adafruit-ina260-current-voltage-power-sensor-breakout.pdf" H 4050 1950 50  0001 C CNN
-F 4 "INA260 Current Monitor Power Management Evaluation Board" H 4050 1950 50  0001 C CNN "Description"
-F 5 "1528-2955-ND" H 4050 1950 50  0001 C CNN "DigikeyPart#"
-	1    4050 1950
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	3000 1950 3650 1950
-Connection ~ 3000 1950
 Wire Wire Line
 	1500 950  1700 950 
 Wire Wire Line
@@ -781,8 +765,6 @@ Wire Wire Line
 	900  1400 1150 1400
 Wire Wire Line
 	900  2200 1150 2200
-Wire Wire Line
-	4550 1900 4850 1900
 $Comp
 L Connector:Screw_Terminal_01x02 J6
 U 1 1 5F758433
@@ -1189,23 +1171,17 @@ Text Label 750  1750 2    50   ~ 0
 D21
 Text Label 750  1850 2    50   ~ 0
 D20
-Text Label 4550 1800 0    50   ~ 0
-+3V3
 $Comp
 L power:GND #PWR021
 U 1 1 5FB96DDE
-P 4850 1900
-F 0 "#PWR021" H 4850 1650 50  0001 C CNN
-F 1 "GND" H 4855 1727 50  0000 C CNN
-F 2 "" H 4850 1900 50  0001 C CNN
-F 3 "" H 4850 1900 50  0001 C CNN
-	1    4850 1900
+P 4575 2650
+F 0 "#PWR021" H 4575 2400 50  0001 C CNN
+F 1 "GND" H 4580 2477 50  0000 C CNN
+F 2 "" H 4575 2650 50  0001 C CNN
+F 3 "" H 4575 2650 50  0001 C CNN
+	1    4575 2650
 	0    -1   -1   0   
 $EndComp
-Text Label 4550 2000 0    50   ~ 0
-D21
-Text Label 4550 2100 0    50   ~ 0
-D20
 Text Label 1150 700  0    50   ~ 0
 +3V3
 Text Label 1150 1500 0    50   ~ 0
@@ -1723,4 +1699,58 @@ Text Label 7200 1100 3    50   ~ 0
 12VDC
 Text Label 3150 1000 0    50   ~ 0
 12VDC
+Text Label 3000 1950 0    50   ~ 0
+BatSimulator
+Text Label 4275 2850 0    50   ~ 0
+D20
+Text Label 4275 2750 0    50   ~ 0
+D21
+Text Label 4275 2550 0    50   ~ 0
++3V3
+Wire Wire Line
+	4275 2650 4575 2650
+$Comp
+L F100_B200_Test_Bop_V2-rescue:INA260-F100B200TestPanel U6
+U 1 1 5F8A9991
+P 3775 2700
+F 0 "U6" H 3725 3075 50  0000 C CNN
+F 1 "INA260" H 3725 2984 50  0000 C CNN
+F 2 "lib_fp_pretty:Adafruit_INA260" H 3775 2700 50  0001 C CNN
+F 3 "https://cdn-learn.adafruit.com/downloads/pdf/adafruit-ina260-current-voltage-power-sensor-breakout.pdf" H 3775 2700 50  0001 C CNN
+F 4 "INA260 Current Monitor Power Management Evaluation Board" H 3775 2700 50  0001 C CNN "Description"
+F 5 "1528-2955-ND" H 3775 2700 50  0001 C CNN "DigikeyPart#"
+	1    3775 2700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x04 J4
+U 1 1 5FDE24B8
+P 4025 950
+F 0 "J4" H 4105 896 50  0000 L CNN
+F 1 "Screw_Terminal_01x04" H 4105 851 50  0001 L CNN
+F 2 "lib_fp_pretty:CUI_TB001-500-04BE" H 4025 950 50  0001 C CNN
+F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tb001-500.pdf" H 4025 950 50  0001 C CNN
+F 4 "4 Position Wire to Board Terminal Block Horizontal with Board 0.197\" (5.00mm) Through Hole" H 4025 950 50  0001 C CNN "Description"
+F 5 "102-6136-ND" H 4025 950 50  0001 C CNN "DigikeyPart#"
+	1    4025 950 
+	0    -1   -1   0   
+$EndComp
+Text Label 3375 2700 2    50   ~ 0
+In+
+Text Label 3375 2800 2    50   ~ 0
+Charger
+Text Label 3925 1150 3    50   ~ 0
+BatSimulator
+Text Label 4025 1150 3    50   ~ 0
+In+
+Text Label 4125 1150 3    50   ~ 0
+Charger
+Text Notes 10250 2825 0    50   ~ 0
+STAT_1
+Text Notes 10250 2925 0    50   ~ 0
+STAT_2
+Text Notes 10250 3025 0    50   ~ 0
+Power_On_Not
+Text Notes 10250 3125 0    50   ~ 0
+Plus_load
 $EndSCHEMATC

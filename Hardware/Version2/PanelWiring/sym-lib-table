@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name F100B200TestPanel)(type Legacy)(uri C:/Projects/Temporary/F100-B200TestPanel/Version2/lib_sch/F100B200TestPanel.lib)(options "")(descr ""))
+  (lib (name PanelWiring-rescue)(type Legacy)(uri ${KIPRJMOD}/PanelWiring-rescue.lib)(options "")(descr ""))
 )

@@ -39,11 +39,15 @@ settings_tab = [
     [sg.R('ON ', "RADIO_ON_OFF", key="-ON-", enable_events=True),
      sg.R('OFF', "RADIO_ON_OFF", key="-OFF-", enable_events=True)],
     [sg.R('MAN ', "RADIO_MAN_AUTO", key="-MANUAL-", enable_events=True),
-     sg.R('AUTO', "RADIO_MAN_AUTO", key="-AUTO-", enable_events=True)]
+     sg.R('AUTO', "RADIO_MAN_AUTO", key="-AUTO-", enable_events=True)],
+    [sg.R('INTERNAL ', "RADIO_INT_EXT", key="-INTERNAL-", enable_events=True),
+     sg.R('EXTERNAL', "RADIO_INT_EXT", key="-EXTERNAL-", enable_events=True)]
 ]
 # endregion
 # region Manual Tab
 # --- Define the Compound Element. Has 2 buttons and an input field --- #
+charge_cable_resistance = 0.07
+
 voltage_spinner = [sg.Text('Adjust Value: '),
                    sg.Input('0', size=(10, 1), font='Any 12',
                             justification='r', key='-MAN_TARGET_INPUT-', tooltip='This value will be added to target voltage'),
@@ -59,12 +63,19 @@ manual_tab = [
     [sg.Frame('Manual Target Voltage Adjust: ', [
 
         voltage_spinner,
-        [sg.Text('Battery Target Voltage                   '), sg.Text('         ', size=(10, 1),
+        [sg.Text('Battery Target Voltage                   '), sg.Text('         ',
+                                                                       size=(
+                                                                           10, 1),
                                                                        key='-NOW_TARGET_VOLTAGE-', background_color='white', text_color='black')],
-        [sg.Text('Actual Battery Voltage                   '), sg.Text('         ', size=(10, 1),
+        [sg.Text('Actual Battery Voltage                   '), sg.Text('         ',
+                                                                       size=(
+                                                                           10, 1),
                                                                        key='-NOW_VOLTAGE-', background_color='white', text_color='black')],
+        [sg.Text('Charger Volts                               '), sg.Text('          ', size=(
+            10, 1), key='-CHARGER_VOLTS-', background_color='white', text_color='black')],
         [sg.Text('Acutal Battery Current                   '), sg.Text('          ', size=(
             10, 1), key='-NOW_CURRENT-', background_color='white', text_color='black')],
+
         [sg.B("Submit", key="-SUBMIT_MAN_TARGET_VOLT-")]])]
 ]
 # endregion
@@ -144,6 +155,14 @@ def update_values(json_data):
             window['-MANUAL-'].update(True)
         else:
             window['-AUTO-'].update(True)
+    if 'internal' in json_data:
+        if json_data['internal']:
+            window['-INTERNAL-'].update(True)
+        else:
+            window['-EXTERNAL-'].update(True)
+    if 'battery_actual_current' in json_data and 'battery_actual_voltage' in json_data:
+        window['-CHARGER_VOLTS-'].update(json_data['battery_actual_voltage'] +
+                                         (json_data['battery_actual_current'] * charge_cable_resistance))
 # endregion
 # region Process Events
 
@@ -176,6 +195,11 @@ def process_events(event, values, json_data):
     if event == '-DECREASE_VOLTS-':
         window['-MAN_TARGET_INPUT-'].update(
             int(window['-MAN_TARGET_INPUT-'].get()) - int(window['-STEP_VALUE-'].get()))
+
+    if event == "-INTERNAL-":
+        json_data['internal'] = 1
+    if event == "-EXTERNAL-":
+        json_data['internal'] = 0
     return True
 
 
