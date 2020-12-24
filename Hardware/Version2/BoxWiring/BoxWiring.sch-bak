@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L F100B200TestPanel:Control_Board U3
+L BoxWiring-rescue:Control_Board-F100B200TestPanel U3
 U 1 1 5F4FC6C0
 P 3650 2500
 F 0 "U3" H 3675 3217 50  0000 C CNN
@@ -29,7 +29,7 @@ OVEN_TEMP
 Text Label 2900 3150 2    50   ~ 0
 COMP_TEMP
 $Comp
-L F100B200TestPanel:TMP36GT9 U1
+L BoxWiring-rescue:TMP36GT9-F100B200TestPanel U1
 U 1 1 5F50241A
 P 1850 2700
 F 0 "U1" H 1907 3167 50  0000 C CNN
@@ -41,7 +41,7 @@ F 4 "ANALOG DEVICE" H 1650 3100 50  0001 L BNN "Field4"
 	1    0    0    -1  
 $EndComp
 $Comp
-L F100B200TestPanel:TMP36GT9 U2
+L BoxWiring-rescue:TMP36GT9-F100B200TestPanel U2
 U 1 1 5F502F01
 P 1850 3550
 F 0 "U2" H 1907 4017 50  0000 C CNN
@@ -93,7 +93,7 @@ Text Label 2900 2850 2    50   ~ 0
 Text Label 4450 2950 0    50   ~ 0
 +12VDC
 $Comp
-L F100B200TestPanel:12VDCRelay2906223 K1
+L BoxWiring-rescue:12VDCRelay2906223-F100B200TestPanel K1
 U 1 1 5F51DD19
 P 6350 2700
 F 0 "K1" V 5583 2700 50  0000 C CNN
@@ -104,7 +104,7 @@ F 3 "http://gfinder.findernet.com/assets/Series/353/S40EN.pdf" H 6350 2700 50  0
 	-1   0    0    1   
 $EndComp
 $Comp
-L F100B200TestPanel:12VDCRelay2906223 K2
+L BoxWiring-rescue:12VDCRelay2906223-F100B200TestPanel K2
 U 1 1 5F5221B7
 P 7550 1300
 F 0 "K2" V 6783 1300 50  0000 C CNN
@@ -115,7 +115,7 @@ F 3 "http://gfinder.findernet.com/assets/Series/353/S40EN.pdf" H 7550 1300 50  0
 	0    1    1    0   
 $EndComp
 $Comp
-L F100B200TestPanel:12VDCRelay2906223 K3
+L BoxWiring-rescue:12VDCRelay2906223-F100B200TestPanel K3
 U 1 1 5F5232A0
 P 7300 5450
 F 0 "K3" V 6533 5450 50  0000 C CNN
@@ -132,7 +132,7 @@ Text Label 6750 3000 3    50   ~ 0
 Text Label 7850 900  0    50   ~ 0
 +12VDC
 $Comp
-L F100B200TestPanel:F-213Z_XFRM T3
+L BoxWiring-rescue:F-213Z_XFRM-F100B200TestPanel T3
 U 1 1 5F578853
 P 8750 3000
 F 0 "T3" H 8600 3000 50  0000 C CNN
@@ -143,7 +143,7 @@ F 3 "~" H 8750 3000 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L F100B200TestPanel:VPS24-7300_XFRM T4
+L BoxWiring-rescue:VPS24-7300_XFRM-F100B200TestPanel T4
 U 1 1 5F57B824
 P 8800 4150
 F 0 "T4" H 8700 4150 50  0000 C CNN
@@ -154,7 +154,7 @@ F 3 "~" H 8800 4150 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L F100B200TestPanel:0030130207-TFRM T1
+L BoxWiring-rescue:0030130207-TFRM-F100B200TestPanel T1
 U 1 1 5F5A35A4
 P 8650 1950
 F 0 "T1" H 8650 1700 50  0000 C CNN
@@ -165,7 +165,7 @@ F 3 "~" H 8650 1950 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L F100B200TestPanel:0030130208-TFRM T2
+L BoxWiring-rescue:0030130208-TFRM-F100B200TestPanel T2
 U 1 1 5F5A46BC
 P 8650 1400
 F 0 "T2" H 8650 1150 50  0000 C CNN
@@ -475,8 +475,6 @@ Text Label 4450 3050 0    50   ~ 0
 OVEN-
 Text Label 7000 5850 2    50   ~ 0
 OVEN-
-Text Label 7000 5450 2    50   ~ 0
-+12VDC
 Wire Wire Line
 	7600 5350 7850 5350
 Wire Wire Line
@@ -506,7 +504,7 @@ Wire Wire Line
 	7850 5950 7600 5950
 Connection ~ 7850 5950
 $Comp
-L F100B200TestPanel:TM1638Module U4
+L BoxWiring-rescue:TM1638Module-F100B200TestPanel U4
 U 1 1 5F614BA9
 P 3650 6100
 F 0 "U4" V 3596 5622 50  0000 R CNN
@@ -546,4 +544,49 @@ Text Label 4450 3750 0    50   ~ 0
 Heat_Cool_Sel
 Text Label 7000 5050 2    50   ~ 0
 Heat_Cool_Sel
+Text Label 7000 5450 2    50   ~ 0
+OvenSupply
+$Comp
+L Motor:Fan M?
+U 1 1 5FDA010B
+P 8800 5700
+F 0 "M?" H 8958 5796 50  0000 L CNN
+F 1 "Fan" H 8958 5705 50  0000 L CNN
+F 2 "" H 8800 5710 50  0001 C CNN
+F 3 "~" H 8800 5710 50  0001 C CNN
+	1    8800 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Motor:Fan M?
+U 1 1 5FDA1241
+P 8800 6250
+F 0 "M?" H 8958 6346 50  0000 L CNN
+F 1 "Fan" H 8958 6255 50  0000 L CNN
+F 2 "" H 8800 6260 50  0001 C CNN
+F 3 "~" H 8800 6260 50  0001 C CNN
+	1    8800 6250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8800 5900 8800 5950
+Wire Wire Line
+	8800 6450 6900 6450
+$Comp
+L power:GND #PWR?
+U 1 1 5FDACDCA
+P 6900 6450
+F 0 "#PWR?" H 6900 6200 50  0001 C CNN
+F 1 "GND" H 6905 6277 50  0000 C CNN
+F 2 "" H 6900 6450 50  0001 C CNN
+F 3 "" H 6900 6450 50  0001 C CNN
+	1    6900 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8800 4600 6975 4600
+Wire Wire Line
+	8800 4600 8800 5400
+Text Label 6975 4600 2    50   ~ 0
+OvenSupply
 $EndSCHEMATC

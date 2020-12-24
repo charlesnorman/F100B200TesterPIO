@@ -1,24 +1,21 @@
-import PySimpleGUI as sg
+class Line:
 
-"""
-    Simple field validation
-    Input field should only accept digits.
-    If non-digit entered, it is deleted from the field
-"""
+    def __init__(self, coor1, coor2):
+        self.coor1 = coor1
+        self.coor2 = coor2
 
-layout = [[sg.Text('Enter digits:')],
-          [sg.Input('', enable_events=True,  key='-INPUT-')],
-          [sg.Button('Ok', key='-OK-'), sg.Button('Exit')]]
+    def distance(self):
+        return((self.coor1[0]-self.coor2[0])**2+(self.coor1[1]-(self.coor2[1]))**2)**.5
 
-window = sg.Window('Window Title', layout)
+    def slope(self):
+        return((self.coor1[1]-self.coor2[1])/(self.coor1[0]-self.coor2[0]))
 
-while True:             # Event Loop
-    event, values = window.read()
-    if event in (sg.WIN_CLOSED, 'Exit'):
-        break
-    # if last char entered not a digit
-    if len(values['-INPUT-']) and values['-INPUT-'][-1] not in ('0123456789'):
-        # delete last char from input
-        window['-INPUT-'].update(values['-INPUT-'][:-1])
 
-window.close()
+# EXAMPLE OUTPUT
+
+coordinate1 = (3, 2)
+coordinate2 = (8, 10)
+
+li = Line(coordinate1, coordinate2)
+print(li.distance())
+print(li.slope())

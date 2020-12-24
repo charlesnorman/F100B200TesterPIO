@@ -254,8 +254,6 @@ BAT+
 Text Label 6250 3500 3    50   ~ 0
 BAT-
 Wire Wire Line
-	5850 3000 5850 3500
-Wire Wire Line
 	6250 3000 6250 3200
 Wire Wire Line
 	6450 3000 6450 3200
@@ -278,7 +276,7 @@ $EndComp
 Connection ~ 6450 3200
 Text Label 4450 4850 0    50   ~ 0
 VBAT_INT
-Text Label 6050 3000 3    50   ~ 0
+Text Label 5850 3000 3    50   ~ 0
 VBAT_INT
 Text Label 5950 2100 1    50   ~ 0
 UUT_B+
@@ -475,8 +473,6 @@ Text Label 4450 3050 0    50   ~ 0
 OVEN-
 Text Label 7000 5850 2    50   ~ 0
 OVEN-
-Text Label 7000 5450 2    50   ~ 0
-+12VDC
 Wire Wire Line
 	7600 5350 7850 5350
 Wire Wire Line
@@ -546,4 +542,55 @@ Text Label 4450 3750 0    50   ~ 0
 Heat_Cool_Sel
 Text Label 7000 5050 2    50   ~ 0
 Heat_Cool_Sel
+Text Label 7000 5450 2    50   ~ 0
+OvenSupply
+$Comp
+L Motor:Fan M?
+U 1 1 5FDA010B
+P 8800 5700
+F 0 "M?" H 8958 5796 50  0000 L CNN
+F 1 "Fan" H 8958 5705 50  0000 L CNN
+F 2 "" H 8800 5710 50  0001 C CNN
+F 3 "~" H 8800 5710 50  0001 C CNN
+	1    8800 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Motor:Fan M?
+U 1 1 5FDA1241
+P 8800 6250
+F 0 "M?" H 8958 6346 50  0000 L CNN
+F 1 "Fan" H 8958 6255 50  0000 L CNN
+F 2 "" H 8800 6260 50  0001 C CNN
+F 3 "~" H 8800 6260 50  0001 C CNN
+	1    8800 6250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8800 5900 8800 5950
+Wire Wire Line
+	8800 6450 6900 6450
+$Comp
+L power:GND #PWR?
+U 1 1 5FDACDCA
+P 6900 6450
+F 0 "#PWR?" H 6900 6200 50  0001 C CNN
+F 1 "GND" H 6905 6277 50  0000 C CNN
+F 2 "" H 6900 6450 50  0001 C CNN
+F 3 "" H 6900 6450 50  0001 C CNN
+	1    6900 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8800 4600 6975 4600
+Wire Wire Line
+	8800 4600 8800 5400
+Text Label 6975 4600 2    50   ~ 0
+OvenSupply
+Wire Wire Line
+	5850 3500 5850 3425
+Wire Wire Line
+	5850 3425 6050 3425
+Wire Wire Line
+	6050 3425 6050 3000
 $EndSCHEMATC

@@ -1,11 +1,33 @@
 import PySimpleGUI as sg
 
+# region Functions
 
+
+def LEDIndicator(key=None, radius=30):
+    return sg.Graph(canvas_size=(radius, radius),
+                    graph_bottom_left=(-radius, -radius),
+                    graph_top_right=(radius, radius),
+                    pad=(0, 0), key=key)
+
+
+def SetLED(window, key, color):
+    graph = window[key]
+    graph.erase()
+    graph.draw_circle((0, 0), 12, fill_color=color, line_color=color)
+
+
+# endregion
+# region LED Panel
+LED_layout = [sg.Text('  Stat 1'), LEDIndicator('-STAT_1_LED-'),
+              sg.Text('  Stat 2'), LEDIndicator('-STAT_2_LED-'),
+              sg.Text('  Power On'), LEDIndicator('-POWER_ON_LED-'),
+              sg.Text('  Load'), LEDIndicator('-PLUS_LOAD_LED-')
+              ]
+# endregion
 # region Readings Tab
 readings_tab = [[sg.Text('State:'), sg.Text(size=(20, 1), key='-STATE-')],
                 [sg.Text('Battery 6V:'), sg.Text(
                     size=(20, 1), key='-BATTERY_6V-')],
-                [sg.Text('Cool:'), sg.Text(size=(20, 1), key='-COOL-')],
                 [sg.Text('Manual:'), sg.Text(
                     size=(20, 1), key='-MANUAL_SELECTED-')],
                 [sg.Text('On:'), sg.Text(size=(20, 1), key='-ON_SELECTED-')],
@@ -19,13 +41,7 @@ readings_tab = [[sg.Text('State:'), sg.Text(size=(20, 1), key='-STATE-')],
                 [sg.Text('Target Voltage:'), sg.Text(
                     size=(20, 1), key='-TARGET_VOLTAGE-')],
                 [sg.Text('Actual Voltage:'), sg.Text(
-                    size=(20, 1), key='-ACTUAL_VOLTAGE-')],
-                [sg.Text('Oven Temperature:'), sg.Text(
-                    size=(20, 1), key='-OVEN_TEMP-')],
-                [sg.Text('Oven Set Point:'), sg.Text(
-                    size=(20, 1), key='-OVEN_SET_POINT-')],
-                [sg.Text('Component Temperature:'), sg.Text(
-                    size=(20, 1), key='-COMP_TEMPERATURE-')]
+                    size=(20, 1), key='-ACTUAL_VOLTAGE-')]
                 ]
 # endregion
 # region Settings Tab
@@ -42,7 +58,29 @@ settings_tab = [
      sg.R('AUTO', "RADIO_MAN_AUTO", key="-AUTO-", enable_events=True)],
     [sg.R('INTERNAL ', "RADIO_INT_EXT", key="-INTERNAL-", enable_events=True),
      sg.R('EXTERNAL', "RADIO_INT_EXT", key="-EXTERNAL-", enable_events=True)]
+
 ]
+# endregion
+# region Oven Tab
+oven_tab = [
+    [sg.R('OVEN-ON ', "OVEN", key="-OVEN_ON-", enable_events=True),
+     sg.R('OVEN-OFF', "OVEN", key="-OVEN_OFF-", enable_events=True)],
+    [sg.R('COOL ', "COOL_HEAT", key="-COOL-", enable_events=True),
+     sg.R('HEAT', "COOL_HEAT", key="-HEAT-", enable_events=True)],
+    [sg.Text('Oven Temperature:'), sg.Text(
+        size=(20, 1), key='-OVEN_TEMP-')],
+    [sg.Text('Oven Set Point:'), sg.Text(
+        size=(20, 1), key='-OVEN_SET_POINT-'),
+        sg.Input(size=(10, 1), tooltip="Enter new Set point", justification='right',
+                 key="-NEW_OVEN_SETPOINT-", enable_events=True)],
+    [sg.Text('Component Temperature:'), sg.Text(
+        size=(20, 1), key='-COMP_TEMPERATURE-')],
+    [sg.Text('Oven Drive:'), sg.Text(
+        size=(20, 1), key='-OVEN_DRIVE-')],
+    [sg.Text('Oven Drive Adjust:'), sg.Text(
+        size=(20, 1), key='-OVEN_DRIVE_ADJUST-')]
+]
+
 # endregion
 # region Manual Tab
 # --- Define the Compound Element. Has 2 buttons and an input field --- #
@@ -61,7 +99,6 @@ voltage_spinner = [sg.Text('Adjust Value: '),
                    ]
 manual_tab = [
     [sg.Frame('Manual Target Voltage Adjust: ', [
-
         voltage_spinner,
         [sg.Text('Battery Target Voltage                   '), sg.Text('         ',
                                                                        size=(
@@ -80,11 +117,14 @@ manual_tab = [
 ]
 # endregion
 # region Main Layout
+
 main_layout = [
+    LED_layout,
     [sg.TabGroup([[
         sg.Tab('Readings', readings_tab),
         sg.Tab('Settings', settings_tab),
-        sg.Tab("Manual", manual_tab)
+        sg.Tab("Manual Voltage", manual_tab),
+        sg.Tab("Oven", oven_tab)
     ]])]]
 # endregion
 # region Update GUI Values
@@ -96,8 +136,6 @@ def update_values(json_data):
         window['-STATE-'].update(value=json_data['state'])
     if 'battery_6V' in json_data:
         window['-BATTERY_6V-'].update(value=json_data['battery_6V'])
-    if 'cool' in json_data:
-        window['-COOL-'].update(value=json_data['cool'])
     if 'manual_selected' in json_data:
         window['-MANUAL_SELECTED-'].update(
             value=json_data['manual_selected'])
@@ -132,9 +170,25 @@ def update_values(json_data):
     if 'oven_set_point' in json_data:
         window['-OVEN_SET_POINT-'].update(
             value=json_data['oven_set_point'])
+    if 'oven_drive' in json_data:
+        window['-OVEN_DRIVE-'].update(
+            value=json_data['oven_drive'])
+    if 'oven_drive_adjust' in json_data:
+        window['-OVEN_DRIVE_ADJUST-'].update(
+            value=json_data['oven_drive_adjust'])
     if 'comp_temperature' in json_data:
         window['-COMP_TEMPERATURE-'].update(
             value=json_data['comp_temperature'])
+    if 'oven_on' in json_data:
+        if json_data['oven_on']:
+            window['-OVEN_ON-'].update(True)
+        else:
+            window['-OVEN_OFF-'].update(True)
+    if 'cool' in json_data:
+        if json_data['cool']:
+            window['-COOL-'].update(True)
+        else:
+            window['-HEAT-'].update(True)
     if 'on_selected' in json_data:
         if json_data['on_selected']:
             window['-ON-'].update(True)
@@ -163,6 +217,28 @@ def update_values(json_data):
     if 'battery_actual_current' in json_data and 'battery_actual_voltage' in json_data:
         window['-CHARGER_VOLTS-'].update(json_data['battery_actual_voltage'] +
                                          (json_data['battery_actual_current'] * charge_cable_resistance))
+    if 'stat_1' in json_data:
+        if json_data['stat_1']:
+            SetLED(window, '-STAT_1_LED-', 'green')
+        else:
+            SetLED(window, '-STAT_1_LED-', 'red')
+    if 'stat_2' in json_data:
+        if json_data['stat_2']:
+            SetLED(window, '-STAT_2_LED-', 'green')
+        else:
+            SetLED(window, '-STAT_2_LED-', 'red')
+    if 'power_on_not' in json_data:
+        if json_data['power_on_not']:
+            SetLED(window, '-POWER_ON_LED-', 'green')
+        else:
+            SetLED(window, '-POWER_ON_LED-', 'red')
+    if 'plus_load' in json_data:
+        if json_data['plus_load']:
+            SetLED(window, '-PLUS_LOAD_LED-', 'green')
+        else:
+            SetLED(window, '-PLUS_LOAD_LED-', 'red')
+
+
 # endregion
 # region Process Events
 
@@ -195,11 +271,25 @@ def process_events(event, values, json_data):
     if event == '-DECREASE_VOLTS-':
         window['-MAN_TARGET_INPUT-'].update(
             int(window['-MAN_TARGET_INPUT-'].get()) - int(window['-STEP_VALUE-'].get()))
+    if event == '-NEW_OVEN_SETPOINT-':
+        try:
+            json_data["oven_set_point"] = int(
+                window['-NEW_OVEN_SETPOINT-'].get())
+        except:
+            json_data["oven_set_point"] = 0
 
     if event == "-INTERNAL-":
         json_data['internal'] = 1
     if event == "-EXTERNAL-":
         json_data['internal'] = 0
+    if event == "-OVEN_ON-":
+        json_data['oven_on'] = 1
+    if event == "-OVEN_OFF-":
+        json_data['oven_on'] = 0
+    if event == "-COOL-":
+        json_data['cool'] = 1
+    if event == "-HEAT-":
+        json_data['cool'] = 0
     return True
 
 
