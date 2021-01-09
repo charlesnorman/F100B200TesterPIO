@@ -229,9 +229,9 @@ def update_values(json_data):
             SetLED(window, '-STAT_2_LED-', 'red')
     if 'power_on_not' in json_data:
         if json_data['power_on_not']:
-            SetLED(window, '-POWER_ON_LED-', 'green')
-        else:
             SetLED(window, '-POWER_ON_LED-', 'red')
+        else:
+            SetLED(window, '-POWER_ON_LED-', 'green')
     if 'plus_load' in json_data:
         if json_data['plus_load']:
             SetLED(window, '-PLUS_LOAD_LED-', 'green')
