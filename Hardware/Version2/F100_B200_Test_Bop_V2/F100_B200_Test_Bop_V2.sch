@@ -1722,28 +1722,7 @@ F 5 "1528-2955-ND" H 3775 2700 50  0001 C CNN "DigikeyPart#"
 	1    3775 2700
 	-1   0    0    -1  
 $EndComp
-$Comp
-L Connector:Screw_Terminal_01x04 J4
-U 1 1 5FDE24B8
-P 4025 950
-F 0 "J4" H 4105 896 50  0000 L CNN
-F 1 "Screw_Terminal_01x04" H 4105 851 50  0001 L CNN
-F 2 "lib_fp_pretty:CUI_TB001-500-04BE" H 4025 950 50  0001 C CNN
-F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tb001-500.pdf" H 4025 950 50  0001 C CNN
-F 4 "4 Position Wire to Board Terminal Block Horizontal with Board 0.197\" (5.00mm) Through Hole" H 4025 950 50  0001 C CNN "Description"
-F 5 "102-6136-ND" H 4025 950 50  0001 C CNN "DigikeyPart#"
-	1    4025 950 
-	0    -1   -1   0   
-$EndComp
-Text Label 3375 2700 2    50   ~ 0
-In+
-Text Label 3375 2800 2    50   ~ 0
-Charger
-Text Label 3925 1150 3    50   ~ 0
-BatSimulator
-Text Label 4025 1150 3    50   ~ 0
-In+
-Text Label 4125 1150 3    50   ~ 0
+Text Label 3325 2500 1    50   ~ 0
 Charger
 Text Notes 10250 2825 0    50   ~ 0
 STAT_1
@@ -1753,4 +1732,15 @@ Text Notes 10250 3025 0    50   ~ 0
 Power_On_Not
 Text Notes 10250 3125 0    50   ~ 0
 Plus_load
+Wire Wire Line
+	3000 1950 3225 1950
+Wire Wire Line
+	3225 1950 3225 2800
+Wire Wire Line
+	3225 2800 3375 2800
+Connection ~ 3000 1950
+Wire Wire Line
+	3375 2700 3325 2700
+Wire Wire Line
+	3325 2700 3325 2500
 $EndSCHEMATC

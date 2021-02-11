@@ -1735,9 +1735,7 @@ F 5 "102-6136-ND" H 4025 950 50  0001 C CNN "DigikeyPart#"
 	1    4025 950 
 	0    -1   -1   0   
 $EndComp
-Text Label 3375 2700 2    50   ~ 0
-In+
-Text Label 3375 2800 2    50   ~ 0
+Text Label 3325 2500 1    50   ~ 0
 Charger
 Text Label 3925 1150 3    50   ~ 0
 BatSimulator
@@ -1745,4 +1743,23 @@ Text Label 4025 1150 3    50   ~ 0
 In+
 Text Label 4125 1150 3    50   ~ 0
 Charger
+Text Notes 10250 2825 0    50   ~ 0
+STAT_1
+Text Notes 10250 2925 0    50   ~ 0
+STAT_2
+Text Notes 10250 3025 0    50   ~ 0
+Power_On_Not
+Text Notes 10250 3125 0    50   ~ 0
+Plus_load
+Wire Wire Line
+	3000 1950 3225 1950
+Wire Wire Line
+	3225 1950 3225 2800
+Wire Wire Line
+	3225 2800 3375 2800
+Connection ~ 3000 1950
+Wire Wire Line
+	3375 2700 3325 2700
+Wire Wire Line
+	3325 2700 3325 2500
 $EndSCHEMATC
