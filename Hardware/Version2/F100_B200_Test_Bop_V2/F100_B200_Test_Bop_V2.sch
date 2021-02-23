@@ -131,433 +131,420 @@ $EndComp
 $Comp
 L Device:R R13
 U 1 1 5F78DD47
-P 7850 1550
-F 0 "R13" H 7920 1596 50  0000 L CNN
-F 1 "2.7k" H 7920 1505 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 7780 1550 50  0001 C CNN
-F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 7850 1550 50  0001 C CNN
-F 4 "RES 2.7K OHM 1/4W 1% AXIAL" H 7850 1550 50  0001 C CNN "Description"
-F 5 "S2.7KCACT-ND" H 7850 1550 50  0001 C CNN "DigikeyPart#"
-	1    7850 1550
-	0    1    1    0   
+P 1825 4225
+F 0 "R13" H 1895 4271 50  0000 L CNN
+F 1 "2.7k" H 1895 4180 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1755 4225 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 1825 4225 50  0001 C CNN
+F 4 "RES 2.7K OHM 1/4W 1% AXIAL" H 1825 4225 50  0001 C CNN "Description"
+F 5 "S2.7KCACT-ND" H 1825 4225 50  0001 C CNN "DigikeyPart#"
+	1    1825 4225
+	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:Heatsink HS2
 U 1 1 5F4AF6A3
-P 7700 1300
-F 0 "HS2" H 7842 1421 50  0000 L CNN
-F 1 "Heatsink" H 7842 1330 50  0000 L CNN
-F 2 "lib_fp_pretty:HSINK_529802B02500G" H 7712 1300 50  0001 C CNN
-F 3 "https://www.boydcorp.com/aavid-datasheets/Board-Level-Cooling-Extruded-5290.pdf" H 7712 1300 50  0001 C CNN
-F 4 "HEATSINK TO-220 W/PINS 1.5\"TALL" H 7700 1300 50  0001 C CNN "Description"
-F 5 "HS350-ND" H 7700 1300 50  0001 C CNN "DigikeyPart#"
-	1    7700 1300
+P 1100 3750
+F 0 "HS2" H 1242 3871 50  0000 L CNN
+F 1 "Heatsink" H 1242 3780 50  0000 L CNN
+F 2 "lib_fp_pretty:HSINK_529802B02500G" H 1112 3750 50  0001 C CNN
+F 3 "https://www.boydcorp.com/aavid-datasheets/Board-Level-Cooling-Extruded-5290.pdf" H 1112 3750 50  0001 C CNN
+F 4 "HEATSINK TO-220 W/PINS 1.5\"TALL" H 1100 3750 50  0001 C CNN "Description"
+F 5 "HS350-ND" H 1100 3750 50  0001 C CNN "DigikeyPart#"
+	1    1100 3750
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR07
 U 1 1 5F6315D9
-P 8200 1650
-F 0 "#PWR07" H 8200 1400 50  0001 C CNN
-F 1 "GND" H 8205 1477 50  0000 C CNN
-F 2 "" H 8200 1650 50  0001 C CNN
-F 3 "" H 8200 1650 50  0001 C CNN
-	1    8200 1650
-	-1   0    0    -1  
+P 1925 3875
+F 0 "#PWR07" H 1925 3625 50  0001 C CNN
+F 1 "GND" H 1930 3702 50  0000 C CNN
+F 2 "" H 1925 3875 50  0001 C CNN
+F 3 "" H 1925 3875 50  0001 C CNN
+	1    1925 3875
+	0    -1   1    0   
 $EndComp
 $Comp
 L F100_B200_Test_Bop_V2-rescue:FQP30N06L-F100B200TestPanel Q1
 U 1 1 5F4E2F9D
-P 8100 1450
-F 0 "Q1" H 8308 1496 50  0000 L CNN
-F 1 "FQP30N06L" H 8308 1405 50  0000 L CNN
-F 2 "lib_fp_pretty:TO220V" H 8100 1450 50  0001 L BNN
-F 3 "https://www.onsemi.com/pub/Collateral/FQP30N06L-D.pdf" H 8100 1450 50  0001 C CNN
-F 4 "N-Channel 60V 32A (Tc) 79W (Tc) Through Hole TO-220-3" H 8100 1450 50  0001 C CNN "Description"
-F 5 "FQP30N06L-ND" H 8100 1450 50  0001 C CNN "DigikeyPart#"
-	1    8100 1450
-	1    0    0    -1  
+P 1725 3975
+F 0 "Q1" V 2125 3800 50  0000 L CNN
+F 1 "FQP30N06L" V 2000 3475 50  0000 L CNN
+F 2 "lib_fp_pretty:TO220V" H 1725 3975 50  0001 L BNN
+F 3 "https://www.onsemi.com/pub/Collateral/FQP30N06L-D.pdf" H 1725 3975 50  0001 C CNN
+F 4 "N-Channel 60V 32A (Tc) 79W (Tc) Through Hole TO-220-3" H 1725 3975 50  0001 C CNN "Description"
+F 5 "FQP30N06L-ND" H 1725 3975 50  0001 C CNN "DigikeyPart#"
+	1    1725 3975
+	0    -1   -1   0   
 $EndComp
-Connection ~ 9500 5050
+Connection ~ 8975 3700
 $Comp
 L power:GND #PWR018
 U 1 1 5FA359DE
-P 9500 5050
-F 0 "#PWR018" H 9500 4800 50  0001 C CNN
-F 1 "GND" H 9505 4877 50  0000 C CNN
-F 2 "" H 9500 5050 50  0001 C CNN
-F 3 "" H 9500 5050 50  0001 C CNN
-	1    9500 5050
+P 8975 3700
+F 0 "#PWR018" H 8975 3450 50  0001 C CNN
+F 1 "GND" H 8980 3527 50  0000 C CNN
+F 2 "" H 8975 3700 50  0001 C CNN
+F 3 "" H 8975 3700 50  0001 C CNN
+	1    8975 3700
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9500 5050 9650 5050
+	8975 3700 9125 3700
 Wire Wire Line
-	8450 4400 8900 4400
+	7800 5550 8150 5550
 Wire Wire Line
-	8550 3950 8900 3950
+	7800 5350 7800 5550
 Wire Wire Line
-	8550 3750 8550 3950
+	7800 5100 8150 5100
 Wire Wire Line
-	8550 3500 8900 3500
+	8050 3800 7400 3800
 Wire Wire Line
-	8800 2200 8150 2200
-Connection ~ 9650 4200
+	8850 4700 9200 4700
 Wire Wire Line
-	9650 4200 9900 4200
+	8950 4600 9200 4600
 Wire Wire Line
-	9600 3100 9950 3100
+	8950 4400 8950 4600
 Wire Wire Line
-	9700 3000 9950 3000
+	8650 4400 8950 4400
 Wire Wire Line
-	9700 2800 9700 3000
+	9050 4500 9200 4500
 Wire Wire Line
-	9400 2800 9700 2800
+	9050 4100 9050 4500
 Wire Wire Line
-	9800 2900 9950 2900
+	8500 4100 9050 4100
 Wire Wire Line
-	9800 2500 9800 2900
+	9200 3800 9200 4400
 Wire Wire Line
-	9250 2500 9800 2500
+	8900 5750 8900 5650
 Wire Wire Line
-	9950 2200 9950 2800
+	9125 3250 9125 3150
 Wire Wire Line
-	9650 4150 9650 4050
+	9125 3700 9125 3600
+Connection ~ 9125 3300
 Wire Wire Line
-	9650 4600 9650 4500
+	9150 5000 9200 5000
+Connection ~ 8900 5350
 Wire Wire Line
-	9650 5050 9650 4950
-Connection ~ 9650 4650
+	9100 4900 9200 4900
 Wire Wire Line
-	9950 4650 9950 3500
+	9100 5350 9100 4900
 Wire Wire Line
-	9650 4650 9950 4650
+	8900 5350 9100 5350
+Connection ~ 8900 4900
 Wire Wire Line
-	9900 3400 9950 3400
+	8900 4800 9200 4800
 Wire Wire Line
-	9900 4200 9900 3400
-Connection ~ 9650 3750
+	8900 4900 8900 4800
 Wire Wire Line
-	9850 3300 9950 3300
+	8900 5300 8900 5200
 Wire Wire Line
-	9850 3750 9850 3300
-Wire Wire Line
-	9650 3750 9850 3750
-Connection ~ 9650 3300
-Wire Wire Line
-	9650 3200 9950 3200
-Wire Wire Line
-	9650 3300 9650 3200
-Wire Wire Line
-	9650 3700 9650 3600
-Wire Wire Line
-	9500 3300 9650 3300
+	8750 4900 8900 4900
 $Comp
 L Connector:Screw_Terminal_01x08 J5
 U 1 1 5F80D6E3
-P 10150 3100
-F 0 "J5" H 10068 2567 50  0000 C CNN
-F 1 "Screw_Terminal_01x08" H 10068 2566 50  0001 C CNN
-F 2 "lib_fp_pretty:CUI_TB001-500-08BE" H 10150 3100 50  0001 C CNN
-F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tb001-500.pdf" H 10150 3100 50  0001 C CNN
-F 4 "8 Position Wire to Board Terminal Block Horizontal with Board 0.197\" (5.00mm) Through Hole" H 10150 3100 50  0001 C CNN "Description"
-F 5 "102-6140-ND" H 10150 3100 50  0001 C CNN "DigikeyPart#"
-	1    10150 3100
+P 9400 4700
+F 0 "J5" H 9318 4167 50  0000 C CNN
+F 1 "Screw_Terminal_01x08" H 9318 4166 50  0001 C CNN
+F 2 "lib_fp_pretty:CUI_TB001-500-08BE" H 9400 4700 50  0001 C CNN
+F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tb001-500.pdf" H 9400 4700 50  0001 C CNN
+F 4 "8 Position Wire to Board Terminal Block Horizontal with Board 0.197\" (5.00mm) Through Hole" H 9400 4700 50  0001 C CNN "Description"
+F 5 "102-6140-ND" H 9400 4700 50  0001 C CNN "DigikeyPart#"
+	1    9400 4700
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R R21
 U 1 1 5F7A2DB1
-P 9450 3100
-F 0 "R21" V 9243 3100 50  0000 C CNN
-F 1 "10k" V 9334 3100 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 9380 3100 50  0001 C CNN
-F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 9450 3100 50  0001 C CNN
-F 4 "RES 10K OHM 1/4W 1% AXIAL" H 9450 3100 50  0001 C CNN "Description"
-F 5 "RNF14FTD10K0CT-ND" H 9450 3100 50  0001 C CNN "DigikeyPart#"
-	1    9450 3100
+P 8700 4700
+F 0 "R21" V 8493 4700 50  0000 C CNN
+F 1 "10k" V 8584 4700 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8630 4700 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 8700 4700 50  0001 C CNN
+F 4 "RES 10K OHM 1/4W 1% AXIAL" H 8700 4700 50  0001 C CNN "Description"
+F 5 "RNF14FTD10K0CT-ND" H 8700 4700 50  0001 C CNN "DigikeyPart#"
+	1    8700 4700
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:D_Zener D12
 U 1 1 5F7A2DA9
-P 9100 3300
-F 0 "D12" H 9100 3175 50  0000 C CNN
-F 1 "D_Zener" V 9145 3380 50  0001 L CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 9100 3300 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/1N5221B-D.PDF" H 9100 3300 50  0001 C CNN
-F 4 "DIODE ZENER 3.3V 500MW DO35" H 9100 3300 50  0001 C CNN "Description"
-F 5 "1N5226BFSCT-ND" H 9100 3300 50  0001 C CNN "DigikeyPart#"
-	1    9100 3300
+P 8350 4900
+F 0 "D12" H 8350 4775 50  0000 C CNN
+F 1 "D_Zener" V 8395 4980 50  0001 L CNN
+F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 8350 4900 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/1N5221B-D.PDF" H 8350 4900 50  0001 C CNN
+F 4 "DIODE ZENER 3.3V 500MW DO35" H 8350 4900 50  0001 C CNN "Description"
+F 5 "1N5226BFSCT-ND" H 8350 4900 50  0001 C CNN "DigikeyPart#"
+	1    8350 4900
 	-1   0    0    1   
 $EndComp
 $Comp
 L Device:R R14
 U 1 1 5F79AEA1
-P 8950 2200
-F 0 "R14" V 8743 2200 50  0000 C CNN
-F 1 "10k" V 8834 2200 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8880 2200 50  0001 C CNN
-F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 8950 2200 50  0001 C CNN
-F 4 "RES 10K OHM 1/4W 1% AXIAL" H 8950 2200 50  0001 C CNN "Description"
-F 5 "RNF14FTD10K0CT-ND" H 8950 2200 50  0001 C CNN "DigikeyPart#"
-	1    8950 2200
+P 8200 3800
+F 0 "R14" V 7993 3800 50  0000 C CNN
+F 1 "10k" V 8084 3800 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8130 3800 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 8200 3800 50  0001 C CNN
+F 4 "RES 10K OHM 1/4W 1% AXIAL" H 8200 3800 50  0001 C CNN "Description"
+F 5 "RNF14FTD10K0CT-ND" H 8200 3800 50  0001 C CNN "DigikeyPart#"
+	1    8200 3800
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:D_Zener D9
 U 1 1 5F79AE99
-P 8650 2400
-F 0 "D9" H 8650 2275 50  0000 C CNN
-F 1 "D_Zener" V 8695 2480 50  0001 L CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 8650 2400 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/1N5221B-D.PDF" H 8650 2400 50  0001 C CNN
-F 4 "DIODE ZENER 3.3V 500MW DO35" H 8650 2400 50  0001 C CNN "Description"
-F 5 "1N5226BFSCT-ND" H 8650 2400 50  0001 C CNN "DigikeyPart#"
-	1    8650 2400
+P 7900 4000
+F 0 "D9" H 7900 3875 50  0000 C CNN
+F 1 "D_Zener" V 7945 4080 50  0001 L CNN
+F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 7900 4000 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/1N5221B-D.PDF" H 7900 4000 50  0001 C CNN
+F 4 "DIODE ZENER 3.3V 500MW DO35" H 7900 4000 50  0001 C CNN "Description"
+F 5 "1N5226BFSCT-ND" H 7900 4000 50  0001 C CNN "DigikeyPart#"
+	1    7900 4000
 	-1   0    0    1   
 $EndComp
 $Comp
 L Device:R R19
 U 1 1 5F79329B
-P 9100 2500
-F 0 "R19" V 8893 2500 50  0000 C CNN
-F 1 "10k" V 8984 2500 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 9030 2500 50  0001 C CNN
-F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 9100 2500 50  0001 C CNN
-F 4 "RES 10K OHM 1/4W 1% AXIAL" H 9100 2500 50  0001 C CNN "Description"
-F 5 "RNF14FTD10K0CT-ND" H 9100 2500 50  0001 C CNN "DigikeyPart#"
-	1    9100 2500
+P 8350 4100
+F 0 "R19" V 8143 4100 50  0000 C CNN
+F 1 "10k" V 8234 4100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8280 4100 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 8350 4100 50  0001 C CNN
+F 4 "RES 10K OHM 1/4W 1% AXIAL" H 8350 4100 50  0001 C CNN "Description"
+F 5 "RNF14FTD10K0CT-ND" H 8350 4100 50  0001 C CNN "DigikeyPart#"
+	1    8350 4100
 	0    1    1    0   
 $EndComp
-Connection ~ 9500 3700
+Connection ~ 8750 5300
 $Comp
 L power:GND #PWR015
 U 1 1 5F76472F
-P 9500 3700
-F 0 "#PWR015" H 9500 3450 50  0001 C CNN
-F 1 "GND" H 9505 3527 50  0000 C CNN
-F 2 "" H 9500 3700 50  0001 C CNN
-F 3 "" H 9500 3700 50  0001 C CNN
-	1    9500 3700
+P 8750 5300
+F 0 "#PWR015" H 8750 5050 50  0001 C CNN
+F 1 "GND" H 8755 5127 50  0000 C CNN
+F 2 "" H 8750 5300 50  0001 C CNN
+F 3 "" H 8750 5300 50  0001 C CNN
+	1    8750 5300
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:R R15
 U 1 1 5F764729
-P 9050 3500
-F 0 "R15" H 9120 3546 50  0000 L CNN
-F 1 "2.7k" H 9120 3455 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8980 3500 50  0001 C CNN
-F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 9050 3500 50  0001 C CNN
-F 4 "RES 2.7K OHM 1/4W 1% AXIAL" H 9050 3500 50  0001 C CNN "Description"
-F 5 "S2.7KCACT-ND" H 9050 3500 50  0001 C CNN "DigikeyPart#"
-	1    9050 3500
+P 8300 5100
+F 0 "R15" H 8370 5146 50  0000 L CNN
+F 1 "2.7k" H 8370 5055 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8230 5100 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 8300 5100 50  0001 C CNN
+F 4 "RES 2.7K OHM 1/4W 1% AXIAL" H 8300 5100 50  0001 C CNN "Description"
+F 5 "S2.7KCACT-ND" H 8300 5100 50  0001 C CNN "DigikeyPart#"
+	1    8300 5100
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9650 3700 9500 3700
+	8900 5300 8750 5300
 $Comp
 L Device:D D13
 U 1 1 5F76471E
-P 9650 3450
-F 0 "D13" V 9604 3530 50  0000 L CNN
-F 1 "1N4004-TP" V 9695 3530 50  0001 L CNN
-F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 9650 3450 50  0001 C CNN
-F 3 "https://www.mccsemi.com/pdf/Products/1N4001-1N4007(DO-41).pdf" H 9650 3450 50  0001 C CNN
-F 4 "1N4004-TPMSCT-ND" H 9650 3450 50  0001 C CNN "DigikeyPart#"
-F 5 "Diode Standard 400V 1A Through Hole DO-41" H 9650 3450 50  0001 C CNN "Description"
-	1    9650 3450
+P 8900 5050
+F 0 "D13" H 8825 5175 50  0000 L CNN
+F 1 "1N4004-TP" V 8945 5130 50  0001 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8900 5050 50  0001 C CNN
+F 3 "https://www.mccsemi.com/pdf/Products/1N4001-1N4007(DO-41).pdf" H 8900 5050 50  0001 C CNN
+F 4 "1N4004-TPMSCT-ND" H 8900 5050 50  0001 C CNN "DigikeyPart#"
+F 5 "Diode Standard 400V 1A Through Hole DO-41" H 8900 5050 50  0001 C CNN "Description"
+	1    8900 5050
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:Q_NPN_EBC Q2
 U 1 1 5F764716
-P 9400 3500
-F 0 "Q2" H 9450 3500 50  0000 L CNN
-F 1 "Q_NPN_EBC" H 9591 3455 50  0001 L CNN
-F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 9600 3600 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/PZT3904-D.pdf" H 9400 3500 50  0001 C CNN
-F 4 "Bipolar (BJT) Transistor NPN 40V 200mA 300MHz 625mW Through Hole TO-92-3" H 9400 3500 50  0001 C CNN "Description"
-F 5 "2N3904D26ZCT-ND" H 9400 3500 50  0001 C CNN "DigikeyPart#"
-	1    9400 3500
+P 8650 5100
+F 0 "Q2" H 8700 5100 50  0000 L CNN
+F 1 "Q_NPN_EBC" H 8841 5055 50  0001 L CNN
+F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 8850 5200 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/PZT3904-D.pdf" H 8650 5100 50  0001 C CNN
+F 4 "Bipolar (BJT) Transistor NPN 40V 200mA 300MHz 625mW Through Hole TO-92-3" H 8650 5100 50  0001 C CNN "Description"
+F 5 "2N3904D26ZCT-ND" H 8650 5100 50  0001 C CNN "DigikeyPart#"
+	1    8650 5100
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R R18
 U 1 1 5F758163
-P 9050 4850
-F 0 "R18" H 9120 4896 50  0000 L CNN
-F 1 "2.7k" H 9120 4805 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8980 4850 50  0001 C CNN
-F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 9050 4850 50  0001 C CNN
-F 4 "RES 2.7K OHM 1/4W 1% AXIAL" H 9050 4850 50  0001 C CNN "Description"
-F 5 "S2.7KCACT-ND" H 9050 4850 50  0001 C CNN "DigikeyPart#"
-	1    9050 4850
+P 8525 3500
+F 0 "R18" H 8595 3546 50  0000 L CNN
+F 1 "2.7k" H 8595 3455 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8455 3500 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 8525 3500 50  0001 C CNN
+F 4 "RES 2.7K OHM 1/4W 1% AXIAL" H 8525 3500 50  0001 C CNN "Description"
+F 5 "S2.7KCACT-ND" H 8525 3500 50  0001 C CNN "DigikeyPart#"
+	1    8525 3500
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9500 4650 9650 4650
+	8975 3300 9125 3300
 $Comp
 L Device:D D16
 U 1 1 5F758158
-P 9650 4800
-F 0 "D16" V 9604 4880 50  0000 L CNN
-F 1 "1N4004-TP" V 9695 4880 50  0001 L CNN
-F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 9650 4800 50  0001 C CNN
-F 3 "https://www.mccsemi.com/pdf/Products/1N4001-1N4007(DO-41).pdf" H 9650 4800 50  0001 C CNN
-F 4 "1N4004-TPMSCT-ND" H 9650 4800 50  0001 C CNN "DigikeyPart#"
-F 5 "Diode Standard 400V 1A Through Hole DO-41" H 9650 4800 50  0001 C CNN "Description"
-	1    9650 4800
+P 9125 3450
+F 0 "D16" V 9079 3530 50  0000 L CNN
+F 1 "1N4004-TP" V 9170 3530 50  0001 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 9125 3450 50  0001 C CNN
+F 3 "https://www.mccsemi.com/pdf/Products/1N4001-1N4007(DO-41).pdf" H 9125 3450 50  0001 C CNN
+F 4 "1N4004-TPMSCT-ND" H 9125 3450 50  0001 C CNN "DigikeyPart#"
+F 5 "Diode Standard 400V 1A Through Hole DO-41" H 9125 3450 50  0001 C CNN "Description"
+	1    9125 3450
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:Q_NPN_EBC Q5
 U 1 1 5F758150
-P 9400 4850
-F 0 "Q5" H 9450 4850 50  0000 L CNN
-F 1 "Q_NPN_EBC" H 9591 4805 50  0001 L CNN
-F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 9600 4950 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/PZT3904-D.pdf" H 9400 4850 50  0001 C CNN
-F 4 "Bipolar (BJT) Transistor NPN 40V 200mA 300MHz 625mW Through Hole TO-92-3" H 9400 4850 50  0001 C CNN "Description"
-F 5 "2N3904D26ZCT-ND" H 9400 4850 50  0001 C CNN "DigikeyPart#"
-	1    9400 4850
+P 8875 3500
+F 0 "Q5" H 8925 3500 50  0000 L CNN
+F 1 "Q_NPN_EBC" H 9066 3455 50  0001 L CNN
+F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 9075 3600 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/PZT3904-D.pdf" H 8875 3500 50  0001 C CNN
+F 4 "Bipolar (BJT) Transistor NPN 40V 200mA 300MHz 625mW Through Hole TO-92-3" H 8875 3500 50  0001 C CNN "Description"
+F 5 "2N3904D26ZCT-ND" H 8875 3500 50  0001 C CNN "DigikeyPart#"
+	1    8875 3500
 	1    0    0    -1  
 $EndComp
-Connection ~ 9500 4600
+Connection ~ 8975 3250
 $Comp
 L power:GND #PWR017
 U 1 1 5F74E531
-P 9500 4600
-F 0 "#PWR017" H 9500 4350 50  0001 C CNN
-F 1 "GND" H 9505 4427 50  0000 C CNN
-F 2 "" H 9500 4600 50  0001 C CNN
-F 3 "" H 9500 4600 50  0001 C CNN
-	1    9500 4600
+P 8975 3250
+F 0 "#PWR017" H 8975 3000 50  0001 C CNN
+F 1 "GND" H 8980 3077 50  0000 C CNN
+F 2 "" H 8975 3250 50  0001 C CNN
+F 3 "" H 8975 3250 50  0001 C CNN
+	1    8975 3250
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:R R17
 U 1 1 5F74E52B
-P 9050 4400
-F 0 "R17" H 9120 4446 50  0000 L CNN
-F 1 "2.7k" H 9120 4355 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8980 4400 50  0001 C CNN
-F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 9050 4400 50  0001 C CNN
-F 4 "RES 2.7K OHM 1/4W 1% AXIAL" H 9050 4400 50  0001 C CNN "Description"
-F 5 "S2.7KCACT-ND" H 9050 4400 50  0001 C CNN "DigikeyPart#"
-	1    9050 4400
+P 8525 3050
+F 0 "R17" H 8595 3096 50  0000 L CNN
+F 1 "2.7k" H 8595 3005 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8455 3050 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 8525 3050 50  0001 C CNN
+F 4 "RES 2.7K OHM 1/4W 1% AXIAL" H 8525 3050 50  0001 C CNN "Description"
+F 5 "S2.7KCACT-ND" H 8525 3050 50  0001 C CNN "DigikeyPart#"
+	1    8525 3050
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9500 4200 9650 4200
-Wire Wire Line
-	9650 4600 9500 4600
+	9125 3250 8975 3250
 $Comp
 L Device:D D15
 U 1 1 5F74E520
-P 9650 4350
-F 0 "D15" V 9604 4430 50  0000 L CNN
-F 1 "1N4004-TP" V 9695 4430 50  0001 L CNN
-F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 9650 4350 50  0001 C CNN
-F 3 "https://www.mccsemi.com/pdf/Products/1N4001-1N4007(DO-41).pdf" H 9650 4350 50  0001 C CNN
-F 4 "1N4004-TPMSCT-ND" H 9650 4350 50  0001 C CNN "DigikeyPart#"
-F 5 "Diode Standard 400V 1A Through Hole DO-41" H 9650 4350 50  0001 C CNN "Description"
-	1    9650 4350
+P 9125 3000
+F 0 "D15" V 9079 3080 50  0000 L CNN
+F 1 "1N4004-TP" V 9170 3080 50  0001 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 9125 3000 50  0001 C CNN
+F 3 "https://www.mccsemi.com/pdf/Products/1N4001-1N4007(DO-41).pdf" H 9125 3000 50  0001 C CNN
+F 4 "1N4004-TPMSCT-ND" H 9125 3000 50  0001 C CNN "DigikeyPart#"
+F 5 "Diode Standard 400V 1A Through Hole DO-41" H 9125 3000 50  0001 C CNN "Description"
+	1    9125 3000
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:Q_NPN_EBC Q4
 U 1 1 5F74E518
-P 9400 4400
-F 0 "Q4" H 9450 4400 50  0000 L CNN
-F 1 "Q_NPN_EBC" H 9591 4355 50  0001 L CNN
-F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 9600 4500 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/PZT3904-D.pdf" H 9400 4400 50  0001 C CNN
-F 4 "Bipolar (BJT) Transistor NPN 40V 200mA 300MHz 625mW Through Hole TO-92-3" H 9400 4400 50  0001 C CNN "Description"
-F 5 "2N3904D26ZCT-ND" H 9400 4400 50  0001 C CNN "DigikeyPart#"
-	1    9400 4400
+P 8875 3050
+F 0 "Q4" H 8925 3050 50  0000 L CNN
+F 1 "Q_NPN_EBC" H 9066 3005 50  0001 L CNN
+F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 9075 3150 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/PZT3904-D.pdf" H 8875 3050 50  0001 C CNN
+F 4 "Bipolar (BJT) Transistor NPN 40V 200mA 300MHz 625mW Through Hole TO-92-3" H 8875 3050 50  0001 C CNN "Description"
+F 5 "2N3904D26ZCT-ND" H 8875 3050 50  0001 C CNN "DigikeyPart#"
+	1    8875 3050
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R R20
 U 1 1 5F729444
-P 9250 2800
-F 0 "R20" V 9043 2800 50  0000 C CNN
-F 1 "10k" V 9134 2800 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 9180 2800 50  0001 C CNN
-F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 9250 2800 50  0001 C CNN
-F 4 "RES 10K OHM 1/4W 1% AXIAL" H 9250 2800 50  0001 C CNN "Description"
-F 5 "RNF14FTD10K0CT-ND" H 9250 2800 50  0001 C CNN "DigikeyPart#"
-	1    9250 2800
+P 8500 4400
+F 0 "R20" V 8293 4400 50  0000 C CNN
+F 1 "10k" V 8384 4400 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8430 4400 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 8500 4400 50  0001 C CNN
+F 4 "RES 10K OHM 1/4W 1% AXIAL" H 8500 4400 50  0001 C CNN "Description"
+F 5 "RNF14FTD10K0CT-ND" H 8500 4400 50  0001 C CNN "DigikeyPart#"
+	1    8500 4400
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:D_Zener D11
 U 1 1 5F712650
-P 8900 3000
-F 0 "D11" H 8900 2875 50  0000 C CNN
-F 1 "D_Zener" V 8945 3080 50  0001 L CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 8900 3000 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/1N5221B-D.PDF" H 8900 3000 50  0001 C CNN
-F 4 "DIODE ZENER 3.3V 500MW DO35" H 8900 3000 50  0001 C CNN "Description"
-F 5 "1N5226BFSCT-ND" H 8900 3000 50  0001 C CNN "DigikeyPart#"
-	1    8900 3000
+P 8150 4600
+F 0 "D11" H 8150 4475 50  0000 C CNN
+F 1 "D_Zener" V 8195 4680 50  0001 L CNN
+F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 8150 4600 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/1N5221B-D.PDF" H 8150 4600 50  0001 C CNN
+F 4 "DIODE ZENER 3.3V 500MW DO35" H 8150 4600 50  0001 C CNN "Description"
+F 5 "1N5226BFSCT-ND" H 8150 4600 50  0001 C CNN "DigikeyPart#"
+	1    8150 4600
 	-1   0    0    1   
 $EndComp
-Connection ~ 9500 4150
+Connection ~ 8750 5750
 $Comp
 L power:GND #PWR016
 U 1 1 5F6F78AA
-P 9500 4150
-F 0 "#PWR016" H 9500 3900 50  0001 C CNN
-F 1 "GND" H 9505 3977 50  0000 C CNN
-F 2 "" H 9500 4150 50  0001 C CNN
-F 3 "" H 9500 4150 50  0001 C CNN
-	1    9500 4150
+P 8750 5750
+F 0 "#PWR016" H 8750 5500 50  0001 C CNN
+F 1 "GND" H 8755 5577 50  0000 C CNN
+F 2 "" H 8750 5750 50  0001 C CNN
+F 3 "" H 8750 5750 50  0001 C CNN
+	1    8750 5750
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:R R16
 U 1 1 5F6A0642
-P 9050 3950
-F 0 "R16" H 9120 3996 50  0000 L CNN
-F 1 "2.7k" H 9120 3905 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8980 3950 50  0001 C CNN
-F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 9050 3950 50  0001 C CNN
-F 4 "RES 2.7K OHM 1/4W 1% AXIAL" H 9050 3950 50  0001 C CNN "Description"
-F 5 "S2.7KCACT-ND" H 9050 3950 50  0001 C CNN "DigikeyPart#"
-	1    9050 3950
+P 8300 5550
+F 0 "R16" H 8370 5596 50  0000 L CNN
+F 1 "2.7k" H 8370 5505 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8230 5550 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 8300 5550 50  0001 C CNN
+F 4 "RES 2.7K OHM 1/4W 1% AXIAL" H 8300 5550 50  0001 C CNN "Description"
+F 5 "S2.7KCACT-ND" H 8300 5550 50  0001 C CNN "DigikeyPart#"
+	1    8300 5550
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9500 3750 9650 3750
+	8750 5350 8900 5350
 Wire Wire Line
-	9650 4150 9500 4150
+	8900 5750 8750 5750
 $Comp
 L Device:D D14
 U 1 1 5F6A0636
-P 9650 3900
-F 0 "D14" V 9604 3980 50  0000 L CNN
-F 1 "1N4004-TP" V 9695 3980 50  0001 L CNN
-F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 9650 3900 50  0001 C CNN
-F 3 "https://www.mccsemi.com/pdf/Products/1N4001-1N4007(DO-41).pdf" H 9650 3900 50  0001 C CNN
-F 4 "1N4004-TPMSCT-ND" H 9650 3900 50  0001 C CNN "DigikeyPart#"
-F 5 "Diode Standard 400V 1A Through Hole DO-41" H 9650 3900 50  0001 C CNN "Description"
-	1    9650 3900
+P 8900 5500
+F 0 "D14" H 8825 5625 50  0000 L CNN
+F 1 "1N4004-TP" V 8945 5580 50  0001 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8900 5500 50  0001 C CNN
+F 3 "https://www.mccsemi.com/pdf/Products/1N4001-1N4007(DO-41).pdf" H 8900 5500 50  0001 C CNN
+F 4 "1N4004-TPMSCT-ND" H 8900 5500 50  0001 C CNN "DigikeyPart#"
+F 5 "Diode Standard 400V 1A Through Hole DO-41" H 8900 5500 50  0001 C CNN "Description"
+	1    8900 5500
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:Q_NPN_EBC Q3
 U 1 1 5F6A062E
-P 9400 3950
-F 0 "Q3" H 9450 3950 50  0000 L CNN
-F 1 "Q_NPN_EBC" H 9591 3905 50  0001 L CNN
-F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 9600 4050 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/PZT3904-D.pdf" H 9400 3950 50  0001 C CNN
-F 4 "Bipolar (BJT) Transistor NPN 40V 200mA 300MHz 625mW Through Hole TO-92-3" H 9400 3950 50  0001 C CNN "Description"
-F 5 "2N3904D26ZCT-ND" H 9400 3950 50  0001 C CNN "DigikeyPart#"
-	1    9400 3950
+P 8650 5550
+F 0 "Q3" H 8700 5550 50  0000 L CNN
+F 1 "Q_NPN_EBC" H 8841 5505 50  0001 L CNN
+F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 8850 5650 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/PZT3904-D.pdf" H 8650 5550 50  0001 C CNN
+F 4 "Bipolar (BJT) Transistor NPN 40V 200mA 300MHz 625mW Through Hole TO-92-3" H 8650 5550 50  0001 C CNN "Description"
+F 5 "2N3904D26ZCT-ND" H 8650 5550 50  0001 C CNN "DigikeyPart#"
+	1    8650 5550
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -576,80 +563,80 @@ $EndComp
 $Comp
 L Device:D_Zener D10
 U 1 1 5F793293
-P 8800 2700
-F 0 "D10" H 8800 2575 50  0000 C CNN
-F 1 "D_Zener" V 8845 2780 50  0001 L CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 8800 2700 50  0001 C CNN
-F 3 "https://www.onsemi.com/pub/Collateral/1N5221B-D.PDF" H 8800 2700 50  0001 C CNN
-F 4 "DIODE ZENER 3.3V 500MW DO35" H 8800 2700 50  0001 C CNN "Description"
-F 5 "1N5226BFSCT-ND" H 8800 2700 50  0001 C CNN "DigikeyPart#"
-	1    8800 2700
+P 8050 4300
+F 0 "D10" H 8050 4175 50  0000 C CNN
+F 1 "D_Zener" V 8095 4380 50  0001 L CNN
+F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 8050 4300 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/1N5221B-D.PDF" H 8050 4300 50  0001 C CNN
+F 4 "DIODE ZENER 3.3V 500MW DO35" H 8050 4300 50  0001 C CNN "Description"
+F 5 "1N5226BFSCT-ND" H 8050 4300 50  0001 C CNN "DigikeyPart#"
+	1    8050 4300
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	8250 2500 8950 2500
+	7500 4100 8200 4100
 Wire Wire Line
-	8350 2800 9050 2800
+	7600 4400 8300 4400
 Wire Wire Line
-	8450 3100 9250 3100
+	7700 4700 8500 4700
 Wire Wire Line
-	8800 2200 8800 2400
-Connection ~ 8800 2200
+	8050 3800 8050 4000
+Connection ~ 8050 3800
 Wire Wire Line
-	8950 2500 8950 2700
-Connection ~ 8950 2500
+	8200 4100 8200 4300
+Connection ~ 8200 4100
 Wire Wire Line
-	9050 2800 9050 3000
-Connection ~ 9050 2800
+	8300 4400 8300 4600
+Connection ~ 8300 4400
 Wire Wire Line
-	9050 2800 9100 2800
+	8300 4400 8350 4400
 Wire Wire Line
-	9250 3100 9250 3300
-Connection ~ 9250 3100
+	8500 4700 8500 4900
+Connection ~ 8500 4700
 Wire Wire Line
-	9250 3100 9300 3100
+	8500 4700 8550 4700
 $Comp
 L power:GND #PWR012
 U 1 1 5FBE7E62
-P 8950 3300
-F 0 "#PWR012" H 8950 3050 50  0001 C CNN
-F 1 "GND" H 8955 3127 50  0000 C CNN
-F 2 "" H 8950 3300 50  0001 C CNN
-F 3 "" H 8950 3300 50  0001 C CNN
-	1    8950 3300
+P 8200 4900
+F 0 "#PWR012" H 8200 4650 50  0001 C CNN
+F 1 "GND" H 8205 4727 50  0000 C CNN
+F 2 "" H 8200 4900 50  0001 C CNN
+F 3 "" H 8200 4900 50  0001 C CNN
+	1    8200 4900
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR011
 U 1 1 5FBE88E8
-P 8750 3000
-F 0 "#PWR011" H 8750 2750 50  0001 C CNN
-F 1 "GND" H 8755 2827 50  0000 C CNN
-F 2 "" H 8750 3000 50  0001 C CNN
-F 3 "" H 8750 3000 50  0001 C CNN
-	1    8750 3000
+P 8000 4600
+F 0 "#PWR011" H 8000 4350 50  0001 C CNN
+F 1 "GND" H 8005 4427 50  0000 C CNN
+F 2 "" H 8000 4600 50  0001 C CNN
+F 3 "" H 8000 4600 50  0001 C CNN
+	1    8000 4600
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR010
 U 1 1 5FBE905C
-P 8650 2700
-F 0 "#PWR010" H 8650 2450 50  0001 C CNN
-F 1 "GND" H 8655 2527 50  0000 C CNN
-F 2 "" H 8650 2700 50  0001 C CNN
-F 3 "" H 8650 2700 50  0001 C CNN
-	1    8650 2700
+P 7900 4300
+F 0 "#PWR010" H 7900 4050 50  0001 C CNN
+F 1 "GND" H 7905 4127 50  0000 C CNN
+F 2 "" H 7900 4300 50  0001 C CNN
+F 3 "" H 7900 4300 50  0001 C CNN
+	1    7900 4300
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR09
 U 1 1 5FBE9663
-P 8500 2400
-F 0 "#PWR09" H 8500 2150 50  0001 C CNN
-F 1 "GND" H 8505 2227 50  0000 C CNN
-F 2 "" H 8500 2400 50  0001 C CNN
-F 3 "" H 8500 2400 50  0001 C CNN
-	1    8500 2400
+P 7750 4000
+F 0 "#PWR09" H 7750 3750 50  0001 C CNN
+F 1 "GND" H 7755 3827 50  0000 C CNN
+F 2 "" H 7750 4000 50  0001 C CNN
+F 3 "" H 7750 4000 50  0001 C CNN
+	1    7750 4000
 	0    1    1    0   
 $EndComp
 $Comp
@@ -701,12 +688,10 @@ F 3 "" H 2100 1650 50  0001 C CNN
 $EndComp
 Text Notes 1850 850  0    50   ~ 0
 Gain = 1.5
-Text Notes 10250 3250 0    50   ~ 0
+Text Notes 9500 4850 0    50   ~ 0
 Battery type select
-Text Notes 10250 3350 0    50   ~ 0
+Text Notes 9500 4950 0    50   ~ 0
 Heat/Cool Select
-Text Notes 10250 3450 0    50   ~ 0
-External/Internal Select
 Text Label 2600 1650 2    50   ~ 0
 24VDC
 $Comp
@@ -768,240 +753,216 @@ Wire Wire Line
 $Comp
 L Connector:Screw_Terminal_01x02 J6
 U 1 1 5F758433
-P 7450 750
-F 0 "J6" H 7530 696 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 7530 651 50  0001 L CNN
-F 2 "lib_fp_pretty:CUI_TB001-500-02BE" H 7450 750 50  0001 C CNN
-F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tb001-500.pdf" H 7450 750 50  0001 C CNN
-F 4 "2 Position Wire to Board Terminal Block" H 7450 750 50  0001 C CNN "Description"
-F 5 "102-6134-ND" H 7450 750 50  0001 C CNN "DigikeyPart#"
-	1    7450 750 
-	0    -1   -1   0   
+P 1025 4625
+F 0 "J6" H 1105 4571 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 1105 4526 50  0001 L CNN
+F 2 "lib_fp_pretty:CUI_TB001-500-02BE" H 1025 4625 50  0001 C CNN
+F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tb001-500.pdf" H 1025 4625 50  0001 C CNN
+F 4 "2 Position Wire to Board Terminal Block" H 1025 4625 50  0001 C CNN "Description"
+F 5 "102-6134-ND" H 1025 4625 50  0001 C CNN "DigikeyPart#"
+	1    1025 4625
+	-1   0    0    1   
 $EndComp
-Text Label 7450 950  3    50   ~ 0
+Text Label 1225 4625 0    50   ~ 0
 12VDC
 $Comp
 L Connector:Screw_Terminal_01x04 J7
 U 1 1 5F7C4335
-P 7000 750
-F 0 "J7" H 7080 696 50  0000 L CNN
-F 1 "Screw_Terminal_01x04" H 7080 651 50  0001 L CNN
-F 2 "lib_fp_pretty:CUI_TB001-500-04BE" H 7000 750 50  0001 C CNN
-F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tb001-500.pdf" H 7000 750 50  0001 C CNN
-F 4 "4 Position Wire to Board Terminal Block Horizontal with Board 0.197\" (5.00mm) Through Hole" H 7000 750 50  0001 C CNN "Description"
-F 5 "102-6136-ND" H 7000 750 50  0001 C CNN "DigikeyPart#"
-	1    7000 750 
-	0    -1   -1   0   
+P 1025 5075
+F 0 "J7" H 1105 5021 50  0000 L CNN
+F 1 "Screw_Terminal_01x04" H 1105 4976 50  0001 L CNN
+F 2 "lib_fp_pretty:CUI_TB001-500-04BE" H 1025 5075 50  0001 C CNN
+F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tb001-500.pdf" H 1025 5075 50  0001 C CNN
+F 4 "4 Position Wire to Board Terminal Block Horizontal with Board 0.197\" (5.00mm) Through Hole" H 1025 5075 50  0001 C CNN "Description"
+F 5 "102-6136-ND" H 1025 5075 50  0001 C CNN "DigikeyPart#"
+	1    1025 5075
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	7000 950  7000 1100
+	1225 5075 1375 5075
 Wire Wire Line
-	7200 950  7200 1100
+	1225 4875 1375 4875
 $Comp
 L power:GND #PWR019
 U 1 1 5F818A24
-P 7000 1100
-F 0 "#PWR019" H 7000 850 50  0001 C CNN
-F 1 "GND" H 7005 927 50  0000 C CNN
-F 2 "" H 7000 1100 50  0001 C CNN
-F 3 "" H 7000 1100 50  0001 C CNN
-	1    7000 1100
-	-1   0    0    -1  
+P 1375 5075
+F 0 "#PWR019" H 1375 4825 50  0001 C CNN
+F 1 "GND" H 1380 4902 50  0000 C CNN
+F 2 "" H 1375 5075 50  0001 C CNN
+F 3 "" H 1375 5075 50  0001 C CNN
+	1    1375 5075
+	0    -1   1    0   
 $EndComp
 Wire Wire Line
-	6900 1400 6900 950 
+	1675 5175 1225 5175
 Wire Wire Line
-	7100 1400 7100 950 
-Text Label 6900 1400 3    50   ~ 0
-12VDC
-Text Label 7100 1400 3    50   ~ 0
+	1675 4975 1225 4975
+Text Label 1675 4975 0    50   ~ 0
 24VDC
 $Comp
 L Connector:Screw_Terminal_01x08 J15
 U 1 1 5F85063F
-P 10100 5700
-F 0 "J15" H 10018 5167 50  0000 C CNN
-F 1 "Screw_Terminal_01x08" H 10018 5166 50  0001 C CNN
-F 2 "lib_fp_pretty:CUI_TB001-500-08BE" H 10100 5700 50  0001 C CNN
-F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tb001-500.pdf" H 10100 5700 50  0001 C CNN
-F 4 "8 Position Wire to Board Terminal Block Horizontal with Board 0.197\" (5.00mm) Through Hole" H 10100 5700 50  0001 C CNN "Description"
-F 5 "102-6140-ND" H 10100 5700 50  0001 C CNN "DigikeyPart#"
-	1    10100 5700
+P 10675 5950
+F 0 "J15" H 10593 5417 50  0000 C CNN
+F 1 "Screw_Terminal_01x08" H 10593 5416 50  0001 C CNN
+F 2 "lib_fp_pretty:CUI_TB001-500-08BE" H 10675 5950 50  0001 C CNN
+F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tb001-500.pdf" H 10675 5950 50  0001 C CNN
+F 4 "8 Position Wire to Board Terminal Block Horizontal with Board 0.197\" (5.00mm) Through Hole" H 10675 5950 50  0001 C CNN "Description"
+F 5 "102-6140-ND" H 10675 5950 50  0001 C CNN "DigikeyPart#"
+	1    10675 5950
 	1    0    0    -1  
 $EndComp
 $Comp
 L F100_B200_Test_Bop_V2-rescue:ESQ-108-14-T-S-F100B200TestPanel J13
 U 1 1 5F865791
-P 8950 5800
-F 0 "J13" H 8692 6415 50  0000 C CNN
-F 1 "ESQ-108-14-T-S" H 8692 6324 50  0000 C CNN
-F 2 "lib_fp_pretty:SAMTEC_ESQ-108-14-T-S" H 8950 5800 50  0001 L BNN
-F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 8950 5800 50  0001 L BNN
-F 4 "R" H 8950 5800 50  0001 L BNN "Field4"
-F 5 "Manufacturer Recommendations" H 8950 5800 50  0001 L BNN "Field5"
-F 6 "CONN SOCKET 8POS 0.1 TIN PCB" H 8950 5800 50  0001 C CNN "Description"
-	1    8950 5800
+P 9525 6050
+F 0 "J13" H 9267 6665 50  0000 C CNN
+F 1 "ESQ-108-14-T-S" H 9267 6574 50  0000 C CNN
+F 2 "lib_fp_pretty:SAMTEC_ESQ-108-14-T-S" H 9525 6050 50  0001 L BNN
+F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 9525 6050 50  0001 L BNN
+F 4 "R" H 9525 6050 50  0001 L BNN "Field4"
+F 5 "Manufacturer Recommendations" H 9525 6050 50  0001 L BNN "Field5"
+F 6 "CONN SOCKET 8POS 0.1 TIN PCB" H 9525 6050 50  0001 C CNN "Description"
+F 7 "SAM9303-ND" H 9525 6050 50  0001 C CNN "DigikeyPart#"
+	1    9525 6050
 	-1   0    0    -1  
 $EndComp
 $Comp
 L F100_B200_Test_Bop_V2-rescue:ESQ-108-14-T-S-F100B200TestPanel J11
 U 1 1 5F8683FE
-P 7650 3650
-F 0 "J11" H 7392 4265 50  0000 C CNN
-F 1 "ESQ-108-14-T-S" H 7392 4174 50  0000 C CNN
-F 2 "lib_fp_pretty:SAMTEC_ESQ-108-14-T-S" H 7650 3650 50  0001 L BNN
-F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 7650 3650 50  0001 L BNN
-F 4 "R" H 7650 3650 50  0001 L BNN "Field4"
-F 5 "Manufacturer Recommendations" H 7650 3650 50  0001 L BNN "Field5"
-F 6 "CONN SOCKET 8POS 0.1 TIN PCB" H 7650 3650 50  0001 C CNN "Description"
-	1    7650 3650
+P 6900 5250
+F 0 "J11" H 6642 5865 50  0000 C CNN
+F 1 "ESQ-108-14-T-S" H 6642 5774 50  0000 C CNN
+F 2 "lib_fp_pretty:SAMTEC_ESQ-108-14-T-S" H 6900 5250 50  0001 L BNN
+F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 6900 5250 50  0001 L BNN
+F 4 "R" H 6900 5250 50  0001 L BNN "Field4"
+F 5 "Manufacturer Recommendations" H 6900 5250 50  0001 L BNN "Field5"
+F 6 "CONN SOCKET 8POS 0.1 TIN PCB" H 6900 5250 50  0001 C CNN "Description"
+F 7 "SAM9303-ND" H 6900 5250 50  0001 C CNN "DigikeyPart#"
+	1    6900 5250
 	-1   0    0    -1  
 $EndComp
 $Comp
 L F100_B200_Test_Bop_V2-rescue:ESQ-110-14-T-S-F100B200TestPanel J12
 U 1 1 5F869ED0
-P 9000 1400
-F 0 "J12" H 8692 2023 50  0000 C CNN
-F 1 "ESQ-110-14-T-S" H 8928 1380 50  0001 L CNN
-F 2 "lib_fp_pretty:SAMTEC_ESQ-108-14-T-S" H 8350 2150 50  0001 L BNN
-F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 8350 2400 50  0001 L BNN
-F 4 "R" H 8400 2050 50  0001 L BNN "Field4"
-F 5 "Samtec" H 8400 2300 50  0001 L BNN "Field5"
-F 6 "10 Position Elevated Socket Connector Through Hole" H 9000 1400 50  0001 C CNN "Description"
-F 7 "SAM15577-ND" H 9000 1400 50  0001 C CNN "DigikeyPart#"
-	1    9000 1400
+P 6750 1925
+F 0 "J12" H 6442 2548 50  0000 C CNN
+F 1 "ESQ-110-14-T-S" H 6678 1905 50  0001 L CNN
+F 2 "lib_fp_pretty:SAMTEC_ESQ-108-14-T-S" H 6100 2675 50  0001 L BNN
+F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 6100 2925 50  0001 L BNN
+F 4 "R" H 6150 2575 50  0001 L BNN "Field4"
+F 5 "Samtec" H 6150 2825 50  0001 L BNN "Field5"
+F 6 "10 Position Elevated Socket Connector Through Hole" H 6750 1925 50  0001 C CNN "Description"
+F 7 "SAM15577-ND" H 6750 1925 50  0001 C CNN "DigikeyPart#"
+	1    6750 1925
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	9450 5400 9900 5400
+	10025 5650 10475 5650
 Wire Wire Line
-	9900 5500 9450 5500
+	10475 5750 10025 5750
 Wire Wire Line
-	9450 5600 9900 5600
+	10025 5850 10475 5850
 Wire Wire Line
-	9450 5800 9900 5800
+	10025 6050 10475 6050
 Wire Wire Line
-	9900 5900 9450 5900
+	10475 6150 10025 6150
 Wire Wire Line
-	9450 6000 9900 6000
+	10025 6250 10475 6250
 Wire Wire Line
-	9900 6100 9450 6100
-Text Label 9550 5400 0    50   ~ 0
+	10475 6350 10025 6350
+Text Label 10125 5650 0    50   ~ 0
 D14
-Text Label 9550 5500 0    50   ~ 0
+Text Label 10125 5750 0    50   ~ 0
 D15
-Text Label 9550 5600 0    50   ~ 0
+Text Label 10125 5850 0    50   ~ 0
 D16
 Wire Wire Line
-	9450 5700 9900 5700
-Text Label 9550 5700 0    50   ~ 0
+	10025 5950 10475 5950
+Text Label 10125 5950 0    50   ~ 0
 D17
-Text Label 9550 5800 0    50   ~ 0
+Text Label 10125 6050 0    50   ~ 0
 D18
-Text Label 9550 5900 0    50   ~ 0
+Text Label 10125 6150 0    50   ~ 0
 D19
-Text Label 9550 6000 0    50   ~ 0
+Text Label 10125 6250 0    50   ~ 0
 D20
-Text Label 9550 6100 0    50   ~ 0
+Text Label 10125 6350 0    50   ~ 0
 D21
 Wire Wire Line
-	8150 3950 8150 4850
+	7400 5450 7700 5450
 Wire Wire Line
-	8150 4850 8900 4850
+	7400 5350 7800 5350
 Wire Wire Line
-	8150 3850 8450 3850
+	7400 5250 7800 5250
 Wire Wire Line
-	8450 3850 8450 4400
+	7800 5100 7800 5250
 Wire Wire Line
-	8150 3750 8550 3750
+	7400 5150 7700 5150
 Wire Wire Line
-	8150 3650 8550 3650
+	7700 4700 7700 5150
 Wire Wire Line
-	8550 3500 8550 3650
+	7400 5050 7600 5050
 Wire Wire Line
-	8150 3550 8450 3550
+	7600 4400 7600 5050
 Wire Wire Line
-	8450 3100 8450 3550
+	7400 4950 7500 4950
 Wire Wire Line
-	8150 3450 8350 3450
+	7500 4100 7500 4950
 Wire Wire Line
-	8350 2800 8350 3450
-Wire Wire Line
-	8150 3350 8250 3350
-Wire Wire Line
-	8250 2500 8250 3350
-Wire Wire Line
-	8150 2200 8150 3250
-Text Label 8150 2200 0    50   ~ 0
+	7400 3800 7400 4850
+Text Label 7400 3800 0    50   ~ 0
 D7
-Text Label 8250 2700 0    50   ~ 0
+Text Label 7500 4300 0    50   ~ 0
 D6
-Text Label 8350 2950 0    50   ~ 0
+Text Label 7600 4550 0    50   ~ 0
 D5
-Text Label 8450 3300 0    50   ~ 0
+Text Label 7700 4900 0    50   ~ 0
 D4
-Text Label 8550 3650 0    50   ~ 0
+Text Label 7800 5250 0    50   ~ 0
 D3
-Text Label 8550 3950 0    50   ~ 0
+Text Label 7800 5550 0    50   ~ 0
 D2
-Text Label 8450 4400 0    50   ~ 0
+Text Label 7850 5900 0    50   ~ 0
 D1
-Text Label 8150 4850 0    50   ~ 0
+Text Label 7575 6075 0    50   ~ 0
 D0
 Wire Wire Line
-	9100 2200 9950 2200
+	8350 3800 9200 3800
 $Comp
 L Connector:Screw_Terminal_01x10 J14
 U 1 1 5FAF6018
-P 10150 1300
-F 0 "J14" H 10230 1246 50  0000 L CNN
-F 1 "TB001-500-10BE" H 10230 1201 50  0001 L CNN
-F 2 "lib_fp_pretty:CUI_TB001-500-10BE" H 10150 1300 50  0001 C CNN
-F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tb001-500.pdf" H 10150 1300 50  0001 C CNN
-F 4 "102-6142-ND" H 10150 1300 50  0001 C CNN "DigikeyPart#"
-F 5 "10 Position Wire to Board Terminal Block Horizontal with Board 0.197\" (5.00mm) Through Hole" H 10150 1300 50  0001 C CNN "Description"
-	1    10150 1300
+P 10025 1825
+F 0 "J14" H 10105 1771 50  0000 L CNN
+F 1 "TB001-500-10BE" H 10105 1726 50  0001 L CNN
+F 2 "lib_fp_pretty:CUI_TB001-500-10BE" H 10025 1825 50  0001 C CNN
+F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tb001-500.pdf" H 10025 1825 50  0001 C CNN
+F 4 "102-6142-ND" H 10025 1825 50  0001 C CNN "DigikeyPart#"
+F 5 "10 Position Wire to Board Terminal Block Horizontal with Board 0.197\" (5.00mm) Through Hole" H 10025 1825 50  0001 C CNN "Description"
+	1    10025 1825
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9500 900  9950 900 
-Wire Wire Line
-	9950 1000 9500 1000
-Wire Wire Line
-	9500 1100 9950 1100
-Wire Wire Line
-	9950 1200 9500 1200
-Wire Wire Line
-	9500 1300 9950 1300
-Wire Wire Line
-	9950 1400 9500 1400
-Wire Wire Line
-	9500 1500 9950 1500
-Wire Wire Line
-	9950 1600 9500 1600
-Wire Wire Line
-	9500 1700 9950 1700
-Wire Wire Line
-	9950 1800 9500 1800
-Text Label 9600 900  0    50   ~ 0
+	7700 2325 7250 2325
+Text Label 7350 1425 0    50   ~ 0
 SCL1
-Text Label 9600 1000 0    50   ~ 0
+Text Label 7350 1525 0    50   ~ 0
 SDA1
-Text Label 9600 1100 0    50   ~ 0
+Text Label 7350 1625 0    50   ~ 0
 AREF
-Text Label 9600 1200 0    50   ~ 0
+Text Label 7350 1725 0    50   ~ 0
 GND
-Text Label 9600 1300 0    50   ~ 0
+Text Label 7350 1825 0    50   ~ 0
 D13
-Text Label 9600 1400 0    50   ~ 0
+Text Label 7350 1925 0    50   ~ 0
 D12
-Text Label 9600 1500 0    50   ~ 0
+Text Label 7350 2025 0    50   ~ 0
 D11
-Text Label 9600 1600 0    50   ~ 0
+Text Label 7350 2125 0    50   ~ 0
 D10
-Text Label 9600 1700 0    50   ~ 0
+Text Label 7350 2225 0    50   ~ 0
 D9
-Text Label 9600 1800 0    50   ~ 0
+Text Label 7350 2325 0    50   ~ 0
 D8
 Connection ~ 2600 2600
 $Comp
@@ -1015,6 +976,7 @@ F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 6300 1400 50  00
 F 4 "R" H 6300 1400 50  0001 L BNN "Field4"
 F 5 "Manufacturer Recommendations" H 6300 1400 50  0001 L BNN "Field5"
 F 6 "CONN SOCKET 8POS 0.1 TIN PCB" H 6300 1400 50  0001 C CNN "Description"
+F 7 "SAM9303-ND" H 6300 1400 50  0001 C CNN "DigikeyPart#"
 	1    6300 1400
 	1    0    0    -1  
 $EndComp
@@ -1053,116 +1015,44 @@ VIN
 $Comp
 L F100_B200_Test_Bop_V2-rescue:ESQ-118-14-G-D-F100B200TestPanel J17
 U 1 1 5F79852D
-P 5800 5850
-F 0 "J17" H 5650 6965 50  0000 C CNN
-F 1 "ESQ-118-14-G-D" H 5650 6874 50  0001 C CNN
-F 2 "SAMTEC_ESQ-118-14-G-D" H 5300 7000 50  0001 L BNN
-F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 5300 7150 50  0001 L BNN
-F 4 "Samtec" H 5300 7150 50  0001 L BNN "Field4"
-F 5 "Manufacturer Recommendations" H 5300 7000 50  0001 L BNN "Field5"
-F 6 "36 Position Elevated Socket Connector Through Hole" H 5800 5850 50  0001 C CNN "Description"
-F 7 "SAM9312-ND" H 5800 5850 50  0001 C CNN "DigikeyPart#"
-	1    5800 5850
+P 5650 6200
+F 0 "J17" H 5500 7315 50  0000 C CNN
+F 1 "ESQ-118-14-G-D" H 5500 7224 50  0001 C CNN
+F 2 "SAMTEC_ESQ-118-14-G-D" H 5150 7350 50  0001 L BNN
+F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 5150 7500 50  0001 L BNN
+F 4 "Samtec" H 5150 7500 50  0001 L BNN "Field4"
+F 5 "Manufacturer Recommendations" H 5150 7350 50  0001 L BNN "Field5"
+F 6 "36 Position Elevated Socket Connector Through Hole" H 5650 6200 50  0001 C CNN "Description"
+F 7 "SAM9312-ND" H 5650 6200 50  0001 C CNN "DigikeyPart#"
+	1    5650 6200
 	0    -1   -1   0   
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x18 J18
 U 1 1 5F8A937E
-P 5700 4675
-F 0 "J18" H 5625 5625 50  0000 L CNN
-F 1 "102-TBL004V-508-18BE-2GY-ND" H 5780 4576 50  0001 L CNN
-F 2 "lib_fp_pretty:CUI_TBL004V-508-18BE-2GY" H 5700 4675 50  0001 C CNN
-F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tbl004v-508.pdf" H 5700 4675 50  0001 C CNN
-F 4 "Position Wire to Board Terminal Block" H 5700 4675 50  0001 C CNN "Description"
-F 5 "102-TBL004V-508-18BE-2GY-ND" H 5700 4675 50  0001 C CNN "DigikeyPart#"
-	1    5700 4675
+P 5550 5800
+F 0 "J18" H 5475 6750 50  0000 L CNN
+F 1 "102-TBL004V-508-18BE-2GY-ND" H 5630 5701 50  0001 L CNN
+F 2 "lib_fp_pretty:CUI_TBL004V-508-18BE-2GY" H 5550 5800 50  0001 C CNN
+F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tbl004v-508.pdf" H 5550 5800 50  0001 C CNN
+F 4 "Position Wire to Board Terminal Block" H 5550 5800 50  0001 C CNN "Description"
+F 5 "102-TBL004V-508-18BE-2GY-ND" H 5550 5800 50  0001 C CNN "DigikeyPart#"
+	1    5550 5800
 	0    -1   -1   0   
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x18 J16
 U 1 1 5F8ADE81
-P 5700 7225
-F 0 "J16" H 5618 8242 50  0000 C CNN
-F 1 "102-TBL004V-508-18BE-2GY-ND" H 5618 8151 50  0001 C CNN
-F 2 "lib_fp_pretty:CUI_TBL004V-508-18BE-2GY" H 5700 7225 50  0001 C CNN
-F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tbl004v-508.pdf" H 5700 7225 50  0001 C CNN
-F 4 "Position Wire to Board Terminal Block" H 5700 7225 50  0001 C CNN "Description"
-F 5 "102-TBL004V-508-18BE-2GY-ND" H 5700 7225 50  0001 C CNN "DigikeyPart#"
-	1    5700 7225
+P 5550 6900
+F 0 "J16" H 5468 7917 50  0000 C CNN
+F 1 "102-TBL004V-508-18BE-2GY-ND" H 5468 7826 50  0001 C CNN
+F 2 "lib_fp_pretty:CUI_TBL004V-508-18BE-2GY" H 5550 6900 50  0001 C CNN
+F 3 "https://www.cuidevices.com/product/resource/digikeypdf/tbl004v-508.pdf" H 5550 6900 50  0001 C CNN
+F 4 "Position Wire to Board Terminal Block" H 5550 6900 50  0001 C CNN "Description"
+F 5 "102-TBL004V-508-18BE-2GY-ND" H 5550 6900 50  0001 C CNN "DigikeyPart#"
+	1    5550 6900
 	0    -1   1    0   
 $EndComp
-Wire Wire Line
-	4900 5650 4900 4875
-Wire Wire Line
-	5000 4875 5000 5650
-Wire Wire Line
-	5100 5650 5100 4875
-Wire Wire Line
-	5200 4875 5200 5650
-Wire Wire Line
-	5300 5650 5300 4875
-Wire Wire Line
-	5400 4875 5400 5650
-Wire Wire Line
-	5500 5650 5500 4875
-Wire Wire Line
-	5600 4875 5600 5650
-Wire Wire Line
-	5700 5650 5700 4875
-Wire Wire Line
-	5800 4875 5800 5650
-Wire Wire Line
-	5900 5650 5900 4875
-Wire Wire Line
-	6000 5650 6000 4875
-Wire Wire Line
-	6100 4875 6100 5650
-Wire Wire Line
-	6200 5650 6200 4875
-Wire Wire Line
-	6300 4875 6300 5650
-Wire Wire Line
-	6400 5650 6400 4875
-Wire Wire Line
-	6500 4875 6500 5650
-Wire Wire Line
-	6600 5650 6600 4875
-Wire Wire Line
-	4900 7025 4900 6350
-Wire Wire Line
-	5000 6350 5000 7025
-Wire Wire Line
-	5100 7025 5100 6350
-Wire Wire Line
-	5200 6350 5200 7025
-Wire Wire Line
-	5300 7025 5300 6350
-Wire Wire Line
-	5400 6350 5400 7025
-Wire Wire Line
-	5500 7025 5500 6350
-Wire Wire Line
-	5600 6350 5600 7025
-Wire Wire Line
-	5700 7025 5700 6350
-Wire Wire Line
-	5800 6350 5800 7025
-Wire Wire Line
-	5900 7025 5900 6350
-Wire Wire Line
-	6000 6350 6000 7025
-Wire Wire Line
-	6100 7025 6100 6350
-Wire Wire Line
-	6200 6350 6200 7025
-Wire Wire Line
-	6300 7025 6300 6350
-Wire Wire Line
-	6400 6350 6400 7025
-Wire Wire Line
-	6500 7025 6500 6350
-Wire Wire Line
-	6600 6350 6600 7025
 Text Label 750  1050 2    50   ~ 0
 D20
 Text Label 750  950  2    50   ~ 0
@@ -1211,7 +1101,7 @@ F 3 "" H 3150 1600 50  0001 C CNN
 	1    3150 1600
 	1    0    0    -1  
 $EndComp
-Text Label 7700 1550 2    50   ~ 0
+Text Label 1825 4375 3    50   ~ 0
 D11
 Text Label 6125 3400 0    50   ~ 0
 A7
@@ -1457,6 +1347,7 @@ F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 6800 2600 50  00
 F 4 "R" H 6800 2600 50  0001 L BNN "Field4"
 F 5 "Manufacturer Recommendations" H 6800 2600 50  0001 L BNN "Field5"
 F 6 "CONN SOCKET 8POS 0.1 TIN PCB" H 6800 2600 50  0001 C CNN "Description"
+F 7 "SAM9303-ND" H 6800 2600 50  0001 C CNN "DigikeyPart#"
 	1    6800 2600
 	1    0    0    -1  
 $EndComp
@@ -1607,11 +1498,11 @@ Wire Wire Line
 	5300 2600 5300 2650
 Wire Wire Line
 	5200 2700 5300 2700
-Text Label 7800 4550 0    50   ~ 0
+Text Label 3975 3825 0    50   ~ 0
 GND_
-Text Label 7800 4450 0    50   ~ 0
+Text Label 3975 3725 0    50   ~ 0
 MOSI_
-Text Label 7800 4350 0    50   ~ 0
+Text Label 3975 3625 0    50   ~ 0
 +5V_
 $Comp
 L Connector:Screw_Terminal_01x08 J3
@@ -1637,6 +1528,7 @@ F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 6100 3950 50  00
 F 4 "R" H 6100 3950 50  0001 L BNN "Field4"
 F 5 "Manufacturer Recommendations" H 6100 3950 50  0001 L BNN "Field5"
 F 6 "CONN SOCKET 8POS 0.1 TIN PCB" H 6100 3950 50  0001 C CNN "Description"
+F 7 "SAM9303-ND" H 6100 3950 50  0001 C CNN "DigikeyPart#"
 	1    6100 3950
 	1    0    0    -1  
 $EndComp
@@ -1669,37 +1561,37 @@ CANT
 Wire Wire Line
 	5600 4250 5200 4250
 Wire Wire Line
-	8200 1250 8200 1000
+	1525 3875 1275 3875
 Wire Wire Line
-	8200 1000 7550 1000
+	1275 3875 1275 4525
 Wire Wire Line
-	7550 1000 7550 950 
+	1275 4525 1225 4525
 $Comp
 L F100_B200_Test_Bop_V2-rescue:ESQ-103-14-G-D-F100B200TestPanel J19
 U 1 1 5F798B33
-P 7550 4450
-F 0 "J19" H 7425 4765 50  0000 C CNN
-F 1 "ESQ-103-14-G-D" H 7425 4674 50  0000 C CNN
-F 2 "SAMTEC_ESQ-103-14-G-D" H 7150 4800 50  0001 L BNN
-F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 7150 4800 50  0001 L BNN
-F 4 "Samtec" H 7150 4800 50  0001 L BNN "Field4"
-F 5 "Manufacturer Recommendations" H 7150 4800 50  0001 L BNN "Field5"
-F 6 "6 Position Elevated Socket Connector Through Hole" H 7550 4450 50  0001 C CNN "Description"
-F 7 "SAM9289-ND" H 7550 4450 50  0001 C CNN "DigikeyPart#"
-	1    7550 4450
+P 3725 3725
+F 0 "J19" H 3600 4040 50  0000 C CNN
+F 1 "ESQ-103-14-G-D" H 3600 3949 50  0000 C CNN
+F 2 "SAMTEC_ESQ-103-14-G-D" H 3325 4075 50  0001 L BNN
+F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 3325 4075 50  0001 L BNN
+F 4 "Samtec" H 3325 4075 50  0001 L BNN "Field4"
+F 5 "Manufacturer Recommendations" H 3325 4075 50  0001 L BNN "Field5"
+F 6 "6 Position Elevated Socket Connector Through Hole" H 3725 3725 50  0001 C CNN "Description"
+F 7 "SAM9289-ND" H 3725 3725 50  0001 C CNN "DigikeyPart#"
+	1    3725 3725
 	1    0    0    -1  
 $EndComp
-Text Label 7050 4350 2    50   ~ 0
+Text Label 3225 3625 2    50   ~ 0
 MISO_
-Text Label 7050 4450 2    50   ~ 0
+Text Label 3225 3725 2    50   ~ 0
 SCK_
-Text Label 7050 4550 2    50   ~ 0
+Text Label 3225 3825 2    50   ~ 0
 RESET_
-Text Label 7200 1100 3    50   ~ 0
+Text Label 1375 4875 0    50   ~ 0
 12VDC
 Text Label 3150 1000 0    50   ~ 0
 12VDC
-Text Label 3000 1950 0    50   ~ 0
+Text Label 3225 1950 0    50   ~ 0
 BatSimulator
 Text Label 4275 2850 0    50   ~ 0
 D20
@@ -1724,23 +1616,346 @@ F 5 "1528-2955-ND" H 3775 2700 50  0001 C CNN "DigikeyPart#"
 $EndComp
 Text Label 3325 2500 1    50   ~ 0
 Charger
-Text Notes 10250 2825 0    50   ~ 0
+Text Notes 9500 4425 0    50   ~ 0
 STAT_1
-Text Notes 10250 2925 0    50   ~ 0
+Text Notes 9500 4525 0    50   ~ 0
 STAT_2
-Text Notes 10250 3025 0    50   ~ 0
+Text Notes 9500 4625 0    50   ~ 0
 Power_On_Not
-Text Notes 10250 3125 0    50   ~ 0
+Text Notes 9500 4725 0    50   ~ 0
 Plus_load
 Wire Wire Line
 	3000 1950 3225 1950
-Wire Wire Line
-	3225 1950 3225 2800
-Wire Wire Line
-	3225 2800 3375 2800
 Connection ~ 3000 1950
 Wire Wire Line
 	3375 2700 3325 2700
 Wire Wire Line
 	3325 2700 3325 2500
+Wire Wire Line
+	9150 5000 9150 5900
+Wire Wire Line
+	7700 5900 9150 5900
+Wire Wire Line
+	7700 5450 7700 5900
+Wire Wire Line
+	9200 5100 9200 6075
+Wire Wire Line
+	9200 6075 7400 6075
+Wire Wire Line
+	7400 5550 7400 6075
+Connection ~ 9000 2775
+$Comp
+L power:GND #PWR08
+U 1 1 6041F643
+P 9000 2775
+F 0 "#PWR08" H 9000 2525 50  0001 C CNN
+F 1 "GND" H 9005 2602 50  0000 C CNN
+F 2 "" H 9000 2775 50  0001 C CNN
+F 3 "" H 9000 2775 50  0001 C CNN
+	1    9000 2775
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9000 2775 9150 2775
+Wire Wire Line
+	9150 2325 9150 2225
+Wire Wire Line
+	9150 2775 9150 2675
+Connection ~ 9150 2375
+$Comp
+L Device:R R23
+U 1 1 6041F651
+P 8550 2575
+F 0 "R23" H 8620 2621 50  0000 L CNN
+F 1 "2.7k" H 8620 2530 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8480 2575 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 8550 2575 50  0001 C CNN
+F 4 "RES 2.7K OHM 1/4W 1% AXIAL" H 8550 2575 50  0001 C CNN "Description"
+F 5 "S2.7KCACT-ND" H 8550 2575 50  0001 C CNN "DigikeyPart#"
+	1    8550 2575
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9000 2375 9150 2375
+$Comp
+L Device:D D18
+U 1 1 6041F65A
+P 9150 2525
+F 0 "D18" V 9104 2605 50  0000 L CNN
+F 1 "1N4004-TP" V 9195 2605 50  0001 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 9150 2525 50  0001 C CNN
+F 3 "https://www.mccsemi.com/pdf/Products/1N4001-1N4007(DO-41).pdf" H 9150 2525 50  0001 C CNN
+F 4 "1N4004-TPMSCT-ND" H 9150 2525 50  0001 C CNN "DigikeyPart#"
+F 5 "Diode Standard 400V 1A Through Hole DO-41" H 9150 2525 50  0001 C CNN "Description"
+	1    9150 2525
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:Q_NPN_EBC Q7
+U 1 1 6041F662
+P 8900 2575
+F 0 "Q7" H 8950 2575 50  0000 L CNN
+F 1 "Q_NPN_EBC" H 9091 2530 50  0001 L CNN
+F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 9100 2675 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/PZT3904-D.pdf" H 8900 2575 50  0001 C CNN
+F 4 "Bipolar (BJT) Transistor NPN 40V 200mA 300MHz 625mW Through Hole TO-92-3" H 8900 2575 50  0001 C CNN "Description"
+F 5 "2N3904D26ZCT-ND" H 8900 2575 50  0001 C CNN "DigikeyPart#"
+	1    8900 2575
+	1    0    0    -1  
+$EndComp
+Connection ~ 9000 2325
+$Comp
+L power:GND #PWR06
+U 1 1 6041F669
+P 9000 2325
+F 0 "#PWR06" H 9000 2075 50  0001 C CNN
+F 1 "GND" H 9005 2152 50  0000 C CNN
+F 2 "" H 9000 2325 50  0001 C CNN
+F 3 "" H 9000 2325 50  0001 C CNN
+	1    9000 2325
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R22
+U 1 1 6041F671
+P 8550 2125
+F 0 "R22" H 8620 2171 50  0000 L CNN
+F 1 "2.7k" H 8620 2080 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8480 2125 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 8550 2125 50  0001 C CNN
+F 4 "RES 2.7K OHM 1/4W 1% AXIAL" H 8550 2125 50  0001 C CNN "Description"
+F 5 "S2.7KCACT-ND" H 8550 2125 50  0001 C CNN "DigikeyPart#"
+	1    8550 2125
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9150 2325 9000 2325
+$Comp
+L Device:D D17
+U 1 1 6041F67A
+P 9150 2075
+F 0 "D17" V 9104 2155 50  0000 L CNN
+F 1 "1N4004-TP" V 9195 2155 50  0001 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 9150 2075 50  0001 C CNN
+F 3 "https://www.mccsemi.com/pdf/Products/1N4001-1N4007(DO-41).pdf" H 9150 2075 50  0001 C CNN
+F 4 "1N4004-TPMSCT-ND" H 9150 2075 50  0001 C CNN "DigikeyPart#"
+F 5 "Diode Standard 400V 1A Through Hole DO-41" H 9150 2075 50  0001 C CNN "Description"
+	1    9150 2075
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:Q_NPN_EBC Q6
+U 1 1 6041F682
+P 8900 2125
+F 0 "Q6" H 8950 2125 50  0000 L CNN
+F 1 "Q_NPN_EBC" H 9091 2080 50  0001 L CNN
+F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 9100 2225 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/PZT3904-D.pdf" H 8900 2125 50  0001 C CNN
+F 4 "Bipolar (BJT) Transistor NPN 40V 200mA 300MHz 625mW Through Hole TO-92-3" H 8900 2125 50  0001 C CNN "Description"
+F 5 "2N3904D26ZCT-ND" H 8900 2125 50  0001 C CNN "DigikeyPart#"
+	1    8900 2125
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9825 2325 9825 3300
+Wire Wire Line
+	9125 3300 9825 3300
+Wire Wire Line
+	9825 2225 9725 2225
+Wire Wire Line
+	9725 2225 9725 2850
+Wire Wire Line
+	9725 2850 9125 2850
+Wire Wire Line
+	9825 2125 9650 2125
+Wire Wire Line
+	9650 2125 9650 2375
+Wire Wire Line
+	9150 2375 9650 2375
+Wire Wire Line
+	9825 2025 9450 2025
+Wire Wire Line
+	9450 2025 9450 1925
+Wire Wire Line
+	9450 1925 9150 1925
+Connection ~ 9150 1925
+Wire Wire Line
+	9150 1925 9000 1925
+Wire Wire Line
+	7700 2325 7700 3500
+Wire Wire Line
+	7700 3500 8375 3500
+Wire Wire Line
+	7875 2225 7875 3050
+Wire Wire Line
+	7875 3050 8375 3050
+Wire Wire Line
+	7250 2225 7875 2225
+Wire Wire Line
+	8075 2125 8075 2575
+Wire Wire Line
+	8075 2575 8400 2575
+Wire Wire Line
+	7250 2125 8075 2125
+Wire Wire Line
+	8200 2025 8200 2125
+Wire Wire Line
+	8200 2125 8400 2125
+Wire Wire Line
+	7250 2025 8200 2025
+$Comp
+L Device:R R25
+U 1 1 6049D710
+P 9100 1700
+F 0 "R25" V 8893 1700 50  0000 C CNN
+F 1 "10k" V 8984 1700 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 9030 1700 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 9100 1700 50  0001 C CNN
+F 4 "RES 10K OHM 1/4W 1% AXIAL" H 9100 1700 50  0001 C CNN "Description"
+F 5 "RNF14FTD10K0CT-ND" H 9100 1700 50  0001 C CNN "DigikeyPart#"
+	1    9100 1700
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D_Zener D20
+U 1 1 6049D718
+P 8750 1900
+F 0 "D20" H 8750 1775 50  0000 C CNN
+F 1 "D_Zener" V 8795 1980 50  0001 L CNN
+F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 8750 1900 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/1N5221B-D.PDF" H 8750 1900 50  0001 C CNN
+F 4 "DIODE ZENER 3.3V 500MW DO35" H 8750 1900 50  0001 C CNN "Description"
+F 5 "1N5226BFSCT-ND" H 8750 1900 50  0001 C CNN "DigikeyPart#"
+	1    8750 1900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R24
+U 1 1 6049D728
+P 8900 1400
+F 0 "R24" V 8693 1400 50  0000 C CNN
+F 1 "10k" V 8784 1400 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8830 1400 50  0001 C CNN
+F 3 "https://www.seielect.com/catalog/sei-rnf_rnmf.pdf" H 8900 1400 50  0001 C CNN
+F 4 "RES 10K OHM 1/4W 1% AXIAL" H 8900 1400 50  0001 C CNN "Description"
+F 5 "RNF14FTD10K0CT-ND" H 8900 1400 50  0001 C CNN "DigikeyPart#"
+	1    8900 1400
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D_Zener D19
+U 1 1 6049D730
+P 8550 1600
+F 0 "D19" H 8550 1475 50  0000 C CNN
+F 1 "D_Zener" V 8595 1680 50  0001 L CNN
+F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 8550 1600 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/1N5221B-D.PDF" H 8550 1600 50  0001 C CNN
+F 4 "DIODE ZENER 3.3V 500MW DO35" H 8550 1600 50  0001 C CNN "Description"
+F 5 "1N5226BFSCT-ND" H 8550 1600 50  0001 C CNN "DigikeyPart#"
+	1    8550 1600
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8700 1400 8700 1600
+Wire Wire Line
+	8700 1400 8750 1400
+Wire Wire Line
+	8900 1700 8900 1900
+Wire Wire Line
+	8900 1700 8950 1700
+$Comp
+L power:GND #PWR014
+U 1 1 6049D746
+P 8600 1900
+F 0 "#PWR014" H 8600 1650 50  0001 C CNN
+F 1 "GND" H 8605 1727 50  0000 C CNN
+F 2 "" H 8600 1900 50  0001 C CNN
+F 3 "" H 8600 1900 50  0001 C CNN
+	1    8600 1900
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR013
+U 1 1 6049D74C
+P 8400 1600
+F 0 "#PWR013" H 8400 1350 50  0001 C CNN
+F 1 "GND" H 8405 1427 50  0000 C CNN
+F 2 "" H 8400 1600 50  0001 C CNN
+F 3 "" H 8400 1600 50  0001 C CNN
+	1    8400 1600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8300 1925 8300 1700
+Wire Wire Line
+	8300 1700 8900 1700
+Wire Wire Line
+	7250 1925 8300 1925
+Connection ~ 8900 1700
+Wire Wire Line
+	9250 1700 9550 1700
+Wire Wire Line
+	9550 1700 9550 1925
+Wire Wire Line
+	9550 1925 9825 1925
+Wire Wire Line
+	9050 1400 9250 1400
+Wire Wire Line
+	9250 1400 9250 1650
+Wire Wire Line
+	9250 1650 9625 1650
+Wire Wire Line
+	9625 1650 9625 1825
+Wire Wire Line
+	9625 1825 9825 1825
+Wire Wire Line
+	8125 1825 8125 1400
+Wire Wire Line
+	8125 1400 8700 1400
+Wire Wire Line
+	7250 1825 8125 1825
+Connection ~ 8700 1400
+Wire Wire Line
+	8075 1725 8075 1100
+Wire Wire Line
+	8075 1100 9675 1100
+Wire Wire Line
+	9675 1100 9675 1725
+Wire Wire Line
+	9675 1725 9825 1725
+Wire Wire Line
+	7250 1725 8075 1725
+Wire Wire Line
+	9825 1625 9725 1625
+Wire Wire Line
+	9725 1625 9725 1050
+Wire Wire Line
+	9725 1050 8000 1050
+Wire Wire Line
+	8000 1050 8000 1625
+Wire Wire Line
+	7250 1625 8000 1625
+Wire Wire Line
+	7950 1525 7950 975 
+Wire Wire Line
+	7950 975  9775 975 
+Wire Wire Line
+	9775 975  9775 1525
+Wire Wire Line
+	9775 1525 9825 1525
+Wire Wire Line
+	7250 1525 7950 1525
+Wire Wire Line
+	9825 1425 9825 925 
+Wire Wire Line
+	9825 925  7875 925 
+Wire Wire Line
+	7875 925  7875 1425
+Wire Wire Line
+	7250 1425 7875 1425
+Wire Wire Line
+	9125 2850 8975 2850
+Connection ~ 9125 2850
+Text Label 1675 5175 0    50   ~ 0
+BatSimulator
 $EndSCHEMATC

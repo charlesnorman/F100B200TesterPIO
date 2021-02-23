@@ -4,593 +4,1215 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
+Title "F100_B200_TESTER"
+Date "2021-02-14"
+Rev "1"
+Comp "Tiger Controls"
 Comment1 ""
 Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L BoxWiring-rescue:Control_Board-F100B200TestPanel U3
-U 1 1 5F4FC6C0
-P 3650 2500
-F 0 "U3" H 3675 3217 50  0000 C CNN
-F 1 "Control_Board" H 3675 3075 118 0000 C CNN
-F 2 "" H 3650 2500 50  0001 C CNN
-F 3 "" H 3650 2500 50  0001 C CNN
-	1    3650 2500
-	1    0    0    -1  
-$EndComp
-Text Label 2900 3050 2    50   ~ 0
-OVEN_TEMP
-Text Label 2900 3150 2    50   ~ 0
-COMP_TEMP
-$Comp
 L BoxWiring-rescue:TMP36GT9-F100B200TestPanel U1
 U 1 1 5F50241A
-P 1850 2700
-F 0 "U1" H 1907 3167 50  0000 C CNN
-F 1 "TMP36GT9" H 1907 3076 50  0000 C CNN
-F 2 "XDCR_TMP36GT9" H 1650 3100 50  0001 L BNN
-F 3 "H" H 1850 2700 50  0001 L BNN
-F 4 "ANALOG DEVICE" H 1650 3100 50  0001 L BNN "Field4"
-	1    1850 2700
-	1    0    0    -1  
-$EndComp
-$Comp
-L BoxWiring-rescue:TMP36GT9-F100B200TestPanel U2
-U 1 1 5F502F01
-P 1850 3550
-F 0 "U2" H 1907 4017 50  0000 C CNN
-F 1 "TMP36GT9" H 1907 3926 50  0000 C CNN
-F 2 "XDCR_TMP36GT9" H 1650 3950 50  0001 L BNN
-F 3 "H" H 1850 3550 50  0001 L BNN
-F 4 "ANALOG DEVICE" H 1650 3950 50  0001 L BNN "Field4"
-	1    1850 3550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2150 3550 2500 3550
-Wire Wire Line
-	2500 3550 2500 3150
-Wire Wire Line
-	2500 3150 2900 3150
-Wire Wire Line
-	2150 2700 2450 2700
-Wire Wire Line
-	2450 2700 2450 3050
-Wire Wire Line
-	2450 3050 2900 3050
-Wire Wire Line
-	2150 3350 2250 3350
-Wire Wire Line
-	2250 3350 2250 2500
-Wire Wire Line
-	2250 2500 2150 2500
-Wire Wire Line
-	2250 2500 2250 2450
-Wire Wire Line
-	2250 2450 2900 2450
-Connection ~ 2250 2500
-Wire Wire Line
-	2900 2650 2300 2650
-Wire Wire Line
-	2300 2650 2300 2900
-Wire Wire Line
-	2300 2900 2150 2900
-Wire Wire Line
-	2300 2900 2300 3750
-Wire Wire Line
-	2300 3750 2150 3750
-Connection ~ 2300 2900
-Text Label 4450 4550 0    50   ~ 0
-5VDC
-Text Label 2900 2850 2    50   ~ 0
-5VDC
-Text Label 4450 2950 0    50   ~ 0
-+12VDC
-$Comp
-L BoxWiring-rescue:12VDCRelay2906223-F100B200TestPanel K1
-U 1 1 5F51DD19
-P 6350 2700
-F 0 "K1" V 5583 2700 50  0000 C CNN
-F 1 "Internal/External" V 5674 2700 50  0000 C CNN
-F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 7700 2670 50  0001 C CNN
-F 3 "http://gfinder.findernet.com/assets/Series/353/S40EN.pdf" H 6350 2700 50  0001 C CNN
-	1    6350 2700
+P 9325 5250
+F 0 "U1" H 9382 5717 50  0000 C CNN
+F 1 "TMP36GT9" H 9382 5626 50  0000 C CNN
+F 2 "XDCR_TMP36GT9" H 9125 5650 50  0001 L BNN
+F 3 "https://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf" H 9325 5250 50  0001 L BNN
+F 4 "ANALOG DEVICE" H 9125 5650 50  0001 L BNN "Field4"
+F 5 "SENSOR TEMP 2.7/5.5 TO92-3" H 9325 5250 50  0001 C CNN "Description"
+F 6 "TMP36GT9-ND" H 9325 5250 50  0001 C CNN "DigikeyPart#"
+F 7 "Analog Devices Inc." H 9325 5250 50  0001 C CNN "Mng"
+F 8 "TMP36GT9" H 9325 5250 50  0001 C CNN "MngPart#"
+	1    9325 5250
 	-1   0    0    1   
-$EndComp
-$Comp
-L BoxWiring-rescue:12VDCRelay2906223-F100B200TestPanel K2
-U 1 1 5F5221B7
-P 7550 1300
-F 0 "K2" V 6783 1300 50  0000 C CNN
-F 1 "6V/12V Select" V 6874 1300 50  0000 C CNN
-F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 8900 1270 50  0001 C CNN
-F 3 "http://gfinder.findernet.com/assets/Series/353/S40EN.pdf" H 7550 1300 50  0001 C CNN
-	1    7550 1300
-	0    1    1    0   
 $EndComp
 $Comp
 L BoxWiring-rescue:12VDCRelay2906223-F100B200TestPanel K3
 U 1 1 5F5232A0
-P 7300 5450
-F 0 "K3" V 6533 5450 50  0000 C CNN
-F 1 "Heat/Cool Select" V 6624 5450 50  0000 C CNN
-F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 8650 5420 50  0001 C CNN
-F 3 "http://gfinder.findernet.com/assets/Series/353/S40EN.pdf" H 7300 5450 50  0001 C CNN
-	1    7300 5450
-	0    1    1    0   
-$EndComp
-Text Label 7600 5050 0    50   ~ 0
-+12VDC
-Text Label 6750 3000 3    50   ~ 0
-+12VDC
-Text Label 7850 900  0    50   ~ 0
-+12VDC
-$Comp
-L BoxWiring-rescue:F-213Z_XFRM-F100B200TestPanel T3
-U 1 1 5F578853
-P 8750 3000
-F 0 "T3" H 8600 3000 50  0000 C CNN
-F 1 "F-213Z_XFRM" H 8350 2750 50  0000 C CNN
-F 2 "" H 8750 3000 50  0001 C CNN
-F 3 "~" H 8750 3000 50  0001 C CNN
-	1    8750 3000
+P 6775 3300
+F 0 "K3" H 6825 2875 50  0000 C CNN
+F 1 "Heat/Cool Select" H 6750 2750 50  0000 C CNN
+F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 8125 3270 50  0001 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/Phoenix%20Contact%20PDFs/2906223.pdf" H 6775 3300 50  0001 C CNN
+F 4 "RELAY GEN PURPOSE DPDT 8A 12V" H 6775 3300 50  0001 C CNN "Description"
+F 5 "277-12082-ND" H 6775 3300 50  0001 C CNN "DigikeyPart#"
+F 6 "Phoenix Contact" H 6775 3300 50  0001 C CNN "Mng"
+F 7 "2906223" H 6775 3300 50  0001 C CNN "MngPart#"
+	1    6775 3300
 	-1   0    0    1   
 $EndComp
-$Comp
-L BoxWiring-rescue:VPS24-7300_XFRM-F100B200TestPanel T4
-U 1 1 5F57B824
-P 8800 4150
-F 0 "T4" H 8700 4150 50  0000 C CNN
-F 1 "VPS24-7300_XFRM" H 8300 3900 50  0000 C CNN
-F 2 "" H 8800 4150 50  0001 C CNN
-F 3 "~" H 8800 4150 50  0001 C CNN
-	1    8800 4150
-	-1   0    0    1   
-$EndComp
+Text Label 7175 3725 2    50   ~ 0
++12VDC
 $Comp
 L BoxWiring-rescue:0030130207-TFRM-F100B200TestPanel T1
 U 1 1 5F5A35A4
-P 8650 1950
-F 0 "T1" H 8650 1700 50  0000 C CNN
-F 1 "0030130207-TFRM" H 8150 1850 50  0000 C CNN
-F 2 "" H 8650 1950 50  0001 C CNN
-F 3 "~" H 8650 1950 50  0001 C CNN
-	1    8650 1950
-	-1   0    0    1   
+P 9200 1525
+F 0 "T1" H 9025 1625 50  0000 C CNN
+F 1 "0030130207-TFRM" H 8700 1425 50  0000 C CNN
+F 2 "" H 9200 1525 50  0001 C CNN
+F 3 "~" H 9200 1525 50  0001 C CNN
+	1    9200 1525
+	-1   0    0    -1  
 $EndComp
 $Comp
 L BoxWiring-rescue:0030130208-TFRM-F100B200TestPanel T2
 U 1 1 5F5A46BC
-P 8650 1400
-F 0 "T2" H 8650 1150 50  0000 C CNN
-F 1 "0030130208-TFRM" H 8150 1300 50  0000 C CNN
-F 2 "" H 8650 1400 50  0001 C CNN
-F 3 "~" H 8650 1400 50  0001 C CNN
-	1    8650 1400
-	-1   0    0    1   
+P 9200 975
+F 0 "T2" H 9025 1075 50  0000 C CNN
+F 1 "0030130208-TFRM" H 8700 875 50  0000 C CNN
+F 2 "" H 9200 975 50  0001 C CNN
+F 3 "~" H 9200 975 50  0001 C CNN
+	1    9200 975 
+	-1   0    0    -1  
 $EndComp
-Wire Wire Line
-	7850 1200 8250 1200
-Wire Wire Line
-	7850 1400 8000 1400
-Wire Wire Line
-	8000 1400 8000 1750
-Wire Wire Line
-	8000 1750 8250 1750
-Wire Wire Line
-	7850 1800 7850 2150
-Wire Wire Line
-	7850 2150 8250 2150
-Text Label 4450 3650 0    50   ~ 0
-6V-12V_SEL
-Text Label 7250 900  2    50   ~ 0
-6V-12V_SEL
-$Comp
-L power:GND #PWR02
-U 1 1 5F5C31F9
-P 8150 2250
-F 0 "#PWR02" H 8150 2000 50  0001 C CNN
-F 1 "GND" H 8155 2077 50  0000 C CNN
-F 2 "" H 8150 2250 50  0001 C CNN
-F 3 "" H 8150 2250 50  0001 C CNN
-	1    8150 2250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8150 2250 8150 1950
-Wire Wire Line
-	8150 1950 8250 1950
-Wire Wire Line
-	8150 1950 8150 1400
-Wire Wire Line
-	8150 1400 8250 1400
-Connection ~ 8150 1950
-Wire Wire Line
-	7250 1350 7250 1300
-Wire Wire Line
-	7250 1550 7250 1700
-Text Label 6600 1350 2    50   ~ 0
-UUT_AC1
-Text Label 6600 1550 2    50   ~ 0
-UUT_AC2
-Wire Wire Line
-	7100 1950 7100 1750
-Text Label 6600 1750 2    50   ~ 0
-UUT_CT
-Wire Notes Line
-	5650 1150 6600 1150
-Wire Notes Line
-	6600 1150 6600 2100
-Wire Notes Line
-	6600 2100 5650 2100
-Wire Notes Line
-	5650 2100 5650 1150
-Text Notes 5800 1700 0    157  ~ 0
-UUT
-Wire Notes Line
-	5550 3500 6500 3500
-Wire Notes Line
-	6500 3500 6500 4450
-Wire Notes Line
-	6500 4450 5550 4450
-Wire Notes Line
-	5550 4450 5550 3500
-Text Notes 5800 4350 0    157  ~ 0
-BAT
-Wire Wire Line
-	7250 1350 6600 1350
-Wire Wire Line
-	7250 1550 6600 1550
-Wire Wire Line
-	7100 1750 6600 1750
-Text Label 5850 3500 3    50   ~ 0
-BAT+
-Text Label 6250 3500 3    50   ~ 0
-BAT-
-Wire Wire Line
-	6250 3000 6250 3200
-Wire Wire Line
-	6450 3000 6450 3200
-Wire Wire Line
-	6450 3200 6250 3200
-Connection ~ 6250 3200
-Wire Wire Line
-	6250 3200 6250 3500
-$Comp
-L power:GND #PWR01
-U 1 1 5F5D8ACD
-P 6450 3200
-F 0 "#PWR01" H 6450 2950 50  0001 C CNN
-F 1 "GND" H 6455 3027 50  0000 C CNN
-F 2 "" H 6450 3200 50  0001 C CNN
-F 3 "" H 6450 3200 50  0001 C CNN
-	1    6450 3200
-	1    0    0    -1  
-$EndComp
-Connection ~ 6450 3200
-Text Label 4450 4850 0    50   ~ 0
-VBAT_INT
-Text Label 5850 3000 3    50   ~ 0
-VBAT_INT
-Text Label 5950 2100 1    50   ~ 0
-UUT_B+
-Text Label 6350 2100 1    50   ~ 0
-UUT_B-
-Wire Wire Line
-	5950 2400 5950 2100
-Wire Wire Line
-	6350 2400 6350 2100
-Text Label 6750 2400 1    50   ~ 0
-EXT-INT_SEL
-Text Label 4450 3850 0    50   ~ 0
-EXT-INT_SEL
-Wire Wire Line
-	8150 1950 7100 1950
-Wire Wire Line
-	7850 1600 8250 1600
-Wire Wire Line
-	9750 1600 9750 2150
-Wire Wire Line
-	9750 2600 9150 2600
-Wire Wire Line
-	9750 2600 9750 3100
-Wire Wire Line
-	9750 3750 9200 3750
-Connection ~ 9750 2600
-Wire Wire Line
-	9050 2150 9750 2150
-Connection ~ 9750 2150
-Wire Wire Line
-	9750 2150 9750 2600
-Wire Wire Line
-	9050 1200 10000 1200
-Wire Wire Line
-	10000 1200 10000 1750
-Wire Wire Line
-	10000 4550 9200 4550
-Wire Wire Line
-	9150 3400 10000 3400
-Connection ~ 10000 3400
-Wire Wire Line
-	10000 3400 10000 4050
-Wire Wire Line
-	9150 2900 10000 2900
-Connection ~ 10000 2900
-Wire Wire Line
-	10000 2900 10000 3400
-Wire Wire Line
-	9150 3100 9750 3100
-Connection ~ 9750 3100
-Wire Wire Line
-	9750 3100 9750 3750
-Wire Wire Line
-	9050 1750 10000 1750
-Connection ~ 10000 1750
-Wire Wire Line
-	10000 1750 10000 1800
-Wire Wire Line
-	9200 4050 10000 4050
-Connection ~ 10000 4050
-Wire Wire Line
-	10000 4050 10000 4550
-Wire Wire Line
-	9200 4250 9750 4250
-Wire Wire Line
-	9750 4250 9750 3750
-Connection ~ 9750 3750
 $Comp
 L Switch:SW_SPST SW1
 U 1 1 5F5EBA1C
-P 10300 1600
-F 0 "SW1" H 10300 1835 50  0000 C CNN
-F 1 "SW_SPST" H 10300 1744 50  0000 C CNN
-F 2 "" H 10300 1600 50  0001 C CNN
-F 3 "~" H 10300 1600 50  0001 C CNN
-	1    10300 1600
+P 10500 775
+F 0 "SW1" H 10500 1010 50  0000 C CNN
+F 1 "SW_SPST" H 10500 919 50  0000 C CNN
+F 2 "" H 10500 775 50  0001 C CNN
+F 3 "https://www.carlingtech.com/sites/default/files/documents/F-SeriesSW_Details_%26_COS.pdf" H 10500 775 50  0001 C CNN
+F 4 "SWITCH TOGGLE SPST 20A 125V" H 10500 775 50  0001 C CNN "Description"
+F 5 "432-1243-ND" H 10500 775 50  0001 C CNN "DigikeyPart#"
+F 6 "Carling Technologies" H 10500 775 50  0001 C CNN "Mng"
+F 7 "2FAA01-73" H 10500 775 50  0001 C CNN "MngPart#"
+	1    10500 775 
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector:Conn_WallPlug_Earth P1
 U 1 1 5F5EE9A5
-P 10800 1700
-F 0 "P1" H 10590 1565 50  0000 R CNN
-F 1 "Conn_WallPlug_Earth" H 10590 1520 50  0001 R CNN
-F 2 "" H 11200 1700 50  0001 C CNN
-F 3 "~" H 11200 1700 50  0001 C CNN
-	1    10800 1700
+P 11000 875
+F 0 "P1" H 10975 1125 50  0000 R CNN
+F 1 "Conn_WallPlug_Earth" H 10790 695 50  0001 R CNN
+F 2 "" H 11400 875 50  0001 C CNN
+F 3 "~" H 11400 875 50  0001 C CNN
+	1    11000 875 
 	-1   0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR03
 U 1 1 5F5EFD67
-P 10500 2000
-F 0 "#PWR03" H 10500 1750 50  0001 C CNN
-F 1 "GND" H 10505 1827 50  0000 C CNN
-F 2 "" H 10500 2000 50  0001 C CNN
-F 3 "" H 10500 2000 50  0001 C CNN
-	1    10500 2000
+P 10700 1175
+F 0 "#PWR03" H 10700 925 50  0001 C CNN
+F 1 "GND" H 10705 1002 50  0000 C CNN
+F 2 "" H 10700 1175 50  0001 C CNN
+F 3 "" H 10700 1175 50  0001 C CNN
+	1    10700 1175
 	1    0    0    -1  
 $EndComp
+Text Label 7175 2850 0    50   ~ 0
+Heat_Cool_Sel
+Text Label 9600 775  0    50   ~ 0
+AC_SW
 Wire Wire Line
-	9050 1600 9750 1600
-Connection ~ 9750 1600
+	9600 1725 10550 1725
 Wire Wire Line
-	9750 1600 10100 1600
+	10550 1725 10550 1175
 Wire Wire Line
-	10500 1800 10000 1800
-Connection ~ 10000 1800
+	10550 975  10700 975 
 Wire Wire Line
-	10000 1800 10000 2900
+	9600 1175 10550 1175
+Connection ~ 10550 1175
 Wire Wire Line
-	8350 2900 8350 3000
-Wire Wire Line
-	8400 4050 8400 4150
-Text Label 4450 2150 0    50   ~ 0
-AC_1
-Text Label 4450 2250 0    50   ~ 0
-AC_CT
-Text Label 4450 2350 0    50   ~ 0
-AC_2
-Text Label 4450 2550 0    50   ~ 0
-AC_3
-Text Label 4450 2650 0    50   ~ 0
-AC_CT2
-Text Label 4450 2750 0    50   ~ 0
-AC_4
-Wire Wire Line
-	8350 3000 8150 3000
-Connection ~ 8350 3000
-Wire Wire Line
-	8350 3000 8350 3100
-Wire Wire Line
-	8400 4150 8150 4150
-Connection ~ 8400 4150
-Wire Wire Line
-	8400 4150 8400 4250
-$Comp
-L power:GND #PWR04
-U 1 1 5F5FD41B
-P 8150 3000
-F 0 "#PWR04" H 8150 2750 50  0001 C CNN
-F 1 "GND" H 8155 2827 50  0000 C CNN
-F 2 "" H 8150 3000 50  0001 C CNN
-F 3 "" H 8150 3000 50  0001 C CNN
-	1    8150 3000
-	1    0    0    -1  
-$EndComp
+	10550 1175 10550 975 
+Text Label 10550 1725 0    50   ~ 0
+AC_N
+Text Label 8550 750  0    50   ~ 0
+12VDC
+Text Label 7950 750  2    50   ~ 0
+6V_12V_SEL
+Text Label 5750 1375 0    50   ~ 0
+VIN_PLUS
 $Comp
 L power:GND #PWR05
-U 1 1 5F5FD7CE
-P 8150 4150
-F 0 "#PWR05" H 8150 3900 50  0001 C CNN
-F 1 "GND" H 8155 3977 50  0000 C CNN
-F 2 "" H 8150 4150 50  0001 C CNN
-F 3 "" H 8150 4150 50  0001 C CNN
-	1    8150 4150
+U 1 1 603B9138
+P 5750 1475
+F 0 "#PWR05" H 5750 1225 50  0001 C CNN
+F 1 "GND" H 5755 1302 50  0000 C CNN
+F 2 "" H 5750 1475 50  0001 C CNN
+F 3 "" H 5750 1475 50  0001 C CNN
+	1    5750 1475
+	0    -1   -1   0   
+$EndComp
+Text Label 6125 1575 0    50   ~ 0
+STAT_1
+Text Label 6125 1775 0    50   ~ 0
+POW_ON_NOT
+Text Label 6125 1875 0    50   ~ 0
+PLUS_LOAD
+Text Label 6125 1675 0    50   ~ 0
+STAT_2
+Wire Wire Line
+	5750 1575 6125 1575
+Wire Wire Line
+	5750 1675 6125 1675
+$Comp
+L Relay_SolidState:S216S01 U5
+U 1 1 60282AE2
+P 8675 3425
+F 0 "U5" H 8675 3108 50  0000 C CNN
+F 1 "EL240A20R-12" H 8675 3199 50  0000 C CNN
+F 2 "" H 8475 3225 50  0001 L CIN
+F 3 "https://www.sensata.com/sites/default/files/a/sensata-el%20series-ac%20output%20panel%20mount%20relay-datasheet_0.pdf" H 8675 3425 50  0001 L CNN
+F 4 "CC2560-ND" H 8675 3425 50  0001 C CNN "DigikeyPart#"
+F 5 "SSR RELAY SPST-NO 20A 24-280V" H 8675 3425 50  0001 C CNN "Description"
+F 6 "Sensata-Crydom" H 8675 3425 50  0001 C CNN "Mng"
+F 7 "EL240A20R-12" H 8675 3425 50  0001 C CNN "MngPart#"
+	1    8675 3425
+	1    0    0    1   
+$EndComp
+$Comp
+L Motor:Fan M1
+U 1 1 602AFDBD
+P 9025 4650
+F 0 "M1" H 9183 4746 50  0000 L CNN
+F 1 "Fan" H 9183 4655 50  0000 L CNN
+F 2 "" H 9025 4660 50  0001 C CNN
+F 3 "~" H 9025 4660 50  0001 C CNN
+	1    9025 4650
 	1    0    0    -1  
 $EndComp
-Text Label 8400 3750 2    50   ~ 0
-AC_1
-Text Label 8400 4550 2    50   ~ 0
-AC_2
-Text Label 8150 4150 2    50   ~ 0
-AC_CT
-Text Label 8350 2600 2    50   ~ 0
-AC_3
-Text Label 8350 3400 2    50   ~ 0
-AC_4
-Text Label 8150 3000 2    50   ~ 0
-AC_CT2
+$Comp
+L Motor:Fan M2
+U 1 1 602B12D1
+P 9525 4650
+F 0 "M2" H 9683 4746 50  0000 L CNN
+F 1 "Fan" H 9683 4655 50  0000 L CNN
+F 2 "" H 9525 4660 50  0001 C CNN
+F 3 "~" H 9525 4660 50  0001 C CNN
+	1    9525 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Motor:Fan M3
+U 1 1 602B247E
+P 10025 4650
+F 0 "M3" H 10183 4746 50  0000 L CNN
+F 1 "Fan" H 10183 4655 50  0000 L CNN
+F 2 "" H 10025 4660 50  0001 C CNN
+F 3 "~" H 10025 4660 50  0001 C CNN
+	1    10025 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Motor:Fan M4
+U 1 1 602B342C
+P 10525 4650
+F 0 "M4" H 10683 4746 50  0000 L CNN
+F 1 "Fan" H 10683 4655 50  0000 L CNN
+F 2 "" H 10525 4660 50  0001 C CNN
+F 3 "~" H 10525 4660 50  0001 C CNN
+	1    10525 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Heater R1
+U 1 1 602B6760
+P 9275 3200
+F 0 "R1" V 9150 3150 50  0000 L CNN
+F 1 "Heater" V 9375 3100 50  0000 L CNN
+F 2 "" V 9205 3200 50  0001 C CNN
+F 3 "~" H 9275 3200 50  0001 C CNN
+	1    9275 3200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:Heater R2
+U 1 1 602B70E5
+P 9275 3650
+F 0 "R2" V 9150 3600 50  0000 L CNN
+F 1 "Heater" V 9400 3550 50  0000 L CNN
+F 2 "" V 9205 3650 50  0001 C CNN
+F 3 "~" H 9275 3650 50  0001 C CNN
+	1    9275 3650
+	0    1    1    0   
+$EndComp
 $Comp
 L Device:Peltier_Element PE1
-U 1 1 5F5FFE56
-P 8200 5350
-F 0 "PE1" H 8200 5592 50  0000 C CNN
-F 1 "Peltier_Element" H 8200 5501 50  0000 C CNN
-F 2 "" H 8200 5280 50  0001 C CNN
-F 3 "~" V 8200 5375 50  0001 C CNN
-	1    8200 5350
+U 1 1 602B8157
+P 8675 4050
+F 0 "PE1" H 8675 4201 50  0000 C CNN
+F 1 "Peltier_Element" H 8675 4201 50  0001 C CNN
+F 2 "" H 8675 3980 50  0001 C CNN
+F 3 "~" V 8675 4075 50  0001 C CNN
+	1    8675 4050
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:Peltier_Element PE2
-U 1 1 5F600A73
-P 8200 5950
-F 0 "PE2" H 8200 6192 50  0000 C CNN
-F 1 "Peltier_Element" H 8200 6101 50  0000 C CNN
-F 2 "" H 8200 5880 50  0001 C CNN
-F 3 "~" V 8200 5975 50  0001 C CNN
-	1    8200 5950
+U 1 1 602B9207
+P 8675 4350
+F 0 "PE2" H 8675 4501 50  0000 C CNN
+F 1 "Peltier_Element" H 8675 4501 50  0001 C CNN
+F 2 "" H 8675 4280 50  0001 C CNN
+F 3 "~" V 8675 4375 50  0001 C CNN
+	1    8675 4350
 	1    0    0    -1  
 $EndComp
-Text Label 4450 3050 0    50   ~ 0
-OVEN-
-Text Label 7000 5850 2    50   ~ 0
-OVEN-
-Wire Wire Line
-	7600 5350 7850 5350
-Wire Wire Line
-	7600 5750 7700 5750
-Wire Wire Line
-	7700 5750 7700 5650
-Wire Wire Line
-	7700 5650 8400 5650
-Wire Wire Line
-	8400 5650 8400 5350
-Wire Wire Line
-	8400 5650 8400 5950
-Connection ~ 8400 5650
-Wire Wire Line
-	8000 5950 7850 5950
-Wire Wire Line
-	7850 5950 7850 5350
-Connection ~ 7850 5350
-Wire Wire Line
-	7850 5350 8000 5350
-Wire Wire Line
-	7600 5550 7700 5550
-Wire Wire Line
-	7700 5550 7700 5650
-Connection ~ 7700 5650
-Wire Wire Line
-	7850 5950 7600 5950
-Connection ~ 7850 5950
 $Comp
-L BoxWiring-rescue:TM1638Module-F100B200TestPanel U4
-U 1 1 5F614BA9
-P 3650 6100
-F 0 "U4" V 3596 5622 50  0000 R CNN
-F 1 "TM1638Module" V 3687 5622 50  0000 R CNN
-F 2 "" H 3650 6100 50  0001 C CNN
-F 3 "" H 3650 6100 50  0001 C CNN
-	1    3650 6100
+L Connector:Conn_WallPlug P2
+U 1 1 602C56CD
+P 11025 3300
+F 0 "P2" H 11025 3550 50  0000 R CNN
+F 1 "Conn_WallPlug" H 10815 3255 50  0001 R CNN
+F 2 "" H 11425 3300 50  0001 C CNN
+F 3 "~" H 11425 3300 50  0001 C CNN
+	1    11025 3300
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:Fuse F1
+U 1 1 602C894F
+P 9800 3200
+F 0 "F1" V 9603 3200 50  0000 C CNN
+F 1 "Fuse" V 9694 3200 50  0000 C CNN
+F 2 "" V 9730 3200 50  0001 C CNN
+F 3 "https://www.littelfuse.com/data/en/data_sheets/internationalshocksafe.pdf" H 9800 3200 50  0001 C CNN
+F 4 "FUSE HLDR CART 250V 20A PNL MNT" H 9800 3200 50  0001 C CNN "Description"
+F 5 "F3122-ND" H 9800 3200 50  0001 C CNN "DigikeyPart#"
+F 6 "Littelfuse Inc." H 9800 3200 50  0001 C CNN "Mng"
+F 7 "03453LF7H" H 9800 3200 50  0001 C CNN "MngPart#"
+	1    9800 3200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9425 3200 9575 3200
+Wire Wire Line
+	9125 3200 8975 3200
+Wire Wire Line
+	8975 3200 8975 3325
+Wire Wire Line
+	8975 3525 8975 3650
+Wire Wire Line
+	8975 3650 9125 3650
+Wire Wire Line
+	8875 4050 8875 4350
+Wire Wire Line
+	8875 4350 9025 4350
+Connection ~ 8875 4350
+Connection ~ 9025 4350
+Wire Wire Line
+	9025 4350 9525 4350
+Connection ~ 9525 4350
+Wire Wire Line
+	9525 4350 10025 4350
+Connection ~ 10025 4350
+Wire Wire Line
+	10025 4350 10525 4350
+Wire Wire Line
+	10525 4850 10025 4850
+Connection ~ 9025 4850
+Connection ~ 9525 4850
+Wire Wire Line
+	9525 4850 9025 4850
+Connection ~ 10025 4850
+Wire Wire Line
+	10025 4850 9525 4850
+Wire Wire Line
+	8475 4050 8475 4350
+Connection ~ 8475 4350
+Wire Wire Line
+	9025 5450 8000 5450
+$Comp
+L Switch:SW_SPST SW2
+U 1 1 603152A0
+P 10400 3200
+F 0 "SW2" H 10400 3435 50  0000 C CNN
+F 1 "SW_SPST" H 10400 3344 50  0000 C CNN
+F 2 "" H 10400 3200 50  0001 C CNN
+F 3 "https://www.carlingtech.com/sites/default/files/documents/F-SeriesSW_Details_%26_COS.pdf" H 10400 3200 50  0001 C CNN
+F 4 "SWITCH TOGGLE SPST 20A 125V" H 10400 3200 50  0001 C CNN "Description"
+F 5 "432-1243-ND" H 10400 3200 50  0001 C CNN "DigikeyPart#"
+F 6 "Carling Technologies" H 10400 3200 50  0001 C CNN "Mng"
+F 7 "2FAA01-73" H 10400 3200 50  0001 C CNN "MngPart#"
+	1    10400 3200
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10600 3200 10825 3200
+Wire Wire Line
+	10200 3200 9950 3200
+$Comp
+L Device:Lamp LA1
+U 1 1 60318D03
+P 9575 3425
+F 0 "LA1" H 9703 3471 50  0000 L CNN
+F 1 "Lamp" H 9703 3380 50  0000 L CNN
+F 2 "" V 9575 3525 50  0001 C CNN
+F 3 "https://vcclite.com/wp-content/uploads/wpallimport/files/files/CNX714.pdf" V 9575 3525 50  0001 C CNN
+F 4 "LED PANEL IND GREEN 120V IP67" H 9575 3425 50  0001 C CNN "Description"
+F 5 "CNX714C500120W-ND" H 9575 3425 50  0001 C CNN "DigikeyPart#"
+F 6 "Visual Communications Company - VCC" H 9575 3425 50  0001 C CNN "Mng"
+F 7 "CNX714C500120W" H 9575 3425 50  0001 C CNN "MngPart#"
+	1    9575 3425
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9575 3225 9575 3200
+Connection ~ 9575 3200
+Wire Wire Line
+	9575 3200 9650 3200
+Wire Wire Line
+	9575 3625 9575 3650
+Wire Wire Line
+	9575 3650 9425 3650
+Wire Wire Line
+	9575 3650 10825 3650
+Wire Wire Line
+	10825 3650 10825 3400
+Connection ~ 9575 3650
+Wire Wire Line
+	9025 5050 8000 5050
+Wire Wire Line
+	8875 4050 8875 3650
+Wire Wire Line
+	8875 3650 8375 3650
+Wire Wire Line
+	8375 3650 8375 3525
+Connection ~ 8875 4050
+Connection ~ 8375 3650
+$Comp
+L Connector:Conn_01x04_Male J3
+U 1 1 603353D2
+P 7550 3975
+F 0 "J3" H 7625 4225 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 7658 4165 50  0001 C CNN
+F 2 "" H 7550 3975 50  0001 C CNN
+F 3 "http://www.switchcraft.com/Drawings/d_mseries_cd.pdf" H 7550 3975 50  0001 C CNN
+F 4 "CONN RCPT MALE XLR 4P SOLDER CUP" H 7550 3975 50  0001 C CNN "Description"
+F 5 "SC1020-ND" H 7550 3975 50  0001 C CNN "DigikeyPart#"
+F 6 "Switchcraft Inc." H 7550 3975 50  0001 C CNN "Mng"
+F 7 "D4M" H 7550 3975 50  0001 C CNN "MngPart#"
+	1    7550 3975
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7925 3650 7925 3975
+Wire Wire Line
+	7925 3975 7750 3975
+Wire Wire Line
+	7925 3650 8375 3650
+Wire Wire Line
+	7750 4075 7925 4075
+Wire Wire Line
+	7925 4075 7925 4350
+Wire Wire Line
+	7925 4350 8475 4350
+Wire Wire Line
+	7750 4175 7750 4850
+Wire Wire Line
+	7750 4850 9025 4850
+Wire Wire Line
+	7750 3325 7750 3875
+Wire Wire Line
+	7750 3325 8375 3325
+$Comp
+L Connector:Conn_01x04_Female J4
+U 1 1 6033F19B
+P 7550 3975
+F 0 "J4" H 7375 4225 50  0000 L CNN
+F 1 "Conn_01x04_Female" H 7578 3860 50  0001 L CNN
+F 2 "" H 7550 3975 50  0001 C CNN
+F 3 "http://www.switchcraft.com/Drawings/a_f_series_cd.pdf" H 7550 3975 50  0001 C CNN
+F 4 "CONN PLUG FMALE XLR 4POS SOLDER" H 7550 3975 50  0001 C CNN "Description"
+F 5 "SC1013-ND" H 7550 3975 50  0001 C CNN "DigikeyPart#"
+F 6 "Switchcraft Inc." H 7550 3975 50  0001 C CNN "Mng"
+F 7 "A4F" H 7550 3975 50  0001 C CNN "MngPart#"
+	1    7550 3975
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7175 3000 7175 2850
+Wire Wire Line
+	7175 3975 7350 3975
+Wire Wire Line
+	7175 3600 7175 3975
+Wire Wire Line
+	7350 3875 6475 3875
+Wire Wire Line
+	6475 3875 6475 3600
+Wire Wire Line
+	6275 3600 6275 4075
+Wire Wire Line
+	6275 4075 7350 4075
+Wire Wire Line
+	7350 4175 7200 4175
+Wire Wire Line
+	7200 4175 7200 4225
+$Comp
+L power:GND #PWR01
+U 1 1 6037780F
+P 7200 4225
+F 0 "#PWR01" H 7200 3975 50  0001 C CNN
+F 1 "GND" H 7205 4052 50  0000 C CNN
+F 2 "" H 7200 4225 50  0001 C CNN
+F 3 "" H 7200 4225 50  0001 C CNN
+	1    7200 4225
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x03_Female J5
+U 1 1 6037942C
+P 7575 5250
+F 0 "J5" H 7467 5017 50  0000 C CNN
+F 1 "Conn_01x03_Female" H 7467 5016 50  0001 C CNN
+F 2 "" H 7575 5250 50  0001 C CNN
+F 3 "http://www.switchcraft.com/Drawings/d_f_series_cd.pdf" H 7575 5250 50  0001 C CNN
+F 4 "CONN PLUG FMALE XLR 3POS SOLDER" H 7575 5250 50  0001 C CNN "Description"
+F 5 "SC1009-ND" H 7575 5250 50  0001 C CNN "DigikeyPart#"
+F 6 "Switchcraft Inc." H 7575 5250 50  0001 C CNN "Mng"
+F 7 "D3F" H 7575 5250 50  0001 C CNN "MngPart#"
+	1    7575 5250
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7775 5250 9025 5250
+Wire Wire Line
+	8000 5050 8000 5150
+Wire Wire Line
+	8000 5150 7775 5150
+Wire Wire Line
+	7775 5350 8000 5350
+Wire Wire Line
+	8000 5350 8000 5450
+$Comp
+L Connector:Conn_01x03_Male J6
+U 1 1 603848DE
+P 7575 5250
+F 0 "J6" H 7725 5025 50  0000 R CNN
+F 1 "Conn_01x03_Male" H 7547 5273 50  0001 R CNN
+F 2 "" H 7575 5250 50  0001 C CNN
+F 3 "http://www.switchcraft.com/Drawings/a_m_series_cd.pdf" H 7575 5250 50  0001 C CNN
+F 4 "CONN RCPT MALE XLR 3P SOLDER CUP" H 7575 5250 50  0001 C CNN "Description"
+F 5 "SC1003-ND" H 7575 5250 50  0001 C CNN "DigikeyPart#"
+F 6 "Switchcraft Inc." H 7575 5250 50  0001 C CNN "Mng"
+F 7 "A3M" H 7575 5250 50  0001 C CNN "MngPart#"
+	1    7575 5250
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR06
+U 1 1 60385C91
+P 7375 5050
+F 0 "#PWR06" H 7375 4800 50  0001 C CNN
+F 1 "GND" V 7375 4825 50  0000 C CNN
+F 2 "" H 7375 5050 50  0001 C CNN
+F 3 "" H 7375 5050 50  0001 C CNN
+	1    7375 5050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7375 5350 7100 5350
+Text Label 7100 5350 2    50   ~ 0
+3_3VDC
+Text Label 6375 3000 1    50   ~ 0
+OVEN_DRIVE
+$Comp
+L Connector:Conn_01x12_Female J7
+U 1 1 603CB97C
+P 9500 1800
+F 0 "J7" H 9325 2450 50  0000 L CNN
+F 1 "Conn_01x12_Female" H 9528 1685 50  0001 L CNN
+F 2 "" H 9500 1800 50  0001 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/Chogori%20Tech%20PDFs/22010(12)211-01.pdf" H 9500 1800 50  0001 C CNN
+F 4 "CONN PLUG FMALE 12P SOLDER CUP" H 9500 1800 50  0001 C CNN "Description"
+F 5 "2150-22012211-01-ND" H 9500 1800 50  0001 C CNN "DigikeyPart#"
+F 6 "Chogori Technologies Inc." H 9500 1800 50  0001 C CNN "Mng"
+F 7 "22012211-01" H 9500 1800 50  0001 C CNN "MngPart#"
+	1    9500 1800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L BoxWiring-rescue:UUT U2
+U 1 1 603D4A8D
+P 9300 2750
+F 0 "U2" V 8583 2470 50  0000 C CNN
+F 1 "UUT" V 8725 2470 118 0000 C CNN
+F 2 "" H 9300 2750 50  0001 C CNN
+F 3 "" H 9300 2750 50  0001 C CNN
+	1    9300 2750
+	1    0    0    1   
+$EndComp
+Wire Notes Line
+	8500 1975 8500 3050
+Wire Notes Line
+	8500 3050 7600 3050
+Wire Notes Line
+	7600 3050 7600 5825
+Wire Notes Line
+	7600 5825 10875 5825
+Wire Notes Line
+	10875 5825 10875 3700
+Wire Notes Line
+	10875 3700 10725 3700
+Wire Notes Line
+	10725 3700 10725 1975
+Wire Notes Line
+	8500 1975 10725 1975
+Text Notes 9325 4150 0    197  ~ 0
+OVEN
+$Comp
+L BoxWiring-rescue:12VDCRelay2906223-F100B200TestPanel K4
+U 1 1 60412A39
+P 7000 1075
+F 0 "K4" V 6800 950 50  0000 C CNN
+F 1 "On/Off" V 7650 1100 50  0000 C CNN
+F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 8350 1045 50  0001 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/Phoenix%20Contact%20PDFs/2906223.pdf" H 7000 1075 50  0001 C CNN
+F 4 "RELAY GEN PURPOSE DPDT 8A 12V" H 7000 1075 50  0001 C CNN "Description"
+F 5 "277-12082-ND" H 7000 1075 50  0001 C CNN "DigikeyPart#"
+F 6 "Phoenix Contact" H 7000 1075 50  0001 C CNN "Mng"
+F 7 "2906223" H 7000 1075 50  0001 C CNN "MngPart#"
+	1    7000 1075
+	0    1    1    0   
+$EndComp
+Text Label 7300 675  0    50   ~ 0
+12VDC
+Text Label 6700 675  2    50   ~ 0
+ON_OFF
+Wire Wire Line
+	5750 1075 6700 1075
+$Comp
+L BoxWiring-rescue:AD1072_PS U6
+U 1 1 6044C8A2
+P 2400 1400
+F 0 "U6" H 2228 1938 50  0000 L CNN
+F 1 "AD1072_PS" H 2228 1847 50  0000 L CNN
+F 2 "" H 2400 1400 197 0001 C CNN
+F 3 "http://www.atop.com.cn/atop/mw/cufiles/files/download_dm/iapl_dm/CA_Power%20Supply.pdf" H 2400 1400 197 0001 C CNN
+F 4 "72W/3A DIN-RAIL 24VDC POWER SUPP" H 2400 1400 50  0001 C CNN "Description"
+F 5 "AD1072-24F-ND" H 2400 1400 50  0001 C CNN "DigikeyPart#"
+F 6 "ATOP Technologies" H 2400 1400 50  0001 C CNN "Mng"
+F 7 "AD1072-24F" H 2400 1400 50  0001 C CNN "MngPart#"
+	1    2400 1400
+	1    0    0    -1  
+$EndComp
+Text Label 1150 1250 3    50   ~ 0
++24VDC
+Text Label 1450 1250 3    50   ~ 0
++24VDC
+$Comp
+L power:GND #PWR08
+U 1 1 6044F4AB
+P 1300 1250
+F 0 "#PWR08" H 1300 1000 50  0001 C CNN
+F 1 "GND" H 1305 1077 50  0000 C CNN
+F 2 "" H 1300 1250 50  0001 C CNN
+F 3 "" H 1300 1250 50  0001 C CNN
+	1    1300 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR09
+U 1 1 604503E6
+P 1600 1250
+F 0 "#PWR09" H 1600 1000 50  0001 C CNN
+F 1 "GND" H 1605 1077 50  0000 C CNN
+F 2 "" H 1600 1250 50  0001 C CNN
+F 3 "" H 1600 1250 50  0001 C CNN
+	1    1600 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR010
+U 1 1 604508CE
+P 1750 1250
+F 0 "#PWR010" H 1750 1000 50  0001 C CNN
+F 1 "GND" H 1755 1077 50  0000 C CNN
+F 2 "" H 1750 1250 50  0001 C CNN
+F 3 "" H 1750 1250 50  0001 C CNN
+	1    1750 1250
+	1    0    0    -1  
+$EndComp
+Text Label 2050 1250 3    50   ~ 0
+AC_SW
+Text Label 1900 1250 3    50   ~ 0
+AC_N
+Text Label 7375 5250 2    50   ~ 0
+OVEN_TEMP
+Wire Wire Line
+	7375 5150 7375 5050
+$Comp
+L BoxWiring-rescue:C-1893 CB1
+U 1 1 6029F119
+P 3200 750
+F 0 "CB1" H 3378 896 50  0000 L CNN
+F 1 "C-1893" H 3378 805 50  0000 L CNN
+F 2 "" H 3200 750 50  0001 C CNN
+F 3 "" H 3200 750 50  0001 C CNN
+F 4 "CABINET STEEL GRY 10.5\"LX18.06\"W" H 3200 750 50  0001 C CNN "Description"
+F 5 "377-1071-ND" H 3200 750 50  0001 C CNN "DigikeyPart#"
+F 6 "Bud Industries" H 3200 750 50  0001 C CNN "Mng"
+F 7 "C-1893" H 3200 750 50  0001 C CNN "MngPart#"
+	1    3200 750 
+	1    0    0    -1  
+$EndComp
+Text Notes 5300 825  0    50   ~ 0
+UUT_CABLE
+$Comp
+L BoxWiring-rescue:CNT_CABLE_12 CBL5
+U 1 1 602D1654
+P 5450 625
+F 0 "CBL5" H 5475 740 50  0000 C CNN
+F 1 "CNT_CABLE_12" H 5475 649 50  0000 C CNN
+F 2 "" H 5450 625 50  0001 C CNN
+F 3 "" H 5450 625 50  0001 C CNN
+F 4 "Flexible multi-conductor control cable, 12 conductors (includes ground), 18 AWG" H 5450 625 50  0001 C CNN "Description"
+F 5 "AutomationDirect" H 5450 625 50  0001 C CNN "Mng"
+F 6 "V40176-1" H 5450 625 50  0001 C CNN "MngPart#"
+	1    5450 625 
+	1    0    0    -1  
+$EndComp
+$Comp
+L BoxWiring-rescue:CNT_CABLE_12 CBL4
+U 1 1 602D323F
+P 8050 2275
+F 0 "CBL4" H 8075 2390 50  0000 C CNN
+F 1 "CNT_CABLE_12" H 8075 2299 50  0000 C CNN
+F 2 "" H 8050 2275 50  0001 C CNN
+F 3 "" H 8050 2275 50  0001 C CNN
+F 4 "Flexible multi-conductor control cable, 12 conductors (includes ground), 18 AWG" H 8050 2275 50  0001 C CNN "Description"
+F 5 "AutomationDirect" H 8050 2275 50  0001 C CNN "Mng"
+F 6 "V40176-1" H 8050 2275 50  0001 C CNN "MngPart#"
+	1    8050 2275
+	1    0    0    -1  
+$EndComp
+Text Notes 7850 2450 0    50   ~ 0
+OVEN_UUT_CBL
+$Comp
+L BoxWiring-rescue:CNT_CABLE_5 CBL3
+U 1 1 602D4C3C
+P 6800 4400
+F 0 "CBL3" H 6800 4515 50  0000 C CNN
+F 1 "CNT_CABLE_5" H 6800 4424 50  0000 C CNN
+F 2 "" H 6800 4400 50  0001 C CNN
+F 3 "" H 6800 4400 50  0001 C CNN
+F 4 "Flexible multi-conductor control cable, 5 conductors (includes ground), 18 AWG" H 6800 4400 50  0001 C CNN "Description"
+F 5 "AutomationDirect" H 6800 4400 50  0001 C CNN "Mng"
+F 6 "V40170-1" H 6800 4400 50  0001 C CNN "MngPart#"
+	1    6800 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L BoxWiring-rescue:CNT_CABLE_4 CBL6
+U 1 1 602DB61D
+P 6850 4750
+F 0 "CBL6" H 6775 4775 50  0000 C CNN
+F 1 "CNT_CABLE_4" H 6800 4700 50  0000 C CNN
+F 2 "" H 6850 4750 50  0001 C CNN
+F 3 "" H 6850 4750 50  0001 C CNN
+F 4 "Flexible multi-conductor control cable, 4 conductors (includes ground), 18 AWG" H 6850 4750 50  0001 C CNN "Description"
+F 5 "AutomationDirect" H 6850 4750 50  0001 C CNN "Mng"
+F 6 "V140168-1" H 6850 4750 50  0001 C CNN "MngPart#"
+	1    6850 4750
+	1    0    0    -1  
+$EndComp
+Text Notes 6475 4575 0    50   ~ 0
+OVEN_POWER_CNT
+Text Notes 6475 4950 0    50   ~ 0
+OVEN_TEMP_SENSE
+Text Notes 3000 675  0    50   ~ 0
+CABINET
+Text Label 5850 7500 2    50   ~ 0
+3_3VDC
+Text Label 6600 7500 2    50   ~ 0
+3_3VDC
+$Comp
+L power:GND #PWR02
+U 1 1 602F7592
+P 5575 7400
+F 0 "#PWR02" H 5575 7150 50  0001 C CNN
+F 1 "GND" H 5575 7250 50  0001 C CNN
+F 2 "" H 5575 7400 50  0001 C CNN
+F 3 "" H 5575 7400 50  0001 C CNN
+	1    5575 7400
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR013
+U 1 1 602F8DDA
+P 6350 7400
+F 0 "#PWR013" H 6350 7150 50  0001 C CNN
+F 1 "GND" H 6350 7250 50  0001 C CNN
+F 2 "" H 6350 7400 50  0001 C CNN
+F 3 "" H 6350 7400 50  0001 C CNN
+	1    6350 7400
+	0    1    1    0   
+$EndComp
+Text Notes 1625 3475 0    50   ~ 0
+PROGRAM_PORT
+Text Notes 700  3475 0    50   ~ 0
+PROGRAM_PORT
+Text Notes 1650 3075 0    50   ~ 0
+NATIVE_USB
+Text Notes 750  3075 0    50   ~ 0
+NATIVE_USB
+$Comp
+L BoxWiring-rescue:MICRO_A_TO_MICRO_A CBL2
+U 1 1 602B4734
+P 1925 3300
+F 0 "CBL2" H 1975 3415 50  0000 C CNN
+F 1 "MICRO_A_TO_MICRO_A" H 1975 3324 50  0000 C CNN
+F 2 "" H 1925 3300 50  0001 C CNN
+F 3 "http://www.assmann-wsw.com/fileadmin/datasheets/AK67301-05-R_REV00.pdf" H 1925 3300 50  0001 C CNN
+F 4 "CABLE MICRO USB-A M-M 0.5M" H 1925 3300 50  0001 C CNN "Description"
+F 5 "AE10420-ND" H 1925 3300 50  0001 C CNN "DigikeyPart#"
+F 6 "Assmann WSW Components" H 1925 3300 50  0001 C CNN "Mng"
+F 7 "AK67301-0.5" H 1925 3300 50  0001 C CNN "MngPart#"
+	1    1925 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L BoxWiring-rescue:MICRO_A_TO_MICRO_A CBL1
+U 1 1 602B24E5
+P 1925 2900
+F 0 "CBL1" H 1975 3015 50  0000 C CNN
+F 1 "MICRO_A_TO_MICRO_A" H 1975 2924 50  0000 C CNN
+F 2 "" H 1925 2900 50  0001 C CNN
+F 3 "http://www.assmann-wsw.com/fileadmin/datasheets/AK67301-05-R_REV00.pdf" H 1925 2900 50  0001 C CNN
+F 4 "CABLE MICRO USB-A M-M 0.5M" H 1925 2900 50  0001 C CNN "Description"
+F 5 "AE10420-ND" H 1925 2900 50  0001 C CNN "DigikeyPart#"
+F 6 "Assmann WSW Components" H 1925 2900 50  0001 C CNN "Mng"
+F 7 "AK67301-0.5" H 1925 2900 50  0001 C CNN "MngPart#"
+	1    1925 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L BoxWiring-rescue:USB_A_TO_B_PNLMNT J9
+U 1 1 602AC8D3
+P 1000 3300
+F 0 "J9" H 1050 3415 50  0000 C CNN
+F 1 "USB_A_TO_B_PNLMNT" H 1050 3324 50  0000 C CNN
+F 2 "" H 1000 3300 50  0001 C CNN
+F 3 "https://cdn-shop.adafruit.com/product-files/4214/P4214_PCM-0158_USB_A_F-_MICRO_USB_B_F.pdf" H 1000 3300 50  0001 C CNN
+F 4 "USB A JACK TO MICRO USB B JACK R" H 1000 3300 50  0001 C CNN "Description"
+F 5 "1528-4214-ND" H 1000 3300 50  0001 C CNN "DigikeyPart#"
+F 6 "Adafruit Industries LLC" H 1000 3300 50  0001 C CNN "Mng"
+F 7 "4214" H 1000 3300 50  0001 C CNN "MngPart#"
+	1    1000 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L BoxWiring-rescue:USB_A_TO_B_PNLMNT J8
+U 1 1 602A8AAA
+P 1000 2900
+F 0 "J8" H 1050 3015 50  0000 C CNN
+F 1 "USB_A_TO_B_PNLMNT" H 1050 2924 50  0000 C CNN
+F 2 "" H 1000 2900 50  0001 C CNN
+F 3 "https://cdn-shop.adafruit.com/product-files/4214/P4214_PCM-0158_USB_A_F-_MICRO_USB_B_F.pdf" H 1000 2900 50  0001 C CNN
+F 4 "USB A JACK TO MICRO USB B JACK R" H 1000 2900 50  0001 C CNN "Description"
+F 5 "1528-4214-ND" H 1000 2900 50  0001 C CNN "DigikeyPart#"
+F 6 "Adafruit Industries LLC" H 1000 2900 50  0001 C CNN "Mng"
+F 7 "4214" H 1000 2900 50  0001 C CNN "MngPart#"
+	1    1000 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1275 4625 1275 4525
+Wire Wire Line
+	700  4525 1275 4525
+Wire Wire Line
+	700  4225 700  4525
+Text Label 1275 4725 2    50   ~ 0
+12VDC
+$Comp
+L power:GND #PWR011
+U 1 1 6047A1D4
+P 675 4225
+F 0 "#PWR011" H 675 3975 50  0001 C CNN
+F 1 "GND" H 680 4052 50  0000 C CNN
+F 2 "" H 675 4225 50  0001 C CNN
+F 3 "" H 675 4225 50  0001 C CNN
+	1    675  4225
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1075 4225 1275 4225
+$Comp
+L Switch:SW_Push SW3
+U 1 1 60474029
+P 875 4225
+F 0 "SW3" H 875 4510 50  0000 C CNN
+F 1 "SW_Push" H 875 4419 50  0000 C CNN
+F 2 "" H 875 4425 50  0001 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/E-Switch%20PDFs/PS1023BBLK.pdf" H 875 4425 50  0001 C CNN
+F 4 "SWITCH PUSHBUTTON SPST 3A 125V" H 875 4225 50  0001 C CNN "Description"
+F 5 "EG5932-ND" H 875 4225 50  0001 C CNN "DigikeyPart#"
+F 6 "E-Switch" H 875 4225 50  0001 C CNN "Mng"
+F 7 "PS1023BBLK" H 875 4225 50  0001 C CNN "MngPart#"
+	1    875  4225
+	1    0    0    -1  
+$EndComp
+Text Label 1900 2425 3    50   ~ 0
+AC_SW
+Text Label 1800 2425 3    50   ~ 0
+AC_N
+Connection ~ 1600 2425
+Wire Wire Line
+	1600 2425 1700 2425
+Wire Wire Line
+	1500 2425 1600 2425
+Connection ~ 1500 2425
+Connection ~ 1400 2425
+Wire Wire Line
+	1400 2425 1500 2425
+$Comp
+L power:GND #PWR012
+U 1 1 6046748C
+P 1400 2425
+F 0 "#PWR012" H 1400 2175 50  0001 C CNN
+F 1 "GND" H 1405 2252 50  0000 C CNN
+F 2 "" H 1400 2425 50  0001 C CNN
+F 3 "" H 1400 2425 50  0001 C CNN
+	1    1400 2425
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1200 2425 1300 2425
+Connection ~ 1200 2425
+Wire Wire Line
+	1100 2425 1200 2425
+Text Label 1100 2425 3    50   ~ 0
+12VDC
+$Comp
+L BoxWiring-rescue:ERPF-400-12 U7
+U 1 1 60461838
+P 1450 2075
+F 0 "U7" H 1978 2061 47  0000 L CNN
+F 1 "ERPF-400-12" H 1978 1974 47  0000 L CNN
+F 2 "" H 1450 2075 47  0001 C CNN
+F 3 "https://www.meanwell.com/Upload/PDF/ERPF-400/ERPF-400-SPEC.PDF" H 1450 2075 47  0001 C CNN
+F 4 "AC/DC CONVERTER 12V 360W" H 1450 2075 50  0001 C CNN "Description"
+F 5 "1866-5172-ND" H 1450 2075 50  0001 C CNN "DigikeyPart#"
+F 6 "MEAN WELL USA Inc." H 1450 2075 50  0001 C CNN "Mng"
+F 7 "ERPF-400-12" H 1450 2075 50  0001 C CNN "MngPart#"
+	1    1450 2075
+	1    0    0    -1  
+$EndComp
+Text Label 5725 4775 0    50   ~ 0
+ON_OFF
+$Comp
+L power:GND #PWR07
+U 1 1 603C8223
+P 5750 2175
+F 0 "#PWR07" H 5750 1925 50  0001 C CNN
+F 1 "GND" H 5755 2002 50  0000 C CNN
+F 2 "" H 5750 2175 50  0001 C CNN
+F 3 "" H 5750 2175 50  0001 C CNN
+	1    5750 2175
+	0    -1   -1   0   
+$EndComp
+Text Label 5750 2075 0    50   ~ 0
+COMP_TEMP
+Text Label 5750 1975 0    50   ~ 0
+3_3VDC
+Text Label 3525 3525 1    50   ~ 0
+12VDC
+Text Label 2775 3525 1    50   ~ 0
+12VDC
+Text Label 2675 3525 1    50   ~ 0
+OVEN_DRIVE
+$Comp
+L Connector:Conn_01x12_Female J2
+U 1 1 603B1945
+P 5550 1575
+F 0 "J2" H 5375 2225 50  0000 L CNN
+F 1 "Conn_01x12_Female" H 5578 1460 50  0001 L CNN
+F 2 "" H 5550 1575 50  0001 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/Chogori%20Tech%20PDFs/22010(12)211-01.pdf" H 5550 1575 50  0001 C CNN
+F 4 "CONN PLUG FMALE 12P SOLDER CUP" H 5550 1575 50  0001 C CNN "Description"
+F 5 "2150-22012211-01-ND" H 5550 1575 50  0001 C CNN "DigikeyPart#"
+F 6 "Chogori Technologies Inc." H 5550 1575 50  0001 C CNN "Mng"
+F 7 "22012211-01" H 5550 1575 50  0001 C CNN "MngPart#"
+	1    5550 1575
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x12_Male J1
+U 1 1 603AED5C
+P 5550 1575
+F 0 "J1" H 5650 2225 50  0000 C CNN
+F 1 "Conn_01x12_Male" H 5658 2165 50  0001 C CNN
+F 2 "" H 5550 1575 50  0001 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/Chogori%20Tech%20PDFs/22010(12)515-01.pdf" H 5550 1575 50  0001 C CNN
+F 4 "CONN RCPT MALE 12POS SOLDER CUP" H 5550 1575 50  0001 C CNN "Description"
+F 5 "2150-22012515-01-ND" H 5550 1575 50  0001 C CNN "DigikeyPart#"
+F 6 "Chogori Technologies Inc." H 5550 1575 50  0001 C CNN "Mng"
+F 7 "22012515-01" H 5550 1575 50  0001 C CNN "MngPart#"
+	1    5550 1575
+	1    0    0    -1  
+$EndComp
+$Comp
+L BoxWiring-rescue:UUT U4
+U 1 1 60365310
+P 4600 1375
+F 0 "U4" V 3883 1095 50  0000 C CNN
+F 1 "UUT" V 4025 1095 118 0000 C CNN
+F 2 "" H 4600 1375 50  0001 C CNN
+F 3 "" H 4600 1375 50  0001 C CNN
+	1    4600 1375
 	0    -1   1    0   
 $EndComp
+Text Label 1275 4325 2    50   ~ 0
+3_3VDC
 Wire Wire Line
-	3450 5500 3450 5550
+	5750 1875 6125 1875
 Wire Wire Line
-	3450 5550 3350 5550
+	5750 1775 6125 1775
+Text Label 5725 5375 0    50   ~ 0
+PLUS_LOAD
+Text Label 5725 5275 0    50   ~ 0
+POW_ON_NOT
+Text Label 5725 5175 0    50   ~ 0
+STAT_2
+Text Label 5725 5075 0    50   ~ 0
+STAT_1
+Text Label 5725 4875 0    50   ~ 0
+INTER_EXTER_SEL
+Text Label 3875 2275 0    50   ~ 0
+BAT_SIM
+Text Label 3225 3525 1    50   ~ 0
+BAT_SIM
 Wire Wire Line
-	3350 5550 3350 5750
-Wire Wire Line
-	3550 5500 3550 5600
-Wire Wire Line
-	3550 5600 3500 5600
-Wire Wire Line
-	3500 5600 3500 5750
-Wire Wire Line
-	3650 5500 3650 5750
-Wire Wire Line
-	3750 5500 3750 5600
-Wire Wire Line
-	3750 5600 3800 5600
-Wire Wire Line
-	3800 5600 3800 5750
-Wire Wire Line
-	3850 5500 3850 5550
-Wire Wire Line
-	3850 5550 3950 5550
-Wire Wire Line
-	3950 5550 3950 5750
-Text Label 4450 3750 0    50   ~ 0
-Heat_Cool_Sel
-Text Label 7000 5050 2    50   ~ 0
-Heat_Cool_Sel
-Text Label 7000 5450 2    50   ~ 0
-OvenSupply
+	3875 2475 4325 2475
+Text Label 3275 2375 2    50   ~ 0
+VIN_MINUS
+Text Label 3975 3525 1    50   ~ 0
+VIN_MINUS
+Text Label 4075 3525 1    50   ~ 0
+VIN_PLUS
+Text Label 5725 5475 0    50   ~ 0
+6V_12V_SEL
+Text Label 5725 5575 0    50   ~ 0
+HEAT_COOL_SEL
+Text Label 1275 5025 2    50   ~ 0
+COMP_TEMP
+Text Label 1275 4925 2    50   ~ 0
+OVEN_TEMP
+Text Label 1275 4425 2    50   ~ 0
+5VDC
 $Comp
-L Motor:Fan M?
-U 1 1 5FDA010B
-P 8800 5700
-F 0 "M?" H 8958 5796 50  0000 L CNN
-F 1 "Fan" H 8958 5705 50  0000 L CNN
-F 2 "" H 8800 5710 50  0001 C CNN
-F 3 "~" H 8800 5710 50  0001 C CNN
-	1    8800 5700
+L BoxWiring-rescue:12VDCRelay2906223-F100B200TestPanel K2
+U 1 1 5F5221B7
+P 8250 1150
+F 0 "K2" V 8050 1050 50  0000 C CNN
+F 1 "6V/12V Select" V 8900 1150 50  0000 C CNN
+F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 9600 1120 50  0001 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/Phoenix%20Contact%20PDFs/2906223.pdf" H 8250 1150 50  0001 C CNN
+F 4 "RELAY GEN PURPOSE DPDT 8A 12V" H 8250 1150 50  0001 C CNN "Description"
+F 5 "277-12082-ND" H 8250 1150 50  0001 C CNN "DigikeyPart#"
+F 6 "Phoenix Contact" H 8250 1150 50  0001 C CNN "Mng"
+F 7 "2906223" H 8250 1150 50  0001 C CNN "MngPart#"
+	1    8250 1150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8800 775  8550 775 
+Wire Wire Line
+	8550 775  8550 1050
+Wire Wire Line
+	8800 1175 8625 1175
+Wire Wire Line
+	8625 1175 8625 1450
+Wire Wire Line
+	8625 1450 8550 1450
+Wire Wire Line
+	8550 1250 8800 1250
+Wire Wire Line
+	8800 1250 8800 1325
+Wire Wire Line
+	8800 1725 8550 1725
+Wire Wire Line
+	8550 1725 8550 1650
+Wire Wire Line
+	8800 1525 8725 1525
+Wire Wire Line
+	8725 1525 8725 975 
+Wire Wire Line
+	8725 975  8800 975 
+Wire Wire Line
+	8725 1525 8725 1850
+Wire Wire Line
+	8725 1850 6625 1850
+Wire Wire Line
+	6625 1850 6625 1275
+Wire Wire Line
+	5750 1275 6625 1275
+Connection ~ 8725 1525
+Wire Wire Line
+	6700 1175 6700 1475
+Wire Wire Line
+	5750 1175 6700 1175
+Wire Wire Line
+	7300 1575 7950 1575
+Wire Wire Line
+	7950 1575 7950 1550
+Wire Wire Line
+	7300 1175 7950 1175
+Wire Wire Line
+	7950 1175 7950 1150
+Text Label 4975 7275 3    50   ~ 0
+DSP1_CLK
+Text Label 5850 7700 2    50   ~ 0
+DSP1_CLK
+Text Label 4775 7275 3    50   ~ 0
+DSP2_CLK
+Text Label 6600 7700 2    50   ~ 0
+DSP2_CLK
+Text Label 5075 7275 3    50   ~ 0
+DSP1_DIO
+Text Label 5850 7600 2    50   ~ 0
+DSP1_DIO
+$Comp
+L BoxWiring-rescue:TM1637_DISPLAY U8
+U 1 1 6046B07D
+P 5700 7600
+F 0 "U8" V 5350 7950 50  0000 L CNN
+F 1 "TM1637_DISPLAY" V 5670 8128 50  0001 L CNN
+F 2 "" H 5700 7600 50  0001 C CNN
+F 3 "https://www.amazon.com/HiLetgo-Digital-Segment-Display-Arduino/dp/B01DKISMXK" H 5700 7600 50  0001 C CNN
+F 4 "HiLetgo" H 5700 7600 50  0001 C CNN "Mng"
+F 5 "B01DKISMXK" H 5700 7600 50  0001 C CNN "MngPart#"
+	1    5700 7600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5575 7400 5850 7400
+$Comp
+L BoxWiring-rescue:TM1637_DISPLAY U9
+U 1 1 60478F6E
+P 6450 7600
+F 0 "U9" V 6100 7950 50  0000 L CNN
+F 1 "TM1637_DISPLAY" V 6420 8128 50  0001 L CNN
+F 2 "" H 6450 7600 50  0001 C CNN
+F 3 "https://www.amazon.com/HiLetgo-Digital-Segment-Display-Arduino/dp/B01DKISMXK" H 6450 7600 50  0001 C CNN
+F 4 "HiLetgo" H 6450 7600 50  0001 C CNN "Mng"
+F 5 "B01DKISMXK" H 6450 7600 50  0001 C CNN "MngPart#"
+	1    6450 7600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6350 7400 6600 7400
+Text Label 4875 7275 3    50   ~ 0
+DSP2_DIO
+Text Label 6600 7600 2    50   ~ 0
+DSP2_DIO
+Text Label 3875 2775 0    50   ~ 0
+12VDC
+$Comp
+L Device:Battery BT1
+U 1 1 603B15B5
+P 4325 2675
+F 0 "BT1" V 4570 2675 50  0000 C CNN
+F 1 "External_bat" V 4479 2675 50  0000 C CNN
+F 2 "" V 4325 2735 50  0001 C CNN
+F 3 "~" V 4325 2735 50  0001 C CNN
+	1    4325 2675
 	1    0    0    -1  
 $EndComp
 $Comp
-L Motor:Fan M?
-U 1 1 5FDA1241
-P 8800 6250
-F 0 "M?" H 8958 6346 50  0000 L CNN
-F 1 "Fan" H 8958 6255 50  0000 L CNN
-F 2 "" H 8800 6260 50  0001 C CNN
-F 3 "~" H 8800 6260 50  0001 C CNN
-	1    8800 6250
+L power:GND #PWR04
+U 1 1 603B6075
+P 4325 2875
+F 0 "#PWR04" H 4325 2625 50  0001 C CNN
+F 1 "GND" H 4330 2702 50  0000 C CNN
+F 2 "" H 4325 2875 50  0001 C CNN
+F 3 "" H 4325 2875 50  0001 C CNN
+	1    4325 2875
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8800 5900 8800 5950
-Wire Wire Line
-	8800 6450 6900 6450
 $Comp
-L power:GND #PWR?
-U 1 1 5FDACDCA
-P 6900 6450
-F 0 "#PWR?" H 6900 6200 50  0001 C CNN
-F 1 "GND" H 6905 6277 50  0000 C CNN
-F 2 "" H 6900 6450 50  0001 C CNN
-F 3 "" H 6900 6450 50  0001 C CNN
-	1    6900 6450
+L BoxWiring-rescue:12VDCRelay2906223-F100B200TestPanel K1
+U 1 1 5F51DD19
+P 3575 2375
+F 0 "K1" V 2808 2375 50  0000 C CNN
+F 1 "Internal/External" V 2899 2375 50  0000 C CNN
+F 2 "Relay_THT:Relay_DPDT_Finder_40.52" H 4925 2345 50  0001 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/Phoenix%20Contact%20PDFs/2906223.pdf" H 3575 2375 50  0001 C CNN
+F 4 "RELAY GEN PURPOSE DPDT 8A 12V" H 3575 2375 50  0001 C CNN "Description"
+F 5 "277-12082-ND" H 3575 2375 50  0001 C CNN "DigikeyPart#"
+F 6 "Phoenix Contact" H 3575 2375 50  0001 C CNN "Mng"
+F 7 "2906223" H 3575 2375 50  0001 C CNN "MngPart#"
+	1    3575 2375
+	0    1    -1   0   
+$EndComp
+Text Label 3275 2775 2    50   ~ 0
+INTER_EXTER_SEL
+$Comp
+L BoxWiring-rescue:DSP_CBL CBL8
+U 1 1 60495D3E
+P 6500 6950
+F 0 "CBL8" H 6500 7065 50  0000 C CNN
+F 1 "DSP_CBL" H 6500 6974 50  0000 C CNN
+F 2 "" H 6500 6950 50  0001 C CNN
+F 3 "" H 6500 6950 50  0001 C CNN
+F 4 "INSULATION DISPLACEMENT SOCKET C" H 6500 6950 50  0001 C CNN "Description"
+F 5 "IDSS-04-S-08.00-G-ST8-ND" H 6500 6950 50  0001 C CNN "DigikeyPart#"
+F 6 "Samtec Inc." H 6500 6950 50  0001 C CNN "Mng"
+F 7 "IDSS-04-S-08.00-G-ST8" H 6500 6950 50  0001 C CNN "MngPart#"
+	1    6500 6950
 	1    0    0    -1  
 $EndComp
+$Comp
+L BoxWiring-rescue:DSP_CBL CBL7
+U 1 1 604965A0
+P 5875 6950
+F 0 "CBL7" H 5875 7065 50  0000 C CNN
+F 1 "DSP_CBL" H 5875 6974 50  0000 C CNN
+F 2 "" H 5875 6950 50  0001 C CNN
+F 3 "" H 5875 6950 50  0001 C CNN
+F 4 "INSULATION DISPLACEMENT SOCKET C" H 5875 6950 50  0001 C CNN "Description"
+F 5 "IDSS-04-S-08.00-G-ST8-ND" H 5875 6950 50  0001 C CNN "DigikeyPart#"
+F 6 "Samtec Inc." H 5875 6950 50  0001 C CNN "Mng"
+F 7 "IDSS-04-S-08.00-G-ST8" H 5875 6950 50  0001 C CNN "MngPart#"
+	1    5875 6950
+	1    0    0    -1  
+$EndComp
+Text Notes 5750 7100 0    50   ~ 0
+DSP1
+Text Notes 6425 7100 0    50   ~ 0
+DSP2
+$Comp
+L Device:Fuse F2
+U 1 1 604A003F
+P 10150 775
+F 0 "F2" V 9953 775 50  0000 C CNN
+F 1 "Fuse" V 10044 775 50  0000 C CNN
+F 2 "" V 10080 775 50  0001 C CNN
+F 3 "https://www.littelfuse.com/data/en/data_sheets/internationalshocksafe.pdf" H 10150 775 50  0001 C CNN
+F 4 "FUSE HLDR CART 250V 20A PNL MNT" H 10150 775 50  0001 C CNN "Description"
+F 5 "F3122-ND" H 10150 775 50  0001 C CNN "DigikeyPart#"
+F 6 "Littelfuse Inc." H 10150 775 50  0001 C CNN "Mng"
+F 7 "03453LF7H" H 10150 775 50  0001 C CNN "MngPart#"
+	1    10150 775 
+	0    1    1    0   
+$EndComp
 Wire Wire Line
-	8800 4600 6975 4600
+	9600 1325 10100 1325
 Wire Wire Line
-	8800 4600 8800 5400
-Text Label 6975 4600 2    50   ~ 0
-OvenSupply
+	10100 1325 10100 875 
 Wire Wire Line
-	5850 3500 5850 3425
+	10100 875  10000 875 
 Wire Wire Line
-	5850 3425 6050 3425
+	10000 875  10000 775 
 Wire Wire Line
-	6050 3425 6050 3000
+	10000 775  9600 775 
+Connection ~ 10000 775 
+$Comp
+L BoxWiring-rescue:Control_Board-F100B200TestPanel-BoxWiring-rescue U3
+U 1 1 602D1E54
+P 2375 4375
+F 0 "U3" H 3275 4025 197 0000 C CNN
+F 1 "Control_Board-F100B200TestPanel" H 3425 3025 118 0001 C CNN
+F 2 "" H 2875 4725 50  0001 C CNN
+F 3 "" H 2875 4725 50  0001 C CNN
+	1    2375 4375
+	1    0    0    -1  
+$EndComp
+Connection ~ 1275 4525
 $EndSCHEMATC
