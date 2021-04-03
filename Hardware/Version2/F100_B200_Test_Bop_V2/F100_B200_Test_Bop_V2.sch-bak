@@ -823,6 +823,7 @@ F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 9525 6050 50  00
 F 4 "R" H 9525 6050 50  0001 L BNN "Field4"
 F 5 "Manufacturer Recommendations" H 9525 6050 50  0001 L BNN "Field5"
 F 6 "CONN SOCKET 8POS 0.1 TIN PCB" H 9525 6050 50  0001 C CNN "Description"
+F 7 "SAM9303-ND" H 9525 6050 50  0001 C CNN "DigikeyPart#"
 	1    9525 6050
 	-1   0    0    -1  
 $EndComp
@@ -837,6 +838,7 @@ F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 6900 5250 50  00
 F 4 "R" H 6900 5250 50  0001 L BNN "Field4"
 F 5 "Manufacturer Recommendations" H 6900 5250 50  0001 L BNN "Field5"
 F 6 "CONN SOCKET 8POS 0.1 TIN PCB" H 6900 5250 50  0001 C CNN "Description"
+F 7 "SAM9303-ND" H 6900 5250 50  0001 C CNN "DigikeyPart#"
 	1    6900 5250
 	-1   0    0    -1  
 $EndComp
@@ -974,6 +976,7 @@ F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 6300 1400 50  00
 F 4 "R" H 6300 1400 50  0001 L BNN "Field4"
 F 5 "Manufacturer Recommendations" H 6300 1400 50  0001 L BNN "Field5"
 F 6 "CONN SOCKET 8POS 0.1 TIN PCB" H 6300 1400 50  0001 C CNN "Description"
+F 7 "SAM9303-ND" H 6300 1400 50  0001 C CNN "DigikeyPart#"
 	1    6300 1400
 	1    0    0    -1  
 $EndComp
@@ -1344,6 +1347,7 @@ F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 6800 2600 50  00
 F 4 "R" H 6800 2600 50  0001 L BNN "Field4"
 F 5 "Manufacturer Recommendations" H 6800 2600 50  0001 L BNN "Field5"
 F 6 "CONN SOCKET 8POS 0.1 TIN PCB" H 6800 2600 50  0001 C CNN "Description"
+F 7 "SAM9303-ND" H 6800 2600 50  0001 C CNN "DigikeyPart#"
 	1    6800 2600
 	1    0    0    -1  
 $EndComp
@@ -1524,6 +1528,7 @@ F 3 "http://suddendocs.samtec.com/catalog_english/esq_th.pdf" H 6100 3950 50  00
 F 4 "R" H 6100 3950 50  0001 L BNN "Field4"
 F 5 "Manufacturer Recommendations" H 6100 3950 50  0001 L BNN "Field5"
 F 6 "CONN SOCKET 8POS 0.1 TIN PCB" H 6100 3950 50  0001 C CNN "Description"
+F 7 "SAM9303-ND" H 6100 3950 50  0001 C CNN "DigikeyPart#"
 	1    6100 3950
 	1    0    0    -1  
 $EndComp

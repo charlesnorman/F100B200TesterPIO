@@ -126,8 +126,8 @@ Text Label 8550 750  0    50   ~ 0
 12VDC
 Text Label 7950 750  2    50   ~ 0
 6V_12V_SEL
-Text Label 5750 1375 0    50   ~ 0
-VIN_PLUS
+Text Label 5550 3350 2    50   ~ 0
+I+
 $Comp
 L power:GND #PWR05
 U 1 1 603B9138
@@ -984,8 +984,6 @@ Text Label 3275 2375 2    50   ~ 0
 VIN_MINUS
 Text Label 3975 3525 1    50   ~ 0
 VIN_MINUS
-Text Label 4075 3525 1    50   ~ 0
-VIN_PLUS
 Text Label 5725 5475 0    50   ~ 0
 6V_12V_SEL
 Text Label 5725 5575 0    50   ~ 0
@@ -1215,4 +1213,74 @@ F 3 "" H 2875 4725 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 1275 4525
+$Comp
+L Connector:TestPoint TP3
+U 1 1 603509E7
+P 5125 2775
+F 0 "TP3" H 5183 2893 50  0000 L CNN
+F 1 "GND" H 5183 2802 50  0000 L CNN
+F 2 "" H 5325 2775 50  0001 C CNN
+F 3 "~" H 5325 2775 50  0001 C CNN
+	1    5125 2775
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP1
+U 1 1 60352753
+P 5550 2775
+F 0 "TP1" H 5608 2893 50  0000 L CNN
+F 1 "BATT+" H 5608 2802 50  0000 L CNN
+F 2 "" H 5750 2775 50  0001 C CNN
+F 3 "~" H 5750 2775 50  0001 C CNN
+	1    5550 2775
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP4
+U 1 1 60353A86
+P 5550 3200
+F 0 "TP4" H 5608 3318 50  0000 L CNN
+F 1 "I+" H 5608 3227 50  0000 L CNN
+F 2 "" H 5750 3200 50  0001 C CNN
+F 3 "~" H 5750 3200 50  0001 C CNN
+	1    5550 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP2
+U 1 1 603541A8
+P 5125 3200
+F 0 "TP2" H 5183 3318 50  0000 L CNN
+F 1 "I-" H 5183 3227 50  0000 L CNN
+F 2 "" H 5325 3200 50  0001 C CNN
+F 3 "~" H 5325 3200 50  0001 C CNN
+	1    5125 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5125 3525 5125 3200
+Wire Wire Line
+	4075 3525 5125 3525
+Text Label 5750 1375 0    50   ~ 0
+I+
+Wire Wire Line
+	5550 3350 5550 3200
+$Comp
+L power:GND #PWR?
+U 1 1 6036A238
+P 5125 2775
+F 0 "#PWR?" H 5125 2525 50  0001 C CNN
+F 1 "GND" H 5130 2602 50  0000 C CNN
+F 2 "" H 5125 2775 50  0001 C CNN
+F 3 "" H 5125 2775 50  0001 C CNN
+	1    5125 2775
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 2775 5425 2775
+Wire Wire Line
+	5425 2775 5425 3200
+Wire Wire Line
+	5425 3200 5550 3200
+Connection ~ 5550 3200
 $EndSCHEMATC

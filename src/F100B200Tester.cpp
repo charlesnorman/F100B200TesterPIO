@@ -1,21 +1,19 @@
 #include <PID_v1.h>
 #include <Arduino.h>
-#include <PushButtonController.h>
-#include <RSLatch.h>
 #include <Adafruit_INA260.h>
 #include <Adafruit_MCP4725.h>
 #include <ArduinoJson.h>
 #include <TM1637Display.h>
-
 #define DEBUG true
+
 //I/O pin assignments
 #define OVEN_TEMP_IN_PIN A0
 #define COMP_TEMP_IN_PIN A1
 #define HEAT_COOL_SELECT_OUT 2
 #define OVEN_DRIVE_PWM 11
 #define BATTERY_TYPE_OUT_PIN 3
-#define INTERNA_EXTERNAL_PIN 1
-#define INPUT_ON_OFF_OUT 12
+#define INTERNA_EXTERNAL_PIN 8
+#define INPUT_ON_OFF_OUT 9
 #define STAT_1 7
 #define STAT_2 6
 #define POWER_ON_NOT 5
@@ -28,7 +26,7 @@
 #define DISPLAY_2_CLK 24
 #define DISPLAY_2_DIO 25
 
-#define THOUSANDS_DEC_PT  0b10000000
+#define THOUSANDS_DEC_PT 0b10000000
 #define HUNDREDS_DEC_PT 0b01000000
 #define TENS_DEC_PT 0b00100000
 
@@ -40,61 +38,29 @@ TM1637Display display_2(DISPLAY_2_CLK, DISPLAY_2_DIO);
 #define BAT_VOLTAGE_DAC 0x62
 #define BAT_METER 0x40
 
-volatile bool json_transmit{true};
-
-int const V_UVLO = 4500;
-int const V_UVLO_HYS = 100;
-int const V_TH = 5100;
-int const V_BI_6V = 6981;
-int const V_BI_12V = 13500;
-int const I_TAPER = 312;
-int const V_BOOST_6V = 7249;   //7349;
-int const V_BOOST_12V = 14625; //14725;
-int const V_FLOAT_6V = 6825;
-int const V_FLOAT_12V = 13650;
-int const V_RCH_6V = 6143;
-int const V_RCH_12V = 12285;
-int const JSON_TRANSMIT_INTERVAL = 2000;
-
 Adafruit_MCP4725 battery_voltage_out;
 Adafruit_MCP4725 battery_current_out;
 Adafruit_INA260 battery_meter;
-
-//States
-enum State
-{
-    UV_LOCKED,
-    PRE_CHARGE,
-    BULK_CHARGE,
-    BOOST_CHARGE,
-    FLOAT_CHARGE
-};
 
 //Json document for serialization of data
 const int capacity = JSON_OBJECT_SIZE(50);
 StaticJsonDocument<capacity> jdoc;
 char receive_buffer[1024];
 bool serial_recieved{false};
+volatile bool json_transmit{true};
+int const JSON_TRANSMIT_INTERVAL = 2000;
 
-static State state;
-bool battery_6V;                      //True = 6V battery
-bool internal;                        //True = internal
-bool cool;                            //True = cool
-volatile static bool manual_selected; //True = manual_selected
-volatile bool on_selected;            //True = on
-bool start_selected;                  //True = start_selected_selected
-bool setup_menu;                      //True = in setup
-bool voltage_temp_select;             //True = display voltage and current
+bool battery_6V;           //True = 6V battery
+bool internal;             //True = internal
+bool cool;                 //True = cool
+volatile bool on_selected; //True = on
+bool voltage_temp_select;  //True = display voltage and current
 bool heart_beat;
 bool stat_1;
 bool stat_2;
 bool power_on_not;
 bool plus_load;
 bool oven_on;
-
-static int DELTA_T{200};
-static int DELTA_VOLTS{100};
-static int DELTA_M_AMPS{100};
 
 static double battery_target_current;
 static double battery_set_current;
@@ -118,7 +84,6 @@ double oven_temperatures[NUMBER_OF_TEMPERATURES];
 uint8_t oven_temperatures_index;
 double oven_set_point;
 double oven_drive;
-double oven_drive_adjust;
 double oven_Kp = 5, oven_Ki = 2, oven_Kd = 0;
 double voltage_Kp = 1, voltage_Ki = 0, voltage_Kd = 0;
 double comp_temperature;
@@ -150,29 +115,23 @@ int mAmps_to_units(int const m_amps)
 
 int read_m_volts(uint16_t const pin_number)
 {
+
     analogReadResolution(12);
     int mVolts = analogRead(pin_number);
 
-    mVolts *= 812;
-    mVolts /= 1000;
+    mVolts *= 79748;
+    mVolts /= 100000;
     return mVolts;
 }
 
 int serialize_data()
 {
-    jdoc["state"] = state;
     jdoc["battery_6V"] = battery_6V;
     jdoc["internal"] = internal;
     jdoc["cool"] = cool;
-    jdoc["manual_selected"] = manual_selected;
     jdoc["on_selected"] = on_selected;
-    jdoc["start_selected"] = start_selected;
-    jdoc["setup_menu"] = setup_menu;
     jdoc["voltage_temp_select"] = voltage_temp_select;
     jdoc["heart_beat"] = heart_beat;
-    jdoc["DELTA_T"] = DELTA_T;
-    jdoc["DELTA_VOLTS"] = DELTA_VOLTS;
-    jdoc["DELTA_M_AMPS"] = DELTA_M_AMPS;
     jdoc["battery_target_current"] = battery_target_current;
     jdoc["battery_actual_current"] = battery_actual_current;
     jdoc["battery_target_voltage"] = battery_target_voltage;
@@ -180,14 +139,16 @@ int serialize_data()
     jdoc["oven_temperature"] = oven_temperature;
     jdoc["oven_set_point"] = oven_set_point;
     jdoc["comp_temperature"] = comp_temperature;
-    jdoc["oven_drive"] = oven_drive;
     jdoc["stat_1"] = stat_1;
     jdoc["stat_2"] = stat_2;
     jdoc["power_on_not"] = power_on_not;
     jdoc["plus_load"] = plus_load;
     jdoc["oven_on"] = oven_on;
     jdoc["oven_drive"] = oven_drive;
-    jdoc["oven_drive_adjust"] = oven_drive_adjust;
+    jdoc["A0_raw"] = analogRead(A0);
+    jdoc["A1_raw"] = analogRead(A1);
+    // jdoc["A0_m_volts"] =  (analogRead(A0) * 79748)/100000;
+    // jdoc["A1_m_volts"] =  (analogRead(A1) *79748)/100000;
 
     return serializeJson(jdoc, SerialUSB);
 }
@@ -205,15 +166,6 @@ int read_temp(uint16_t const pin_number)
     return temperature;
 }
 
-void set_m_volts(uint8_t pin_number, int m_volts)
-{
-
-    int units = m_volts / .8058608059;
-
-    analogWriteResolution(12);
-    analogWrite(pin_number, units);
-}
-
 void set_pwm(uint8_t pin_number, uint8_t out_value)
 {
     if (out_value > 255)
@@ -225,10 +177,7 @@ void set_pwm(uint8_t pin_number, uint8_t out_value)
 
 void setup()
 {
-    manual_selected = true;
     battery_6V = true;
-    state = PRE_CHARGE;
-    setup_menu = false;
     oven_controller.SetOutputLimits(0, 255);
     oven_controller.SetMode(AUTOMATIC);
     oven_controller.SetSampleTime(200);
@@ -238,7 +187,7 @@ void setup()
     voltage_controller.SetMode(AUTOMATIC);
     voltage_controller.SetSampleTime(200);
     voltage_controller_last_millis = 0;
-    start_selected = false;
+    voltage_temp_select = true;
     display_1.setBrightness(0x0f);
     display_2.setBrightness(0x0f);
 
@@ -271,7 +220,6 @@ void setup()
 }
 void loop()
 {
-
     /***************************************************************************
      * Oven temperature managment
     ***************************************************************************/
@@ -298,42 +246,11 @@ void loop()
             oven_controller.SetControllerDirection(0);
         }
         oven_controller.Compute();
-        // if ((oven_drive + oven_drive_adjust) > 255)
-        // {
-        //     oven_drive = 255;
-        // }
-        // else
-        // {
-        //     oven_drive += oven_drive_adjust;
-        // }
-        // if (oven_drive < 0)
-        // {
-        //     oven_drive = 0;
-        // }
     }
     else
     {
         oven_drive = 0;
-        oven_drive_adjust = 0;
     }
-
-    if (DEBUG)
-    // {
-    //     if (millis() - debug_millis > 2000)
-    //     {
-    //         {
-    //             SerialUSB.print("\noven_set_point: ");
-    //             SerialUSB.print(oven_set_point);
-    //             SerialUSB.print("  oven_temperature: ");
-    //             SerialUSB.print(oven_temperature);
-    //             SerialUSB.print("  oven_drive: ");
-    //             SerialUSB.print(oven_drive);
-    //             SerialUSB.print("  oven_drive_adjust: ");
-    //             SerialUSB.println(oven_drive_adjust);
-    //             debug_millis = millis();
-    //         }
-    //     }
-    // }
 
     set_pwm(OVEN_DRIVE_PWM, oven_drive);
 
@@ -354,9 +271,9 @@ void loop()
 
     /* #endregion*/
 
-    // /***************************************************************************
-    //  * Battery voltage / current management
-    // ***************************************************************************/
+    /***************************************************************************
+     * Battery voltage / current management
+    ***************************************************************************/
     /*#region battery voltage and current management*/
 
     battery_actual_voltage = battery_meter.readBusVoltage();
@@ -376,6 +293,7 @@ void loop()
         }
         battery_voltage_out.setVoltage(mVolts_to_units(battery_set_voltage), false);
         battery_current_out.setVoltage(mAmps_to_units(battery_set_current), false);
+
         voltage_controller_last_millis = millis();
     }
     // if (DEBUG)
@@ -392,7 +310,7 @@ void loop()
     //             debug_millis = millis();
     //         }
     //     }
-    // } 
+    // }
 
     /* #endregion*/
 
@@ -434,7 +352,7 @@ void loop()
     if (voltage_temp_select)
     {
         display_1.showNumberDec(battery_actual_current);
-        display_2.showNumberDec(battery_actual_voltage/10);
+        display_2.showNumberDec(battery_actual_voltage / 10);
     }
     else
     {
@@ -471,11 +389,7 @@ void loop()
     {
         serial_recieved = false;
         deserializeJson(jdoc, receive_buffer);
-        //unpack the json data
-        if (jdoc.containsKey("state"))
-        {
-            state = jdoc["state"];
-        }
+
         if (jdoc.containsKey("battery_6V"))
         {
             battery_6V = jdoc["battery_6V"];
@@ -488,17 +402,9 @@ void loop()
         {
             cool = jdoc["cool"];
         }
-        if (jdoc.containsKey("manual_selected"))
-        {
-            manual_selected = jdoc["manual_selected"];
-        }
         if (jdoc.containsKey("on_selected"))
         {
             on_selected = jdoc["on_selected"];
-        }
-        if (jdoc.containsKey("start_selected"))
-        {
-            start_selected = jdoc["start_selected"];
         }
         if (jdoc.containsKey("voltage_temp_select"))
         {
@@ -508,18 +414,7 @@ void loop()
         {
             heart_beat = jdoc["heart_beat"];
         }
-        if (jdoc.containsKey("DELTA_T"))
-        {
-            DELTA_T = jdoc["DELTA_T"];
-        }
-        if (jdoc.containsKey("DELTA_VOLTS"))
-        {
-            DELTA_T = jdoc["DELTA_VOLTS"];
-        }
-        if (jdoc.containsKey("DELTA_M_AMPS"))
-        {
-            DELTA_T = jdoc["DELTA_M_AMPS"];
-        }
+
         if (jdoc.containsKey("battery_target_current"))
         {
             battery_target_current = jdoc["battery_target_current"];
@@ -556,10 +451,7 @@ void loop()
         {
             oven_drive = jdoc["oven_drive"];
         }
-        if (jdoc.containsKey("oven_drive_adjust"))
-        {
-            oven_drive_adjust = jdoc["oven_drive_adjust"];
-        }
     }
+
     /* #endregion*/
 }
